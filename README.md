@@ -94,4 +94,4 @@ MIT
 
 ## 👤 Author
 
-**Werapol** — [@Werapol](https://github.com/Werapol)
+**Werapol Bejranonda** — [@bejranonda](https://github.com/bejranonda)
