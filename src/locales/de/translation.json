@@ -18,8 +18,8 @@
       "title": "Um was für ein Projekt handelt es sich?",
       "description": "Wählen Sie das beste Framework zur Analyse Ihres Projekts",
       "options": {
-        "short-term": { "label": "Kurzfristig / Kampagne", "desc": "Fokus auf schnellen Impact in begrenzter Zeit (z.B. Wahlen, NGOs, Events)" },
-        "long-term": { "label": "Langfristig / Unternehmen", "desc": "Fokus auf Nachhaltigkeit und Umsatz (z.B. Startups, lokale Geschäfte)" }
+        "short-term": { "label": "Kurzfristig / Kampagne", "desc": "Fokus auf schnellen Impact in begrenzter Zeit (z.B. Wahlen, NGOs, Events)", "features": ["Nutzt Mission Model Canvas (MMC)", "Enthält OKRs zur Ergebnismessung"] },
+        "long-term": { "label": "Langfristig / Unternehmen", "desc": "Fokus auf Nachhaltigkeit und Umsatz (z.B. Startups, lokale Geschäfte)", "features": ["Nutzt Business Model Canvas (BMC)", "Fokus auf Gewinn, Verlust und Einnahmequellen"] }
       }
     },
     "q_long_industry": {

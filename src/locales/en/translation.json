@@ -18,8 +18,8 @@
       "title": "What kind of project is this?",
       "description": "Select the best framework to analyze your project",
       "options": {
-        "short-term": { "label": "Short-term / Campaign", "desc": "Focuses on high impact in limited time, e.g., Elections, NGOs, Events" },
-        "long-term": { "label": "Long-term / Business", "desc": "Focuses on sustainability and revenue, e.g., Startups, Local Stores" }
+        "short-term": { "label": "Short-term / Campaign", "desc": "Focuses on high impact in limited time, e.g., Elections, NGOs, Events", "features": ["Uses Mission Model Canvas (MMC)", "Includes OKRs for measuring results"] },
+        "long-term": { "label": "Long-term / Business", "desc": "Focuses on sustainability and revenue, e.g., Startups, Local Stores", "features": ["Uses Business Model Canvas (BMC)", "Focuses on profit, loss, and revenue streams"] }
       }
     },
     "q_long_industry": {

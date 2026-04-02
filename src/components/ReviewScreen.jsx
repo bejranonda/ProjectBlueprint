@@ -22,6 +22,10 @@ export default function ReviewScreen({ answers, t }) {
           systemPrompt: "Write a short promotional post about the project."
         }),
       });
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || `Server responded with ${response.status}`);
+      }
       const data = await response.json();
       setComparedData(data);
     } catch (error) {

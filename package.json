@@ -8,10 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "pages:dev": "wrangler pages dev -- vite dev",
-    "pages:deploy": "npm run build && wrangler pages deploy dist"
+    "pages:deploy": "npm run build; wrangler pages deploy dist"
   },
   "dependencies": {
-    "framer-motion": "^12.38.0",
     "i18next": "^26.0.3",
     "lucide-react": "^0.474.0",
     "react": "^19.0.0",

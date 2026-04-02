@@ -16,7 +16,7 @@ export function useWizard(t) {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [textValue, setTextValue] = useState('');
 
-  const questionMap = getQuestionMap(t);
+  const questionMap = useMemo(() => getQuestionMap(t), [t]);
   const currentQ = questionMap[currentQuestionId];
   const activeStepGroup = currentQuestionId === 'REVIEW' ? 5 : (currentQ?.stepGroup || 1);
   const isReview = currentQuestionId === 'REVIEW';

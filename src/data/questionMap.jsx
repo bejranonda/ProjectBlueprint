@@ -29,7 +29,7 @@ export const getQuestionMap = (t) => ({
         next: "q_short_category",
         icon: <Target className="w-8 h-8" />,
         desc: t('questions.q_project_type.options.short-term.desc'),
-        features: ["ใช้ Mission Model Canvas (MMC)", "เพิ่มระบบ OKRs เพื่อวัดผลลัพธ์"],
+        features: [t('questions.q_project_type.options.short-term.features.0'), t('questions.q_project_type.options.short-term.features.1')],
       },
       {
         label: t('questions.q_project_type.options.long-term.label'),
@@ -37,7 +37,7 @@ export const getQuestionMap = (t) => ({
         next: "q_long_industry",
         icon: <Briefcase className="w-8 h-8" />,
         desc: t('questions.q_project_type.options.long-term.desc'),
-        features: ["ใช้ Business Model Canvas (BMC)", "เน้นวิเคราะห์กำไร ขาดทุน และกระแสรายได้"],
+        features: [t('questions.q_project_type.options.long-term.features.0'), t('questions.q_project_type.options.long-term.features.1')],
       },
     ],
   },
