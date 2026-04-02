@@ -1,7 +1,10 @@
 /**
  * Generates the final Markdown blueprint from collected answers.
  */
-export function generateMarkdown(answers) {
+export function generateMarkdown(answers, t) {
+  // Fallback to English strings if t is not provided (should not happen in normal flow, but just in case)
+  const safeT = t || ((key) => key.split('.').pop());
+
   const isBusiness = answers['q_project_type']?.value === 'long-term';
   const canvasName = isBusiness ? 'Business Model Canvas (BMC)' : 'Mission Model Canvas (MMC)';
 
@@ -18,47 +21,47 @@ export function generateMarkdown(answers) {
   };
 
   let md = `# 🚀 AI Project Blueprint\n\n`;
-  md += `> **Purpose:** Master Context for AI Vibe-Coding and Project Generation.\n\n`;
+  md += `> **${safeT('markdown.purpose_title')}:** ${safeT('markdown.purpose_desc')}\n\n`;
 
-  md += `## 📋 1. Project Overview\n`;
-  md += `- **Project Type:** ${fmt(answers['q_project_type'])}\n`;
+  md += `## 📋 1. ${safeT('markdown.project_overview')}\n`;
+  md += `- **${safeT('markdown.project_type')}:** ${fmt(answers['q_project_type'])}\n`;
   if (isBusiness) {
-    md += `- **Industry / Sector:** ${fmt(answers['q_long_industry'])}\n`;
-    if (answers['q_long_tech_spec']) md += `- **Tech Specification:** ${fmt(answers['q_long_tech_spec'])}\n`;
-    if (answers['q_long_otop_spec']) md += `- **Product Type:** ${fmt(answers['q_long_otop_spec'])}\n`;
-    if (answers['q_long_retail_spec']) md += `- **Sales Channel:** ${fmt(answers['q_long_retail_spec'])}\n`;
+    md += `- **${safeT('markdown.industry')}:** ${fmt(answers['q_long_industry'])}\n`;
+    if (answers['q_long_tech_spec']) md += `- **${safeT('markdown.tech_spec')}:** ${fmt(answers['q_long_tech_spec'])}\n`;
+    if (answers['q_long_otop_spec']) md += `- **${safeT('markdown.product_type')}:** ${fmt(answers['q_long_otop_spec'])}\n`;
+    if (answers['q_long_retail_spec']) md += `- **${safeT('markdown.sales_channel')}:** ${fmt(answers['q_long_retail_spec'])}\n`;
   } else {
-    md += `- **Campaign Category:** ${fmt(answers['q_short_category'])}\n`;
+    md += `- **${safeT('markdown.campaign_category')}:** ${fmt(answers['q_short_category'])}\n`;
   }
   md += `\n`;
 
   md += `## 🧩 2. ${canvasName}\n`;
 
   if (isBusiness) {
-    md += `### Desirability (การตอบโจทย์ลูกค้า)\n`;
-    md += `**Customer Segments (กลุ่มเป้าหมาย):**\n${fmtList(answers['q_long_target'])}`;
-    md += `**Value Propositions (จุดเด่น):**\n${fmtList(answers['q_long_value'])}`;
+    md += `### ${safeT('markdown.desirability')}\n`;
+    md += `**${safeT('markdown.customer_segments')}:**\n${fmtList(answers['q_long_target'])}`;
+    md += `**${safeT('markdown.value_propositions')}:**\n${fmtList(answers['q_long_value'])}`;
 
-    md += `### Feasibility & Viability (การดำเนินงานและรายได้)\n`;
-    md += `**Key Activities (กิจกรรมหลัก):**\n${fmtList(answers['q_long_activities'])}`;
-    md += `**Revenue Streams (โมเดลรายได้):**\n${fmtList(answers['q_long_revenue'])}`;
+    md += `### ${safeT('markdown.feasibility')}\n`;
+    md += `**${safeT('markdown.key_activities')}:**\n${fmtList(answers['q_long_activities'])}`;
+    md += `**${safeT('markdown.revenue_streams')}:**\n${fmtList(answers['q_long_revenue'])}`;
     md += `\n`;
   } else {
-    md += `### Impact & Beneficiaries (ผลกระทบและผู้ได้รับประโยชน์)\n`;
-    md += `**Beneficiaries (กลุ่มเป้าหมาย/ผู้รับประโยชน์):**\n${fmtList(answers['q_short_target'])}`;
-    md += `**Objective (เป้าหมายสูงสุด):**\n${fmtList(answers['q_short_objective'])}`;
-    md += `**Deployment Channels (ช่องทางการสื่อสาร):**\n${fmtList(answers['q_short_channels'])}`;
+    md += `### ${safeT('markdown.impact')}\n`;
+    md += `**${safeT('markdown.beneficiaries')}:**\n${fmtList(answers['q_short_target'])}`;
+    md += `**${safeT('markdown.objective')}:**\n${fmtList(answers['q_short_objective'])}`;
+    md += `**${safeT('markdown.deployment_channels')}:**\n${fmtList(answers['q_short_channels'])}`;
 
     md += `### 🎯 3. OKRs (Objectives and Key Results)\n`;
-    md += `**Key Results (ตัวชี้วัดความสำเร็จ):**\n${fmtList(answers['q_short_metric'])}`;
+    md += `**${safeT('markdown.key_results')}:**\n${fmtList(answers['q_short_metric'])}`;
     md += `\n`;
   }
 
-  md += `## ✍️ ${isBusiness ? '3' : '4'}. AI Persona & Context\n`;
-  md += `- **Target Publishing Platform:** ${fmt(answers['q_platform'])}\n`;
-  md += `> **Instruction for AI:** Analyze the following sample text. When generating future content, marketing copy, or code for this project, heavily adapt to this tone, style, and structure suited for the platform.\n\n`;
-  md += `### Sample Content / Code Style:\n`;
-  md += `\`\`\`text\n${answers['q_sample_text']?.value || 'No sample provided.'}\n\`\`\`\n`;
+  md += `## ✍️ ${isBusiness ? '3' : '4'}. ${safeT('markdown.persona')}\n`;
+  md += `- **${safeT('markdown.platform')}:** ${fmt(answers['q_platform'])}\n`;
+  md += `> **${safeT('markdown.instruction_title')}:** ${safeT('markdown.instruction_desc')}\n\n`;
+  md += `### ${safeT('markdown.sample_content')}:\n`;
+  md += `\`\`\`text\n${answers['q_sample_text']?.value || safeT('markdown.no_sample')}\n\`\`\`\n`;
 
   return md;
 }
@@ -66,8 +69,8 @@ export function generateMarkdown(answers) {
 /**
  * Download generated Markdown as a file.
  */
-export function downloadMarkdown(answers) {
-  const mdContent = generateMarkdown(answers);
+export function downloadMarkdown(answers, t) {
+  const mdContent = generateMarkdown(answers, t);
   const blob = new Blob([mdContent], { type: 'text/markdown' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');

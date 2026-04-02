@@ -7,7 +7,7 @@ export default function ReviewScreen({ answers, t }) {
   const [comparedData, setComparedData] = useState(null);
   const [activeTab, setActiveTab] = useState('with');
 
-  const markdownContent = generateMarkdown(answers);
+  const markdownContent = generateMarkdown(answers, t);
 
   const handleGenerateCompare = async () => {
     setIsGenerating(true);

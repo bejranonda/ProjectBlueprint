@@ -173,5 +173,33 @@
     "step_2": "Context",
     "step_3": "Deep Dive",
     "step_4": "Style/Platform"
+  },
+  "markdown": {
+    "purpose_title": "Purpose",
+    "purpose_desc": "Master Context for AI Vibe-Coding and Project Generation.",
+    "project_overview": "Project Overview",
+    "project_type": "Project Type",
+    "industry": "Industry / Sector",
+    "tech_spec": "Tech Specification",
+    "product_type": "Product Type",
+    "sales_channel": "Sales Channel",
+    "campaign_category": "Campaign Category",
+    "desirability": "Desirability",
+    "customer_segments": "Customer Segments",
+    "value_propositions": "Value Propositions",
+    "feasibility": "Feasibility & Viability",
+    "key_activities": "Key Activities",
+    "revenue_streams": "Revenue Streams",
+    "impact": "Impact & Beneficiaries",
+    "beneficiaries": "Beneficiaries",
+    "objective": "Objective",
+    "deployment_channels": "Deployment Channels",
+    "key_results": "Key Results",
+    "persona": "AI Persona & Context",
+    "platform": "Target Publishing Platform",
+    "instruction_title": "Instruction for AI",
+    "instruction_desc": "Analyze the following sample text. When generating future content, marketing copy, or code for this project, heavily adapt to this tone, style, and structure suited for the platform.",
+    "sample_content": "Sample Content / Code Style",
+    "no_sample": "No sample provided."
   }
 }

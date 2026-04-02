@@ -173,5 +173,33 @@
     "step_2": "Kontext",
     "step_3": "Deep Dive",
     "step_4": "Stil / Plattform"
+  },
+  "markdown": {
+    "purpose_title": "Zweck",
+    "purpose_desc": "Master-Kontext für KI-Vibe-Coding und Projektgenerierung.",
+    "project_overview": "Projektübersicht",
+    "project_type": "Projekttyp",
+    "industry": "Branche / Sektor",
+    "tech_spec": "Tech-Spezifikation",
+    "product_type": "Produkttyp",
+    "sales_channel": "Vertriebskanal",
+    "campaign_category": "Kampagnenkategorie",
+    "desirability": "Erwünschtheit (Desirability)",
+    "customer_segments": "Kundensegmente",
+    "value_propositions": "Wertversprechen",
+    "feasibility": "Machbarkeit & Rentabilität (Feasibility & Viability)",
+    "key_activities": "Schlüsselaktivitäten",
+    "revenue_streams": "Einnahmequellen",
+    "impact": "Auswirkungen & Begünstigte (Impact & Beneficiaries)",
+    "beneficiaries": "Begünstigte",
+    "objective": "Ziel",
+    "deployment_channels": "Bereitstellungskanäle",
+    "key_results": "Wichtige Ergebnisse (Key Results)",
+    "persona": "KI-Persona & Kontext",
+    "platform": "Ziel-Plattform",
+    "instruction_title": "Anweisung für KI",
+    "instruction_desc": "Analysieren Sie den folgenden Beispieltext. Wenn Sie zukünftige Inhalte, Marketing-Texte oder Code für dieses Projekt erstellen, passen Sie sich stark an diesen Ton, Stil und diese Struktur an, die für die Plattform geeignet sind.",
+    "sample_content": "Beispielinhalt / Code-Stil",
+    "no_sample": "Kein Beispiel bereitgestellt."
   }
 }

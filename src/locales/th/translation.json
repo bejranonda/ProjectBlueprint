@@ -173,5 +173,33 @@
     "step_2": "บริบทธุรกิจ",
     "step_3": "เจาะลึกโมเดล",
     "step_4": "สไตล์ผลลัพธ์"
+  },
+  "markdown": {
+    "purpose_title": "จุดประสงค์",
+    "purpose_desc": "บริบทหลักสำหรับ AI ในการสร้างผลงาน (Vibe-Coding)",
+    "project_overview": "ภาพรวมโครงการ",
+    "project_type": "ประเภทโครงการ",
+    "industry": "อุตสาหกรรม",
+    "tech_spec": "ความเชี่ยวชาญด้านเทคโนโลยี",
+    "product_type": "ประเภทสินค้า",
+    "sales_channel": "ช่องทางการขาย",
+    "campaign_category": "หมวดหมู่แคมเปญ",
+    "desirability": "การตอบโจทย์ลูกค้า (Desirability)",
+    "customer_segments": "กลุ่มเป้าหมาย (Customer Segments)",
+    "value_propositions": "จุดเด่น (Value Propositions)",
+    "feasibility": "การดำเนินงานและรายได้ (Feasibility & Viability)",
+    "key_activities": "กิจกรรมหลัก (Key Activities)",
+    "revenue_streams": "โมเดลรายได้ (Revenue Streams)",
+    "impact": "ผลกระทบและผู้ได้รับประโยชน์ (Impact & Beneficiaries)",
+    "beneficiaries": "กลุ่มเป้าหมาย/ผู้รับประโยชน์ (Beneficiaries)",
+    "objective": "เป้าหมายสูงสุด (Objective)",
+    "deployment_channels": "ช่องทางการสื่อสาร (Deployment Channels)",
+    "key_results": "ตัวชี้วัดความสำเร็จ",
+    "persona": "ระบบความคิดของ AI (AI Persona & Context)",
+    "platform": "แพลตฟอร์มเป้าหมาย",
+    "instruction_title": "คำสั่งสำหรับ AI",
+    "instruction_desc": "วิเคราะห์ตัวอย่างข้อความต่อไปนี้ และเมื่อสร้างเนื้อหา ให้ใช้โครงสร้างและน้ำเสียงที่เหมาะสมกับแพลตฟอร์มนี้",
+    "sample_content": "ตัวอย่างเนื้อหา / โค้ดสไตล์",
+    "no_sample": "ไม่ได้ระบุตัวอย่าง"
   }
 }

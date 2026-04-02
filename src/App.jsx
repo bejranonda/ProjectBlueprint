@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { LayoutTemplate, ArrowLeft, ChevronRight, Download, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useWizard } from './hooks/useWizard';
@@ -8,6 +9,10 @@ import ReviewScreen from './components/ReviewScreen';
 
 export default function App() {
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
 
   const {
     currentQ,
@@ -124,7 +129,7 @@ export default function App() {
 
             {isReview ? (
               <button
-                onClick={() => downloadMarkdown(answers)}
+                onClick={() => downloadMarkdown(answers, t)}
                 className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)] transform hover:-translate-y-0.5"
               >
                 <Download className="w-6 h-6" /> {t('app.btn_download')}
