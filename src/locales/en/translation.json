@@ -1,0 +1,177 @@
+{
+  "app": {
+    "title": "AI Project Blueprint Architect",
+    "subtitle": "Define the cognitive structure for AI to work accurately for you",
+    "btn_back": "Back",
+    "btn_next": "Next",
+    "btn_review": "Review Results",
+    "btn_download": "Download Blueprint",
+    "review_title": "Blueprint Generated Successfully!",
+    "review_desc": "Review the blueprint and download it to use with your AI",
+    "compare_tab_without": "AI without Blueprint",
+    "compare_tab_with": "AI with Blueprint",
+    "compare_btn_generate": "Compare AI Results",
+    "compare_loading": "Generating from Cloudflare AI..."
+  },
+  "questions": {
+    "q_project_type": {
+      "title": "What kind of project is this?",
+      "description": "Select the best framework to analyze your project",
+      "options": {
+        "short-term": { "label": "Short-term / Campaign", "desc": "Focuses on high impact in limited time, e.g., Elections, NGOs, Events" },
+        "long-term": { "label": "Long-term / Business", "desc": "Focuses on sustainability and revenue, e.g., Startups, Local Stores" }
+      }
+    },
+    "q_long_industry": {
+      "title": "What is your main industry or category?",
+      "description": "Select the best fit for your business",
+      "options": {
+        "Tech": { "label": "Technology / Software", "desc": "Startups, SaaS, Mobile Apps" },
+        "OTOP": { "label": "Local / Craftsmanship", "desc": "Local goods, Handcrafts" },
+        "Retail": { "label": "Retail / E-Commerce", "desc": "Online stores, Physical stores" },
+        "Service": { "label": "Education / Services", "desc": "Courses, Agencies, Consultants" }
+      }
+    },
+    "q_long_tech_spec": {
+      "title": "Which technology domain?",
+      "options": {
+        "AI/ML": { "label": "AI & Machine Learning" },
+        "SaaS": { "label": "SaaS (Software as a Service)" },
+        "App": { "label": "Mobile Application / Web App" },
+        "Hardware": { "label": "Hardware / IoT" }
+      }
+    },
+    "q_long_otop_spec": {
+      "title": "What kind of local products?",
+      "options": {
+        "Food/Beverage": { "label": "Food / Beverages" },
+        "Clothing/Textile": { "label": "Clothing / Textiles" },
+        "Home/Herbs": { "label": "Home Decor / Herbs" }
+      }
+    },
+    "q_long_retail_spec": {
+      "title": "What is your main sales channel?",
+      "options": {
+        "Online 100%": { "label": "100% Online" },
+        "Physical Store": { "label": "Physical Store" },
+        "Omnichannel": { "label": "Omnichannel (Online + Store)" }
+      }
+    },
+    "q_short_category": {
+      "title": "What is the campaign's main category?",
+      "description": "Select the category that best describes the campaign",
+      "options": {
+        "Politics / Election": { "label": "Politics / Elections" },
+        "Social / Environment": { "label": "Social / Environmental (NGO)" },
+        "Education Campaign": { "label": "Education / Awareness" },
+        "Event / Exhibition": { "label": "Events / Exhibitions" }
+      }
+    },
+    "q_long_target": {
+      "title": "Who are your primary Customer Segments?",
+      "description": "You can select more than one",
+      "options": {
+        "B2C Youth": { "label": "B2C - Youth / Students" },
+        "B2C Adults/Family": { "label": "B2C - Adults / Families" },
+        "B2C Seniors": { "label": "B2C - Seniors" },
+        "B2B SME": { "label": "B2B - SMEs / Small Shops" },
+        "B2B Enterprise": { "label": "B2B - Large Enterprises" },
+        "B2G Government": { "label": "B2G - Government Agencies" }
+      }
+    },
+    "q_long_value": {
+      "title": "What is your main Value Proposition?",
+      "description": "Select your primary differentiator",
+      "options": {
+        "Price/Value": { "label": "Cost-effective / Affordable", "desc": "Cost Leadership" },
+        "Quality/Premium": { "label": "High Quality / Premium", "desc": "Quality focus" },
+        "Innovation": { "label": "Innovation / Novelty", "desc": "Solving hard problems" },
+        "Convenience": { "label": "Convenience / Usability", "desc": "Easy to use" },
+        "Uniqueness": { "label": "Unique / Cultural", "desc": "Cultural significance" }
+      }
+    },
+    "q_long_revenue": {
+      "title": "What are your Revenue Streams?",
+      "description": "You can select more than one",
+      "options": {
+        "One-time Sales": { "label": "One-time Sales" },
+        "Subscription": { "label": "Subscription / Recurring" },
+        "Commission": { "label": "Commission / Fee" },
+        "Advertising": { "label": "Advertising" }
+      }
+    },
+    "q_long_activities": {
+      "title": "What are the Key Activities?",
+      "description": "Select the primary activities to make the business run",
+      "options": {
+        "Production": { "label": "Production / Manufacturing" },
+        "Marketing/Sales": { "label": "Marketing & Sales" },
+        "R&D": { "label": "Research & Development" },
+        "Customer Support": { "label": "Customer Support" },
+        "Platform Management": { "label": "Platform Management" }
+      }
+    },
+    "q_short_target": {
+      "title": "Who are the Beneficiaries?",
+      "description": "You can select more than one",
+      "options": {
+        "Youth / First-time voters": { "label": "Youth / First-time voters" },
+        "Local Citizens": { "label": "Local Citizens" },
+        "Vulnerable Groups": { "label": "Vulnerable Groups" },
+        "Policymakers": { "label": "Policymakers" }
+      }
+    },
+    "q_short_objective": {
+      "title": "What is the primary Objective?",
+      "options": {
+        "Awareness": { "label": "Create Awareness" },
+        "Call to Action": { "label": "Call to Action", "desc": "e.g., Vote, Donate, Apply" },
+        "Policy Change": { "label": "Drive Policy Change" },
+        "Fundraising": { "label": "Fundraising" }
+      }
+    },
+    "q_short_metric": {
+      "title": "What are your Key Results (OKRs)?",
+      "description": "How will you measure success?",
+      "options": {
+        "Social Media Engagement": { "label": "Social Media Engagement" },
+        "Number of Participants": { "label": "Number of Participants" },
+        "Funds Raised": { "label": "Funds Raised" },
+        "Petition Signatures": { "label": "Petition Signatures" }
+      }
+    },
+    "q_short_channels": {
+      "title": "Deployment Channels?",
+      "description": "How will you reach them?",
+      "options": {
+        "Social Media": { "label": "Social Media (FB, X, TikTok)" },
+        "On-ground": { "label": "On-ground Events" },
+        "Mass Media": { "label": "Mass Media / PR" },
+        "Influencers/Partners": { "label": "Influencers & Partners" }
+      }
+    },
+    "q_platform": {
+      "title": "Target AI output platform?",
+      "description": "To adapt Tone of Voice & Structure",
+      "options": {
+        "Facebook": { "label": "Facebook / Meta", "desc": "Storytelling, highly shareable" },
+        "X / Twitter": { "label": "X / Twitter", "desc": "Concise, viral" },
+        "LinkedIn": { "label": "LinkedIn", "desc": "Professional, business" },
+        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, Copilot" },
+        "Pitch Deck": { "label": "Pitch Deck", "desc": "Presentations" }
+      }
+    },
+    "q_sample_text": {
+      "title": "Paste a sample of your style or codebase",
+      "description": "Let the AI mimic your authentic tone of voice or coding style (optional)",
+      "placeholder": "Paste your sample here..."
+    }
+  },
+  "misc": {
+    "other": "Other...",
+    "step_1": "Project Type",
+    "step_2": "Context",
+    "step_3": "Deep Dive",
+    "step_4": "Style/Platform"
+  }
+}

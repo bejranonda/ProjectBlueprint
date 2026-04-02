@@ -1,0 +1,177 @@
+{
+  "app": {
+    "title": "AI Project Blueprint Architekt",
+    "subtitle": "Definieren Sie die konzeptionelle Struktur, damit die KI präzise für Sie arbeiten kann",
+    "btn_back": "Zurück",
+    "btn_next": "Weiter",
+    "btn_review": "Ergebnisse überprüfen",
+    "btn_download": "Blueprint Herunterladen",
+    "review_title": "Blueprint erfolgreich erstellt!",
+    "review_desc": "Überprüfen Sie den Blueprint und laden Sie ihn zur Verwendung mit KI herunter",
+    "compare_tab_without": "KI ohne Blueprint",
+    "compare_tab_with": "KI mit Blueprint",
+    "compare_btn_generate": "KI-Ergebnisse Vergleichen",
+    "compare_loading": "Generieren über Cloudflare AI..."
+  },
+  "questions": {
+    "q_project_type": {
+      "title": "Um was für ein Projekt handelt es sich?",
+      "description": "Wählen Sie das beste Framework zur Analyse Ihres Projekts",
+      "options": {
+        "short-term": { "label": "Kurzfristig / Kampagne", "desc": "Fokus auf schnellen Impact in begrenzter Zeit (z.B. Wahlen, NGOs, Events)" },
+        "long-term": { "label": "Langfristig / Unternehmen", "desc": "Fokus auf Nachhaltigkeit und Umsatz (z.B. Startups, lokale Geschäfte)" }
+      }
+    },
+    "q_long_industry": {
+      "title": "Was ist Ihre Hauptbranche oder Kategorie?",
+      "description": "Wählen Sie die treffendste Option für Ihr Geschäft",
+      "options": {
+        "Tech": { "label": "Technologie / Software", "desc": "Startups, SaaS, Mobile Apps" },
+        "OTOP": { "label": "Lokal / Handwerk", "desc": "Lokale Waren, Handwerk" },
+        "Retail": { "label": "Einzelhandel / E-Commerce", "desc": "Online-Shops, Ladengeschäfte" },
+        "Service": { "label": "Bildung / Dienstleistungen", "desc": "Kurse, Agenturen, Berater" }
+      }
+    },
+    "q_long_tech_spec": {
+      "title": "Welcher Technologiebereich?",
+      "options": {
+        "AI/ML": { "label": "KI & Machine Learning" },
+        "SaaS": { "label": "SaaS (Software as a Service)" },
+        "App": { "label": "Mobile Application / Web App" },
+        "Hardware": { "label": "Hardware / IoT" }
+      }
+    },
+    "q_long_otop_spec": {
+      "title": "Welche Art von lokalen Produkten?",
+      "options": {
+        "Food/Beverage": { "label": "Lebensmittel / Getränke" },
+        "Clothing/Textile": { "label": "Kleidung / Textilien" },
+        "Home/Herbs": { "label": "Wohnkultur / Kräuter" }
+      }
+    },
+    "q_long_retail_spec": {
+      "title": "Was ist Ihr Hauptvertriebskanal?",
+      "options": {
+        "Online 100%": { "label": "100% Online" },
+        "Physical Store": { "label": "Ladengeschäft (Offline)" },
+        "Omnichannel": { "label": "Omnichannel (Online + Offline)" }
+      }
+    },
+    "q_short_category": {
+      "title": "Was ist die Hauptkategorie der Kampagne?",
+      "description": "Wählen Sie, was Ihre Kampagne am besten beschreibt",
+      "options": {
+        "Politics / Election": { "label": "Politik / Wahlen" },
+        "Social / Environment": { "label": "Soziales / Umwelt (NGO)" },
+        "Education Campaign": { "label": "Bildung / Aufklärung" },
+        "Event / Exhibition": { "label": "Veranstaltungen / Messen" }
+      }
+    },
+    "q_long_target": {
+      "title": "Wer sind Ihre primären Kundensegmente?",
+      "description": "Mehrfachauswahl möglich",
+      "options": {
+        "B2C Youth": { "label": "B2C - Jugendliche / Studenten" },
+        "B2C Adults/Family": { "label": "B2C - Erwachsene / Familien" },
+        "B2C Seniors": { "label": "B2C - Senioren" },
+        "B2B SME": { "label": "B2B - KMU / Kleine Firmen" },
+        "B2B Enterprise": { "label": "B2B - Großunternehmen" },
+        "B2G Government": { "label": "B2G - Regierungsbehörden" }
+      }
+    },
+    "q_long_value": {
+      "title": "Was ist Ihr primäres Nutzenversprechen (Value Proposition)?",
+      "description": "Wählen Sie Ihr primäres Alleinstellungsmerkmal",
+      "options": {
+        "Price/Value": { "label": "Günstig / Preiswert", "desc": "Kostenführerschaft" },
+        "Quality/Premium": { "label": "Hohe Qualität / Premium", "desc": "Qualitätsfokus" },
+        "Innovation": { "label": "Innovation / Neuheit", "desc": "Löst schwierige Probleme" },
+        "Convenience": { "label": "Bequemlichkeit / Benutzerfreundlichkeit", "desc": "Einfach zu bedienen" },
+        "Uniqueness": { "label": "Einzigartigkeit / Kultur", "desc": "Kulturelle Bedeutung" }
+      }
+    },
+    "q_long_revenue": {
+      "title": "Was sind Ihre Einnahmequellen?",
+      "description": "Mehrfachauswahl möglich",
+      "options": {
+        "One-time Sales": { "label": "Einmalverkäufe" },
+        "Subscription": { "label": "Abonnement / Wiederkehrend" },
+        "Commission": { "label": "Provision / Gebühr" },
+        "Advertising": { "label": "Werbung" }
+      }
+    },
+    "q_long_activities": {
+      "title": "Was sind die Schlüsselaktivitäten?",
+      "description": "Primäre Aktivitäten, um das Geschäft am Laufen zu halten",
+      "options": {
+        "Production": { "label": "Produktion / Herstellung" },
+        "Marketing/Sales": { "label": "Marketing & Vertrieb" },
+        "R&D": { "label": "Forschung & Entwicklung" },
+        "Customer Support": { "label": "Kundensupport" },
+        "Platform Management": { "label": "Plattform-Management" }
+      }
+    },
+    "q_short_target": {
+      "title": "Wer sind die Begünstigten?",
+      "description": "Mehrfachauswahl möglich",
+      "options": {
+        "Youth / First-time voters": { "label": "Jugendliche / Erstwähler" },
+        "Local Citizens": { "label": "Lokale Bürger" },
+        "Vulnerable Groups": { "label": "Schutzbedürftige Gruppen" },
+        "Policymakers": { "label": "Politische Entscheidungsträger" }
+      }
+    },
+    "q_short_objective": {
+      "title": "Was ist das primäre Ziel?",
+      "options": {
+        "Awareness": { "label": "Bewusstsein schaffen" },
+        "Call to Action": { "label": "Aufruf zum Handeln (Call to Action)", "desc": "z.B. Wählen, Spenden, Bewerben" },
+        "Policy Change": { "label": "Richtungswechsel vorantreiben" },
+        "Fundraising": { "label": "Fundraising" }
+      }
+    },
+    "q_short_metric": {
+      "title": "Was sind Ihre Key Results (OKRs)?",
+      "description": "Wie messen Sie den Erfolg?",
+      "options": {
+        "Social Media Engagement": { "label": "Social Media Engagement" },
+        "Number of Participants": { "label": "Teilnehmerzahl" },
+        "Funds Raised": { "label": "Gesammelte Spenden" },
+        "Petition Signatures": { "label": "Unterschriften für Petitionen" }
+      }
+    },
+    "q_short_channels": {
+      "title": "Bereitstellungskanäle?",
+      "description": "Wie erreichen Sie sie?",
+      "options": {
+        "Social Media": { "label": "Social Media (FB, X, TikTok)" },
+        "On-ground": { "label": "Vor-Ort Events" },
+        "Mass Media": { "label": "Massenmedien / PR" },
+        "Influencers/Partners": { "label": "Influencer & Partner" }
+      }
+    },
+    "q_platform": {
+      "title": "Ziel-Plattform für die KI-Ausgabe?",
+      "description": "Zur Anpassung des Tons (Tone of Voice) & der Struktur",
+      "options": {
+        "Facebook": { "label": "Facebook / Meta", "desc": "Storytelling, oft geteilt" },
+        "X / Twitter": { "label": "X / Twitter", "desc": "Prägnant, viral" },
+        "LinkedIn": { "label": "LinkedIn", "desc": "Professionell, geschäftlich" },
+        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, GitHub Copilot" },
+        "Pitch Deck": { "label": "Pitch Deck", "desc": "Präsentationen" }
+      }
+    },
+    "q_sample_text": {
+      "title": "Fügen Sie ein Beispiel Ihres Stils oder Codes ein",
+      "description": "Lassen Sie die KI Ihren Tonfall oder Schreibstil kopieren (optional)",
+      "placeholder": "Fügen Sie Ihr Beispiel hier ein..."
+    }
+  },
+  "misc": {
+    "other": "Andere...",
+    "step_1": "Projekttyp",
+    "step_2": "Kontext",
+    "step_3": "Deep Dive",
+    "step_4": "Stil / Plattform"
+  }
+}

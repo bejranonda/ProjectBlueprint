@@ -1,16 +1,20 @@
 # 🚀 AI Project Blueprint Architect
 
-> กำหนดโครงสร้างความคิดให้ AI ทำงานแทนคุณได้อย่างแม่นยำ
+> Master Context for AI Vibe-Coding and Project Generation.
 
-An interactive wizard that generates a structured **AI-ready Project Blueprint** in Markdown format. It guides users through a branching questionnaire to produce a context document that can be fed directly into AI tools (ChatGPT, Claude, Cursor, GitHub Copilot, etc.) for accurate project generation, content creation, and vibe-coding.
+An interactive, multilingual wizard that generates a structured **AI-ready Project Blueprint** in Markdown format. The blueprint serves as a robust context document that can be fed directly into AI tools (ChatGPT, Claude, Cursor, GitHub Copilot, etc.) for highly accurate project generation, marketing copy creation, and vibe-coding.
+
+It features a brand new **Cloudflare AI Integration** letting you test side-by-side comparisons of AI output *with* vs *without* your generated blueprint!
 
 ## ✨ Features
 
-- **Smart Branching Logic** — Questions adapt dynamically based on your project type (short-term campaign vs. long-term business)
-- **Business Model Canvas (BMC)** — For long-term / business projects: Customer Segments, Value Propositions, Revenue Streams, Key Activities
-- **Mission Model Canvas (MMC)** — For short-term / campaign projects: Beneficiaries, Objectives, OKRs, Deployment Channels
-- **AI Persona Configuration** — Set the target platform and provide sample content so AI can match your tone and style
-- **Instant Markdown Export** — Download a ready-to-use `.md` blueprint file
+- **🌐 Multilingual Support (i18n)** — Available in English, Thai, and German.
+- **🤖 Cloudflare AI Integration** — Generate and compare AI results directly in the app.
+- **🧠 Smart Branching Logic** — Questions adapt dynamically based on your project type (short-term campaign vs. long-term business).
+- **💼 Business Model Canvas (BMC)** — For long-term projects: Customer Segments, Value Propositions, Revenue Streams.
+- **🎯 Mission Model Canvas (MMC)** — For short-term projects: Beneficiaries, Objectives, OKRs, Deployment Channels.
+- **🎨 Premium Dark UI** — Modern, aesthetic interface using Tailwind CSS and glassmorphism styling.
+- **⚡ Instant Export** — Download a ready-to-use `.md` blueprint file.
 
 ## 🏗️ Tech Stack
 
@@ -19,8 +23,10 @@ An interactive wizard that generates a structured **AI-ready Project Blueprint**
 | Framework | [React 19](https://react.dev/) |
 | Build Tool | [Vite 6](https://vite.dev/) |
 | Styling | [Tailwind CSS 3](https://tailwindcss.com/) |
+| i18n | `react-i18next` |
 | Icons | [Lucide React](https://lucide.dev/) |
-| Hosting | [Cloudflare Pages](https://pages.cloudflare.com/) |
+| Backend API | Cloudflare Pages Functions (`@cf/meta/llama-3-8b-instruct`) |
+| Deployment | [Cloudflare Pages](https://pages.cloudflare.com/) |
 
 ## 🚀 Getting Started
 
@@ -28,65 +34,66 @@ An interactive wizard that generates a structured **AI-ready Project Blueprint**
 
 - Node.js 18+
 - npm 9+
+- Cloudflare Account (for AI functionality)
+
+### Configuration
+
+Create a `.env` file in the project root to configure the Cloudflare Pages Function Proxy for the AI comparison feature:
+
+```env
+CF_API_TOKEN=your_cloudflare_api_token
+CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
+```
 
 ### Development
+
+Notice: Because we use Cloudflare Pages Functions as a secure proxy (`/functions/api/generate.js`), you must use the `wrangler` CLI to spin up the dev server, which proxies the Vite and API environment together.
 
 ```bash
 # Install dependencies
 npm install
 
-# Start dev server
-npm run dev
+# Start fullstack dev server (Vite + Cloudflare Functions)
+npm run pages:dev
 ```
-
-### Production Build
-
-```bash
-npm run build
-npm run preview
-```
+*Note: Using standard `npm run dev` will run the frontend but break the `/api/generate` AI feature because the Cloudflare backend won't be running.*
 
 ### Deploy to Cloudflare Pages
 
 ```bash
-# Via Wrangler CLI
+# Deploy using Wrangler CLI
 npm run pages:deploy
-
-# Or connect the GitHub repo to Cloudflare Pages dashboard:
-# Build command: npm run build
-# Build output directory: dist
 ```
+
+When connecting seamlessly through the Cloudflare Dashboard:
+1. Build command: `npm run build`
+2. Build output directory: `dist`
+3. Make sure to set `CF_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in Settings > Environment Variables on the dashboard!
 
 ## 📁 Project Structure
 
 ```
-src/
-├── main.jsx                  # React entry point
-├── index.css                 # Tailwind directives & global styles
-├── App.jsx                   # Main wizard orchestrator
-├── components/
-│   ├── StepTracker.jsx       # Progress indicator
-│   ├── QuestionScreen.jsx    # Dynamic question renderer
-│   ├── OptionCard.jsx        # Selectable option card (radio/checkbox)
-│   ├── OtherOptionCard.jsx   # "Other" option with text input
-│   └── ReviewScreen.jsx      # Markdown preview screen
-├── data/
-│   └── questionMap.jsx       # Question tree with branching logic
-├── hooks/
-│   └── useWizard.js          # Wizard state management hook
-└── utils/
-    └── markdownGenerator.js  # Markdown blueprint generation
+.
+├── functions/
+│   └── api/
+│       └── generate.js         # Cloudflare AI Proxy Endpoint
+├── src/
+│   ├── components/             # React components (StepTracker, Cards, Screens)
+│   ├── data/
+│   │   └── questionMap.jsx     # Wizard flowchart logic & translations map
+│   ├── hooks/
+│   │   └── useWizard.js        # Form and state logic hook
+│   ├── locales/                # Translation dictionary JSONs (th, en, de)
+│   ├── utils/
+│   │   └── markdownGenerator.js# Blueprint renderer
+│   ├── i18n.js                 # Configuration for react-i18next
+│   ├── App.jsx                 # App root and orchestrator
+│   ├── main.jsx                
+│   └── index.css               # Tailwind directives and custom scrollbars
+├── guideline.md                # Developer docs for translations and additions
+├── known-issues.md             # Limitations and API constraints
+└── wrangler.toml               # Cloudflare configuration file
 ```
-
-## 🌐 Cloudflare Pages Deployment
-
-This project is optimized for Cloudflare Pages:
-
-| Setting | Value |
-|---------|-------|
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Node.js version | `18` |
 
 ## 📝 License
 

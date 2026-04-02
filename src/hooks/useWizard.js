@@ -1,10 +1,10 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import questionMap from '../data/questionMap';
+import { getQuestionMap } from '../data/questionMap';
 
 /**
  * Custom hook that encapsulates all wizard navigation and answer state.
  */
-export function useWizard() {
+export function useWizard(t) {
   const [currentQuestionId, setCurrentQuestionId] = useState('q_project_type');
   const [history, setHistory] = useState([]);
   const [answers, setAnswers] = useState({});
@@ -16,6 +16,7 @@ export function useWizard() {
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [textValue, setTextValue] = useState('');
 
+  const questionMap = getQuestionMap(t);
   const currentQ = questionMap[currentQuestionId];
   const activeStepGroup = currentQuestionId === 'REVIEW' ? 5 : (currentQ?.stepGroup || 1);
   const isReview = currentQuestionId === 'REVIEW';

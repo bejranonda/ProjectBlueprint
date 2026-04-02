@@ -16,251 +16,222 @@ import {
   Presentation,
 } from 'lucide-react';
 
-// --- โครงสร้างคำถามแบบมีเงื่อนไข (Branching Logic & Step Mapping) ---
-const questionMap = {
-  // ==========================================
-  // STEP 1: ประเภทโครงการ
-  // ==========================================
+export const getQuestionMap = (t) => ({
   q_project_type: {
     stepGroup: 1,
-    title: "โปรเจคของคุณเป็นรูปแบบไหน?",
-    description: "เพื่อเลือก Framework ที่เหมาะสมที่สุดในการวิเคราะห์",
+    title: t('questions.q_project_type.title'),
+    description: t('questions.q_project_type.description'),
     type: "single",
     options: [
       {
-        label: "โครงการระยะสั้น / แคมเปญ",
+        label: t('questions.q_project_type.options.short-term.label'),
         value: "short-term",
         next: "q_short_category",
         icon: <Target className="w-8 h-8" />,
-        desc: "เน้นสร้างผลกระทบ (Impact) ในเวลาที่จำกัด เช่น รณรงค์การเลือกตั้ง, โครงการเพื่อสังคม (NGOs), จัดอีเวนต์",
+        desc: t('questions.q_project_type.options.short-term.desc'),
         features: ["ใช้ Mission Model Canvas (MMC)", "เพิ่มระบบ OKRs เพื่อวัดผลลัพธ์"],
       },
       {
-        label: "โครงการระยะยาว / ธุรกิจ",
+        label: t('questions.q_project_type.options.long-term.label'),
         value: "long-term",
         next: "q_long_industry",
         icon: <Briefcase className="w-8 h-8" />,
-        desc: "เน้นความยั่งยืนและการสร้างรายได้ เช่น ขายผลิตภัณฑ์ชุมชน (OTOP), สร้าง Tech Startup, เปิดร้านค้า",
+        desc: t('questions.q_project_type.options.long-term.desc'),
         features: ["ใช้ Business Model Canvas (BMC)", "เน้นวิเคราะห์กำไร ขาดทุน และกระแสรายได้"],
       },
     ],
   },
-
-  // ==========================================
-  // STEP 2: บริบท (Discovery)
-  // ==========================================
   q_long_industry: {
     stepGroup: 2,
-    title: "อุตสาหกรรมหรือหมวดหมู่ของธุรกิจคุณคืออะไร?",
-    description: "เลือกหมวดหมู่ที่ตรงกับธุรกิจของคุณมากที่สุด",
+    title: t('questions.q_long_industry.title'),
+    description: t('questions.q_long_industry.description'),
     type: "single",
     options: [
-      { label: "เทคโนโลยี / ซอฟต์แวร์", value: "Tech", next: "q_long_tech_spec", icon: <Cpu className="w-6 h-6" />, desc: "Tech Startup, SaaS, App" },
-      { label: "ธุรกิจท้องถิ่น / OTOP", value: "OTOP", next: "q_long_otop_spec", icon: <ShoppingBag className="w-6 h-6" />, desc: "สินค้าชุมชน, งานคราฟต์" },
-      { label: "ค้าปลีก / E-commerce", value: "Retail", next: "q_long_retail_spec", icon: <ShoppingCart className="w-6 h-6" />, desc: "ขายออนไลน์, หน้าร้าน" },
-      { label: "การศึกษา / บริการ", value: "Service", next: "q_long_target", icon: <BookOpen className="w-6 h-6" />, desc: "คอร์สเรียน, เอเจนซี่, ที่ปรึกษา" },
+      { label: t('questions.q_long_industry.options.Tech.label'), value: "Tech", next: "q_long_tech_spec", icon: <Cpu className="w-6 h-6" />, desc: t('questions.q_long_industry.options.Tech.desc') },
+      { label: t('questions.q_long_industry.options.OTOP.label'), value: "OTOP", next: "q_long_otop_spec", icon: <ShoppingBag className="w-6 h-6" />, desc: t('questions.q_long_industry.options.OTOP.desc') },
+      { label: t('questions.q_long_industry.options.Retail.label'), value: "Retail", next: "q_long_retail_spec", icon: <ShoppingCart className="w-6 h-6" />, desc: t('questions.q_long_industry.options.Retail.desc') },
+      { label: t('questions.q_long_industry.options.Service.label'), value: "Service", next: "q_long_target", icon: <BookOpen className="w-6 h-6" />, desc: t('questions.q_long_industry.options.Service.desc') },
     ],
     otherOption: { next: "q_long_target" },
   },
-
   q_long_tech_spec: {
     stepGroup: 2,
-    title: "เป็นเทคโนโลยีด้านไหน?",
+    title: t('questions.q_long_tech_spec.title'),
     type: "single",
     options: [
-      { label: "AI & Machine Learning", value: "AI/ML", next: "q_long_target" },
-      { label: "SaaS (Software as a Service)", value: "SaaS", next: "q_long_target" },
-      { label: "Mobile Application / Web App", value: "App", next: "q_long_target" },
-      { label: "Hardware / IoT", value: "Hardware", next: "q_long_target" },
+      { label: t('questions.q_long_tech_spec.options.AI/ML.label'), value: "AI/ML", next: "q_long_target" },
+      { label: t('questions.q_long_tech_spec.options.SaaS.label'), value: "SaaS", next: "q_long_target" },
+      { label: t('questions.q_long_tech_spec.options.App.label'), value: "App", next: "q_long_target" },
+      { label: t('questions.q_long_tech_spec.options.Hardware.label'), value: "Hardware", next: "q_long_target" },
     ],
     otherOption: { next: "q_long_target" },
   },
-
   q_long_otop_spec: {
     stepGroup: 2,
-    title: "ประเภทสินค้า OTOP หรือสินค้าท้องถิ่นคืออะไร?",
+    title: t('questions.q_long_otop_spec.title'),
     type: "single",
     options: [
-      { label: "อาหาร / เครื่องดื่ม / แปรรูป", value: "Food/Beverage", next: "q_long_target" },
-      { label: "เสื้อผ้า / เครื่องแต่งกาย / ผ้าทอ", value: "Clothing/Textile", next: "q_long_target" },
-      { label: "ของใช้ / ของตกแต่งบ้าน / สมุนไพร", value: "Home/Herbs", next: "q_long_target" },
+      { label: t('questions.q_long_otop_spec.options.Food/Beverage.label'), value: "Food/Beverage", next: "q_long_target" },
+      { label: t('questions.q_long_otop_spec.options.Clothing/Textile.label'), value: "Clothing/Textile", next: "q_long_target" },
+      { label: t('questions.q_long_otop_spec.options.Home/Herbs.label'), value: "Home/Herbs", next: "q_long_target" },
     ],
     otherOption: { next: "q_long_target" },
   },
-
   q_long_retail_spec: {
     stepGroup: 2,
-    title: "ช่องทางการขายหลักของคุณคืออะไร?",
+    title: t('questions.q_long_retail_spec.title'),
     type: "single",
     options: [
-      { label: "ขายออนไลน์ 100% (Shopee, Lazada, TikTok)", value: "Online 100%", next: "q_long_target" },
-      { label: "มีหน้าร้าน (Physical Store)", value: "Physical Store", next: "q_long_target" },
-      { label: "Omnichannel (ออนไลน์ร่วมกับหน้าร้าน)", value: "Omnichannel", next: "q_long_target" },
+      { label: t('questions.q_long_retail_spec.options.Online 100%.label'), value: "Online 100%", next: "q_long_target" },
+      { label: t('questions.q_long_retail_spec.options.Physical Store.label'), value: "Physical Store", next: "q_long_target" },
+      { label: t('questions.q_long_retail_spec.options.Omnichannel.label'), value: "Omnichannel", next: "q_long_target" },
     ],
   },
-
   q_short_category: {
     stepGroup: 2,
-    title: "หมวดหมู่ของแคมเปญหรือโครงการคืออะไร?",
-    description: "เลือกหมวดหมู่ที่ตรงกับโครงการของคุณมากที่สุด",
+    title: t('questions.q_short_category.title'),
+    description: t('questions.q_short_category.description'),
     type: "single",
     options: [
-      { label: "การเมือง / รณรงค์การเลือกตั้ง", value: "Politics / Election", next: "q_short_target", icon: <Vote className="w-6 h-6" /> },
-      { label: "เพื่อสังคม / สิ่งแวดล้อม (NGO)", value: "Social / Environment", next: "q_short_target", icon: <Globe2 className="w-6 h-6" /> },
-      { label: "การศึกษา / ให้ความรู้", value: "Education Campaign", next: "q_short_target", icon: <BookOpen className="w-6 h-6" /> },
-      { label: "อีเวนต์ / งานจัดแสดง", value: "Event / Exhibition", next: "q_short_target", icon: <CalendarDays className="w-6 h-6" /> },
+      { label: t('questions.q_short_category.options.Politics / Election.label'), value: "Politics / Election", next: "q_short_target", icon: <Vote className="w-6 h-6" /> },
+      { label: t('questions.q_short_category.options.Social / Environment.label'), value: "Social / Environment", next: "q_short_target", icon: <Globe2 className="w-6 h-6" /> },
+      { label: t('questions.q_short_category.options.Education Campaign.label'), value: "Education Campaign", next: "q_short_target", icon: <BookOpen className="w-6 h-6" /> },
+      { label: t('questions.q_short_category.options.Event / Exhibition.label'), value: "Event / Exhibition", next: "q_short_target", icon: <CalendarDays className="w-6 h-6" /> },
     ],
     otherOption: { next: "q_short_target" },
   },
-
-  // ==========================================
-  // STEP 3: เจาะลึกรายละเอียด (Model & OKRs)
-  // ==========================================
   q_long_target: {
     stepGroup: 3,
-    title: "ใครคือกลุ่มลูกค้าเป้าหมายหลัก (Customer Segments)?",
-    description: "สามารถเลือกได้มากกว่า 1 ข้อ",
+    title: t('questions.q_long_target.title'),
+    description: t('questions.q_long_target.description'),
     type: "multiple",
     options: [
-      { label: "B2C - กลุ่มวัยรุ่น / นักศึกษา", value: "B2C Youth" },
-      { label: "B2C - กลุ่มวัยทำงาน / ครอบครัว", value: "B2C Adults/Family" },
-      { label: "B2C - ผู้สูงอายุ", value: "B2C Seniors" },
-      { label: "B2B - ธุรกิจขนาดเล็ก (SME) / ร้านค้า", value: "B2B SME" },
-      { label: "B2B - องค์กรขนาดใหญ่ (Enterprise)", value: "B2B Enterprise" },
-      { label: "B2G - หน่วยงานรัฐบาล", value: "B2G Government" },
+      { label: t('questions.q_long_target.options.B2C Youth.label'), value: "B2C Youth" },
+      { label: t('questions.q_long_target.options.B2C Adults/Family.label'), value: "B2C Adults/Family" },
+      { label: t('questions.q_long_target.options.B2C Seniors.label'), value: "B2C Seniors" },
+      { label: t('questions.q_long_target.options.B2B SME.label'), value: "B2B SME" },
+      { label: t('questions.q_long_target.options.B2B Enterprise.label'), value: "B2B Enterprise" },
+      { label: t('questions.q_long_target.options.B2G Government.label'), value: "B2G Government" },
     ],
     next: "q_long_value",
   },
-
   q_long_value: {
     stepGroup: 3,
-    title: "จุดเด่นที่ทำให้ลูกค้าต้องเลือกคุณ (Value Proposition)?",
-    description: "เลือกจุดเด่นหลักเพียง 1 ข้อ (หรือพิมพ์เพิ่ม)",
+    title: t('questions.q_long_value.title'),
+    description: t('questions.q_long_value.description'),
     type: "single",
     options: [
-      { label: "ราคาคุ้มค่า / ถูกกว่าตลาด", value: "Price/Value", desc: "Cost Leadership" },
-      { label: "คุณภาพสูง / พรีเมียม", value: "Quality/Premium", desc: "High Quality" },
-      { label: "นวัตกรรม / แก้ปัญหาที่ไม่มีใครแก้ได้", value: "Innovation", desc: "Tech/Innovation" },
-      { label: "ความสะดวกสบาย / ใช้งานง่าย", value: "Convenience", desc: "Usability" },
-      { label: "ความเป็นเอกลักษณ์ / วัฒนธรรม", value: "Uniqueness", desc: "Culture/Art" },
+      { label: t('questions.q_long_value.options.Price/Value.label'), value: "Price/Value", desc: t('questions.q_long_value.options.Price/Value.desc') },
+      { label: t('questions.q_long_value.options.Quality/Premium.label'), value: "Quality/Premium", desc: t('questions.q_long_value.options.Quality/Premium.desc') },
+      { label: t('questions.q_long_value.options.Innovation.label'), value: "Innovation", desc: t('questions.q_long_value.options.Innovation.desc') },
+      { label: t('questions.q_long_value.options.Convenience.label'), value: "Convenience", desc: t('questions.q_long_value.options.Convenience.desc') },
+      { label: t('questions.q_long_value.options.Uniqueness.label'), value: "Uniqueness", desc: t('questions.q_long_value.options.Uniqueness.desc') },
     ],
     otherOption: { next: "q_long_revenue" },
     nextLevelFallback: "q_long_revenue",
   },
-
   q_long_revenue: {
     stepGroup: 3,
-    title: "โมเดลการสร้างรายได้ (Revenue Streams)?",
-    description: "สามารถเลือกได้มากกว่า 1 ข้อ",
+    title: t('questions.q_long_revenue.title'),
+    description: t('questions.q_long_revenue.description'),
     type: "multiple",
     options: [
-      { label: "ขายขาด (One-time Sales)", value: "One-time Sales" },
-      { label: "เก็บค่าสมาชิก (Subscription / Recurring)", value: "Subscription" },
-      { label: "ส่วนแบ่งรายได้ / ค่าคอมมิชชั่น (Commission / Fee)", value: "Commission" },
-      { label: "รายได้จากโฆษณา (Advertising)", value: "Advertising" },
+      { label: t('questions.q_long_revenue.options.One-time Sales.label'), value: "One-time Sales" },
+      { label: t('questions.q_long_revenue.options.Subscription.label'), value: "Subscription" },
+      { label: t('questions.q_long_revenue.options.Commission.label'), value: "Commission" },
+      { label: t('questions.q_long_revenue.options.Advertising.label'), value: "Advertising" },
     ],
     otherOption: true,
     next: "q_long_activities",
   },
-
   q_long_activities: {
     stepGroup: 3,
-    title: "กิจกรรมหลักที่ต้องทำเพื่อให้ธุรกิจเดินหน้า?",
-    description: "สามารถเลือกได้มากกว่า 1 ข้อ",
+    title: t('questions.q_long_activities.title'),
+    description: t('questions.q_long_activities.description'),
     type: "multiple",
     options: [
-      { label: "การผลิต / สร้างสินค้า", value: "Production" },
-      { label: "การตลาดและการขาย", value: "Marketing/Sales" },
-      { label: "การวิจัยและพัฒนา (R&D)", value: "R&D" },
-      { label: "บริการหลังการขาย / ซัพพอร์ต", value: "Customer Support" },
-      { label: "ดูแลและพัฒนาแพลตฟอร์ม", value: "Platform Management" },
+      { label: t('questions.q_long_activities.options.Production.label'), value: "Production" },
+      { label: t('questions.q_long_activities.options.Marketing/Sales.label'), value: "Marketing/Sales" },
+      { label: t('questions.q_long_activities.options.R&D.label'), value: "R&D" },
+      { label: t('questions.q_long_activities.options.Customer Support.label'), value: "Customer Support" },
+      { label: t('questions.q_long_activities.options.Platform Management.label'), value: "Platform Management" },
     ],
     next: "q_platform",
   },
-
   q_short_target: {
     stepGroup: 3,
-    title: "ผู้ได้รับประโยชน์ (Beneficiaries) คือใคร?",
-    description: "สามารถเลือกได้มากกว่า 1 ข้อ",
+    title: t('questions.q_short_target.title'),
+    description: t('questions.q_short_target.description'),
     type: "multiple",
     options: [
-      { label: "คนรุ่นใหม่ / First-time voters", value: "Youth / First-time voters" },
-      { label: "ประชาชนทั่วไปในพื้นที่เฉพาะ", value: "Local Citizens" },
-      { label: "กลุ่มเปราะบาง / ผู้ด้อยโอกาส", value: "Vulnerable Groups" },
-      { label: "หน่วยงานรัฐ หรือ ผู้กำหนดนโยบาย", value: "Policymakers" },
+      { label: t('questions.q_short_target.options.Youth / First-time voters.label'), value: "Youth / First-time voters" },
+      { label: t('questions.q_short_target.options.Local Citizens.label'), value: "Local Citizens" },
+      { label: t('questions.q_short_target.options.Vulnerable Groups.label'), value: "Vulnerable Groups" },
+      { label: t('questions.q_short_target.options.Policymakers.label'), value: "Policymakers" },
     ],
     otherOption: true,
     next: "q_short_objective",
   },
-
   q_short_objective: {
     stepGroup: 3,
-    title: "เป้าหมายหลักสูงสุดของโครงการนี้ (Objective)?",
+    title: t('questions.q_short_objective.title'),
     type: "single",
     options: [
-      { label: "สร้างความตระหนักรู้ (Awareness)", value: "Awareness" },
-      { label: "กระตุ้นให้เกิดการลงมือทำ (Call to Action)", value: "Call to Action", desc: "เช่น โหวต, สมัคร, บริจาค" },
-      { label: "ผลักดันให้เกิดการเปลี่ยนแปลงเชิงนโยบาย", value: "Policy Change" },
-      { label: "ระดมทุน (Fundraising)", value: "Fundraising" },
+      { label: t('questions.q_short_objective.options.Awareness.label'), value: "Awareness" },
+      { label: t('questions.q_short_objective.options.Call to Action.label'), value: "Call to Action", desc: t('questions.q_short_objective.options.Call to Action.desc') },
+      { label: t('questions.q_short_objective.options.Policy Change.label'), value: "Policy Change" },
+      { label: t('questions.q_short_objective.options.Fundraising.label'), value: "Fundraising" },
     ],
     otherOption: { next: "q_short_metric" },
     nextLevelFallback: "q_short_metric",
   },
-
   q_short_metric: {
     stepGroup: 3,
-    title: "ตัวชี้วัดความสำเร็จ (Key Results / OKRs)?",
-    description: "เลือกวิธีการวัดผล (สามารถเลือกได้มากกว่า 1 ข้อ)",
+    title: t('questions.q_short_metric.title'),
+    description: t('questions.q_short_metric.description'),
     type: "multiple",
     options: [
-      { label: "ยอด Reach / ยอดวิว / Engagement", value: "Social Media Engagement" },
-      { label: "จำนวนผู้เข้าร่วมงาน / อาสาสมัคร", value: "Number of Participants" },
-      { label: "จำนวนเงินที่ระดมทุนได้", value: "Funds Raised" },
-      { label: "จำนวนรายชื่อผู้สนับสนุน (Petition)", value: "Petition Signatures" },
+      { label: t('questions.q_short_metric.options.Social Media Engagement.label'), value: "Social Media Engagement" },
+      { label: t('questions.q_short_metric.options.Number of Participants.label'), value: "Number of Participants" },
+      { label: t('questions.q_short_metric.options.Funds Raised.label'), value: "Funds Raised" },
+      { label: t('questions.q_short_metric.options.Petition Signatures.label'), value: "Petition Signatures" },
     ],
     otherOption: true,
     next: "q_short_channels",
   },
-
   q_short_channels: {
     stepGroup: 3,
-    title: "ช่องทางหลักในการสื่อสาร (Deployment Channels)?",
-    description: "สามารถเลือกได้มากกว่า 1 ข้อ",
+    title: t('questions.q_short_channels.title'),
+    description: t('questions.q_short_channels.description'),
     type: "multiple",
     options: [
-      { label: "Social Media (Facebook, TikTok, X)", value: "Social Media" },
-      { label: "ลงพื้นที่จัดกิจกรรม (On-ground)", value: "On-ground" },
-      { label: "สื่อมวลชน / ข่าว / PR", value: "Mass Media" },
-      { label: "พาร์ทเนอร์ / Influencer / ผู้นำชุมชน", value: "Influencers/Partners" },
+      { label: t('questions.q_short_channels.options.Social Media.label'), value: "Social Media" },
+      { label: t('questions.q_short_channels.options.On-ground.label'), value: "On-ground" },
+      { label: t('questions.q_short_channels.options.Mass Media.label'), value: "Mass Media" },
+      { label: t('questions.q_short_channels.options.Influencers/Partners.label'), value: "Influencers/Partners" },
     ],
     next: "q_platform",
   },
-
-  // ==========================================
-  // STEP 4: ตัวอย่างสไตล์
-  // ==========================================
   q_platform: {
     stepGroup: 4,
-    title: "ช่องทางหลักที่คุณจะนำผลลัพธ์ของ AI ไปใช้งาน?",
-    description: "เพื่อกำหนด Tone of Voice และโครงสร้างเนื้อหาให้อัตโนมัติ",
+    title: t('questions.q_platform.title'),
+    description: t('questions.q_platform.description'),
     type: "single",
     options: [
-      { label: "Facebook / Meta", value: "Facebook", next: "q_sample_text", icon: <Facebook className="w-6 h-6" />, desc: "เน้นเล่าเรื่อง, แชร์ง่าย" },
-      { label: "X / Twitter", value: "X / Twitter", next: "q_sample_text", icon: <Twitter className="w-6 h-6" />, desc: "กระชับ, ไวรัลรวดเร็ว" },
-      { label: "LinkedIn", value: "LinkedIn", next: "q_sample_text", icon: <Linkedin className="w-6 h-6" />, desc: "ทางการ, เชิงธุรกิจ" },
-      { label: "Codebase / IDE", value: "Codebase / IDE", next: "q_sample_text", icon: <Code2 className="w-6 h-6" />, desc: "Cursor, GitHub Copilot" },
-      { label: "Pitch Deck", value: "Pitch Deck", next: "q_sample_text", icon: <Presentation className="w-6 h-6" />, desc: "Presentation นำเสนอ" },
+      { label: t('questions.q_platform.options.Facebook.label'), value: "Facebook", next: "q_sample_text", icon: <Facebook className="w-6 h-6" />, desc: t('questions.q_platform.options.Facebook.desc') },
+      { label: t('questions.q_platform.options.X / Twitter.label'), value: "X / Twitter", next: "q_sample_text", icon: <Twitter className="w-6 h-6" />, desc: t('questions.q_platform.options.X / Twitter.desc') },
+      { label: t('questions.q_platform.options.LinkedIn.label'), value: "LinkedIn", next: "q_sample_text", icon: <Linkedin className="w-6 h-6" />, desc: t('questions.q_platform.options.LinkedIn.desc') },
+      { label: t('questions.q_platform.options.Codebase / IDE.label'), value: "Codebase / IDE", next: "q_sample_text", icon: <Code2 className="w-6 h-6" />, desc: t('questions.q_platform.options.Codebase / IDE.desc') },
+      { label: t('questions.q_platform.options.Pitch Deck.label'), value: "Pitch Deck", next: "q_sample_text", icon: <Presentation className="w-6 h-6" />, desc: t('questions.q_platform.options.Pitch Deck.desc') },
     ],
     otherOption: { next: "q_sample_text" },
   },
-
   q_sample_text: {
     stepGroup: 4,
-    title: "วางตัวอย่างผลงาน / สไตล์การเขียน หรือ โค้ดของคุณ",
-    description: "วางบทความ โพสต์เก่า หรือโค้ดที่คุณเขียน เพื่อให้ AI ลอกเลียนแบบสไตล์ของคุณ (ถ้าไม่มี สามารถข้ามได้)",
+    title: t('questions.q_sample_text.title'),
+    description: t('questions.q_sample_text.description'),
     type: "textarea",
     next: "REVIEW",
   },
-};
+});
 
-export default questionMap;
