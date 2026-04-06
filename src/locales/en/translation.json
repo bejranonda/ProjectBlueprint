@@ -7,13 +7,29 @@
     "btn_review": "Review Results",
     "btn_download": "Download Blueprint",
     "review_title": "Blueprint Generated Successfully!",
-    "review_desc": "Review the blueprint and download it to use with your AI",
+    "review_desc": "Review the blueprint and copy/download it to use with your AI",
     "compare_tab_without": "AI without Blueprint",
     "compare_tab_with": "AI with Blueprint",
-    "compare_btn_generate": "Compare AI Results",
-    "compare_loading": "Generating from Cloudflare AI..."
+    "compare_btn_generate": "Summarize & Generate Examples with AI",
+    "compare_loading": "Generating from Cloudflare AI...",
+    "usage_title": "How to use this Blueprint for Vibe Coding",
+    "usage_desc": "Copy the markdown text below and paste it into any AI tool (e.g., Gemini, ClaudeCode, OpenCode, or CloudCowork). Start your prompt with:",
+    "usage_prompt": "Here is my project blueprint. Please use this as context to help me code/design my application...",
+    "ai_section_title": "AI Summary & Examples",
+    "ai_generating": "Generating...",
+    "ai_error": "AI service is currently unavailable or took too long. You can still copy your blueprint above and use it directly with ChatGPT, Gemini, or Claude!",
+    "ai_retry": "Retry",
+    "btn_copy": "Copy",
+    "btn_copied": "Copied!",
+    "tooltip_example": "Example:",
+    "version": "v1.1.0"
   },
   "questions": {
+    "q_project_desc": {
+      "title": "Describe your project briefly",
+      "description": "Tell us what you want to build or achieve (optional)",
+      "placeholder": "e.g., A mobile app that helps local farmers sell produce directly to consumers..."
+    },
     "q_project_type": {
       "title": "What kind of project is this?",
       "description": "Select the best framework to analyze your project",
@@ -200,6 +216,7 @@
     "instruction_title": "Instruction for AI",
     "instruction_desc": "Analyze the following sample text. When generating future content, marketing copy, or code for this project, heavily adapt to this tone, style, and structure suited for the platform.",
     "sample_content": "Sample Content / Code Style",
-    "no_sample": "No sample provided."
+    "no_sample": "No sample provided.",
+    "project_desc": "Project Description"
   }
 }

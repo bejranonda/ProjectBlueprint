@@ -7,13 +7,29 @@
     "btn_review": "Ergebnisse überprüfen",
     "btn_download": "Blueprint Herunterladen",
     "review_title": "Blueprint erfolgreich erstellt!",
-    "review_desc": "Überprüfen Sie den Blueprint und laden Sie ihn zur Verwendung mit KI herunter",
+    "review_desc": "Überprüfen Sie den Blueprint und kopieren/laden Sie ihn zur Verwendung mit KI herunter",
     "compare_tab_without": "KI ohne Blueprint",
     "compare_tab_with": "KI mit Blueprint",
-    "compare_btn_generate": "KI-Ergebnisse Vergleichen",
-    "compare_loading": "Generieren über Cloudflare AI..."
+    "compare_btn_generate": "Zusammenfassung & Beispiele mit KI erstellen",
+    "compare_loading": "Generieren über Cloudflare AI...",
+    "usage_title": "So verwenden Sie diesen Blueprint für Vibe Coding",
+    "usage_desc": "Kopieren Sie den Markdown-Text unten und fügen Sie ihn in ein KI-Tool ein (z.B. Gemini, ClaudeCode, OpenCode oder CloudCowork). Beginnen Sie Ihren Prompt mit:",
+    "usage_prompt": "Hier ist mein Projekt-Blueprint. Bitte verwenden Sie diesen als Kontext, um mir beim Programmieren/Entwerfen meiner Anwendung zu helfen...",
+    "ai_section_title": "KI-Zusammenfassung & Beispiele",
+    "ai_generating": "Wird generiert...",
+    "ai_error": "Der KI-Dienst ist derzeit nicht verfügbar oder hat zu lange gedauert. Sie können Ihren Blueprint oben trotzdem kopieren und direkt mit ChatGPT, Gemini oder Claude verwenden!",
+    "ai_retry": "Erneut versuchen",
+    "btn_copy": "Kopieren",
+    "btn_copied": "Kopiert!",
+    "tooltip_example": "Beispiel:",
+    "version": "v1.1.0"
   },
   "questions": {
+    "q_project_desc": {
+      "title": "Beschreiben Sie Ihr Projekt kurz",
+      "description": "Erzählen Sie uns, was Sie bauen oder erreichen möchten (optional)",
+      "placeholder": "z.B. Eine mobile App, die lokalen Landwirten hilft, Produkte direkt an Verbraucher zu verkaufen..."
+    },
     "q_project_type": {
       "title": "Um was für ein Projekt handelt es sich?",
       "description": "Wählen Sie das beste Framework zur Analyse Ihres Projekts",
@@ -200,6 +216,7 @@
     "instruction_title": "Anweisung für KI",
     "instruction_desc": "Analysieren Sie den folgenden Beispieltext. Wenn Sie zukünftige Inhalte, Marketing-Texte oder Code für dieses Projekt erstellen, passen Sie sich stark an diesen Ton, Stil und diese Struktur an, die für die Plattform geeignet sind.",
     "sample_content": "Beispielinhalt / Code-Stil",
-    "no_sample": "Kein Beispiel bereitgestellt."
+    "no_sample": "Kein Beispiel bereitgestellt.",
+    "project_desc": "Projektbeschreibung"
   }
 }

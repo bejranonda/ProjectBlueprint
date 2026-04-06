@@ -3,6 +3,7 @@ import OtherOptionCard from './OtherOptionCard';
 
 export default function QuestionScreen({
   currentQ,
+  currentQuestionId,
   singleValue,
   multipleValues,
   otherText,
@@ -15,6 +16,8 @@ export default function QuestionScreen({
   onTextAreaChange,
   t
 }) {
+  const isOptionalTextarea = currentQ.type === 'textarea' && currentQ.next !== 'REVIEW';
+
   return (
     <div className="flex-grow">
       <div className="text-center mb-10">
@@ -48,6 +51,7 @@ export default function QuestionScreen({
                 onSelect={() =>
                   currentQ.type === 'single' ? onSingleSelect(opt.value) : onToggleMultiple(opt.value)
                 }
+                t={t}
               />
             );
           })}
@@ -69,12 +73,15 @@ export default function QuestionScreen({
       {/* Textarea */}
       {currentQ.type === 'textarea' && (
         <div className="max-w-3xl mx-auto space-y-4">
+          {isOptionalTextarea && (
+            <p className="text-center text-sm text-slate-400 italic">({t ? t('questions.q_project_desc.description') : 'optional'})</p>
+          )}
           <textarea
             value={textValue}
             onChange={(e) => onTextAreaChange(e.target.value)}
             rows="10"
             className="w-full p-6 text-base border-2 border-slate-200 rounded-2xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none bg-slate-50 hover:bg-white text-slate-800 transition-all duration-300 leading-relaxed placeholder-slate-400 shadow-inner"
-            placeholder={t('questions.q_sample_text.placeholder')}
+            placeholder={t ? t(`questions.${currentQuestionId}.placeholder`, '') : ''}
           />
         </div>
       )}

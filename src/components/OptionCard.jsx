@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Check, Info } from 'lucide-react';
 
-export default function OptionCard({ opt, isSelected, type, onSelect }) {
+export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
   const [showInfo, setShowInfo] = useState(false);
 
   const handleInfoClick = (e) => {
@@ -70,7 +70,7 @@ export default function OptionCard({ opt, isSelected, type, onSelect }) {
 
       {(showInfo || isSelected) && opt.desc && (
         <div className={`p-3 rounded-xl text-sm leading-relaxed mb-4 relative z-10 transition-all duration-300 animate-fadeIn ${isSelected ? 'bg-white/60 text-indigo-800 border border-indigo-100' : 'bg-slate-100/80 text-slate-600 border border-slate-200'}`}>
-          <span className="block font-semibold mb-1 text-xs uppercase tracking-wider opacity-70">Example:</span>
+          <span className="block font-semibold mb-1 text-xs uppercase tracking-wider opacity-70">{t ? t('app.tooltip_example') : 'Example:'}</span>
           {opt.desc}
         </div>
       )}

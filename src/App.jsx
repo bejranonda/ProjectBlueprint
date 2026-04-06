@@ -63,6 +63,7 @@ export default function App() {
               <h1 className="text-3xl font-bold tracking-tight">
                 {t('app.title')}
               </h1>
+              <span className="text-xs font-medium bg-white/20 px-2 py-0.5 rounded-full tracking-wide">{t('app.version')}</span>
             </div>
             
             {/* Language Switcher */}
@@ -100,6 +101,7 @@ export default function App() {
           ) : (
             <QuestionScreen
               currentQ={currentQ}
+              currentQuestionId={currentQuestionId}
               singleValue={singleValue}
               multipleValues={multipleValues}
               otherText={otherText}

@@ -7,13 +7,29 @@
     "btn_review": "ดูผลลัพธ์",
     "btn_download": "ดาวน์โหลด Blueprint",
     "review_title": "สร้าง Blueprint สำเร็จแล้ว!",
-    "review_desc": "ตรวจสอบความถูกต้องและดาวน์โหลดไฟล์ไปใช้กับ AI",
+    "review_desc": "ตรวจสอบความถูกต้องและคัดลอก/ดาวน์โหลดไฟล์ไปใช้กับ AI",
     "compare_tab_without": "AI โดยไม่มี Blueprint",
     "compare_tab_with": "AI เมื่อใช้ Blueprint",
-    "compare_btn_generate": "เปรียบเทียบผลลัพธ์จาก AI",
-    "compare_loading": "กำลังสร้างตัวอย่างจาก Cloudflare AI..."
+    "compare_btn_generate": "สรุปและสร้างตัวอย่างจาก AI",
+    "compare_loading": "กำลังสร้างตัวอย่างจาก Cloudflare AI...",
+    "usage_title": "วิธีใช้ Blueprint สำหรับ Vibe Coding",
+    "usage_desc": "คัดลอกข้อความ Markdown ด้านล่างแล้ววางลงในเครื่องมือ AI (เช่น Gemini, ClaudeCode, OpenCode, หรือ CloudCowork) เริ่มพรอมต์ของคุณด้วย:",
+    "usage_prompt": "นี่คือ Blueprint โปรเจกต์ของฉัน กรุณาใช้เป็นบริบทเพื่อช่วยฉันเขียนโค้ด/ออกแบบแอปพลิเคชัน...",
+    "ai_section_title": "สรุปและตัวอย่างจาก AI",
+    "ai_generating": "กำลังสร้าง...",
+    "ai_error": "บริการ AI ไม่พร้อมใช้งานหรือใช้เวลานานเกินไป คุณยังสามารถคัดลอก Blueprint ด้านบนไปใช้กับ ChatGPT, Gemini หรือ Claude ได้โดยตรง!",
+    "ai_retry": "ลองอีกครั้ง",
+    "btn_copy": "คัดลอก",
+    "btn_copied": "คัดลอกแล้ว!",
+    "tooltip_example": "ตัวอย่าง:",
+    "version": "v1.1.0"
   },
   "questions": {
+    "q_project_desc": {
+      "title": "อธิบายโปรเจกต์ของคุณสั้นๆ",
+      "description": "บอกเราว่าคุณอยากสร้างหรือทำอะไร (ไม่บังคับ)",
+      "placeholder": "เช่น แอปมือถือที่ช่วยให้เกษตรกรท้องถิ่นขายผลผลิตตรงถึงผู้บริโภค..."
+    },
     "q_project_type": {
       "title": "โปรเจคของคุณเป็นรูปแบบไหน?",
       "description": "เพื่อเลือก Framework ที่เหมาะสมที่สุดในการวิเคราะห์",
@@ -200,6 +216,7 @@
     "instruction_title": "คำสั่งสำหรับ AI",
     "instruction_desc": "วิเคราะห์ตัวอย่างข้อความต่อไปนี้ และเมื่อสร้างเนื้อหา ให้ใช้โครงสร้างและน้ำเสียงที่เหมาะสมกับแพลตฟอร์มนี้",
     "sample_content": "ตัวอย่างเนื้อหา / โค้ดสไตล์",
-    "no_sample": "ไม่ได้ระบุตัวอย่าง"
+    "no_sample": "ไม่ได้ระบุตัวอย่าง",
+    "project_desc": "คำอธิบายโปรเจกต์"
   }
 }
