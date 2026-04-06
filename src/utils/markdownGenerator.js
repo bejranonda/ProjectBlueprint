@@ -23,6 +23,11 @@ export function generateMarkdown(answers, t) {
   let md = `# 🚀 AI Project Blueprint\n\n`;
   md += `> **${safeT('markdown.purpose_title')}:** ${safeT('markdown.purpose_desc')}\n\n`;
 
+  if (answers['q_project_desc'] && answers['q_project_desc'].value) {
+    md += `## 💡 ${safeT('markdown.project_desc') || 'Project Description'}\n`;
+    md += `${answers['q_project_desc'].value}\n\n`;
+  }
+
   md += `## 📋 1. ${safeT('markdown.project_overview')}\n`;
   md += `- **${safeT('markdown.project_type')}:** ${fmt(answers['q_project_type'])}\n`;
   if (isBusiness) {

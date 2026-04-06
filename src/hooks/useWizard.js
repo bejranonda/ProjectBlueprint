@@ -5,7 +5,7 @@ import { getQuestionMap } from '../data/questionMap';
  * Custom hook that encapsulates all wizard navigation and answer state.
  */
 export function useWizard(t) {
-  const [currentQuestionId, setCurrentQuestionId] = useState('q_project_type');
+  const [currentQuestionId, setCurrentQuestionId] = useState('q_project_desc');
   const [history, setHistory] = useState([]);
   const [answers, setAnswers] = useState({});
 
@@ -104,6 +104,7 @@ export function useWizard(t) {
 
     setHistory((prev) => [...prev, currentQuestionId]);
     setCurrentQuestionId(nextQId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentQ, singleValue, otherText, multipleValues, isOtherSelected, textValue, currentQuestionId]);
 
   const handleBack = useCallback(() => {
@@ -112,6 +113,7 @@ export function useWizard(t) {
     const prevQ = newHistory.pop();
     setHistory(newHistory);
     setCurrentQuestionId(prevQ);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [history]);
 
   const toggleMultiple = useCallback((val) => {

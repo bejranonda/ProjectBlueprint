@@ -6,15 +6,15 @@ An interactive, multilingual wizard that generates a structured **AI-ready Proje
 
 It features a brand new **Cloudflare AI Integration** letting you test side-by-side comparisons of AI output *with* vs *without* your generated blueprint!
 
-## ✨ Features
+## ✨ Features (v1.1.0)
 
-- **🌐 Multilingual Support (i18n)** — Available in English, Thai, and German.
-- **🤖 Cloudflare AI Integration** — Generate and compare AI results directly in the app.
+- **🌐 Browser Auto-detect Language (i18n)** — Available in English, Thai, and German.
+- **🚀 AI Streaming Integration** — Instantly streams a concise AI summary and practical examples based on your blueprint via Cloudflare Workers AI.
 - **🧠 Smart Branching Logic** — Questions adapt dynamically based on your project type (short-term campaign vs. long-term business).
-- **💼 Business Model Canvas (BMC)** — For long-term projects: Customer Segments, Value Propositions, Revenue Streams.
-- **🎯 Mission Model Canvas (MMC)** — For short-term projects: Beneficiaries, Objectives, OKRs, Deployment Channels.
-- **🎨 Premium Dark UI** — Modern, aesthetic interface using Tailwind CSS and glassmorphism styling.
-- **⚡ Instant Export** — Download a ready-to-use `.md` blueprint file.
+- **💼 Business / Mission Model Canvas** — Define Customer Segments, Value Propositions, Objectives, OKRs, Deployment Channels.
+- **🎨 Premium Writers UI** — Modern, clean aesthetic tailored for creative work, featuring soft palettes and glassmorphism styling.
+- **⚡ Instant Markdown Export** — Get a ready-to-use `.md` blueprint file instantaneously while the AI summarizes.
+- **✨ Intuitive Tooltips** — Actionable descriptions and real-world examples injected seamlessly into choice selection.
 
 ## 🏗️ Tech Stack
 

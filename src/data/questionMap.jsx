@@ -17,6 +17,13 @@ import {
 } from 'lucide-react';
 
 export const getQuestionMap = (t) => ({
+  q_project_desc: {
+    stepGroup: 1,
+    title: t ? t('questions.q_project_desc.title') : 'อธิบายโปรเจกต์ของคุณสั้นๆ',
+    description: t ? t('questions.q_project_desc.description') : 'อธิบายให้เราฟังว่าสิ่งที่คุณอยากทำคืออะไร',
+    type: "textarea",
+    next: "q_project_type",
+  },
   q_project_type: {
     stepGroup: 1,
     title: t('questions.q_project_type.title'),

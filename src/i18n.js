@@ -4,6 +4,10 @@ import thTranslation from './locales/th/translation.json';
 import enTranslation from './locales/en/translation.json';
 import deTranslation from './locales/de/translation.json';
 
+const browserLang = typeof navigator !== 'undefined' ? navigator.language.split('-')[0] : 'en';
+const supportedLangs = ['en', 'th', 'de'];
+const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+
 i18n
   .use(initReactI18next)
   .init({
@@ -12,10 +16,10 @@ i18n
       en: { translation: enTranslation },
       de: { translation: deTranslation }
     },
-    lng: 'th', // default language
+    lng: defaultLang,
     fallbackLng: 'en',
     interpolation: {
-      escapeValue: false // react already safes from xss
+      escapeValue: false
     }
   });
 

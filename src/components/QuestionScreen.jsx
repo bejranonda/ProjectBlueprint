@@ -18,8 +18,8 @@ export default function QuestionScreen({
   return (
     <div className="flex-grow">
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-md">{currentQ.title}</h2>
-        {currentQ.description && <p className="text-lg text-indigo-300 drop-shadow-sm">{currentQ.description}</p>}
+        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">{currentQ.title}</h2>
+        {currentQ.description && <p className="text-lg text-slate-600 font-medium">{currentQ.description}</p>}
       </div>
 
       {/* Options Grid */}
@@ -73,7 +73,7 @@ export default function QuestionScreen({
             value={textValue}
             onChange={(e) => onTextAreaChange(e.target.value)}
             rows="10"
-            className="w-full p-6 text-base border-2 border-slate-700 rounded-2xl focus:ring-0 focus:border-indigo-500 outline-none bg-slate-900/50 hover:bg-slate-800 text-slate-100 transition-colors duration-300 leading-relaxed placeholder-slate-500 shadow-inner"
+            className="w-full p-6 text-base border-2 border-slate-200 rounded-2xl focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none bg-slate-50 hover:bg-white text-slate-800 transition-all duration-300 leading-relaxed placeholder-slate-400 shadow-inner"
             placeholder={t('questions.q_sample_text.placeholder')}
           />
         </div>
