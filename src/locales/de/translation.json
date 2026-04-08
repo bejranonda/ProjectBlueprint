@@ -22,88 +22,133 @@
     "btn_copy": "Kopieren",
     "btn_copied": "Kopiert!",
     "tooltip_example": "Beispiel:",
-    "version": "v1.1.0"
+    "version": "v1.2.0"
   },
   "questions": {
     "q_project_desc": {
       "title": "Beschreiben Sie Ihr Projekt kurz",
-      "description": "Erzählen Sie uns, was Sie bauen oder erreichen möchten (optional)",
+      "description": "Erzählen Sie uns, was Sie bauen oder erreichen möchten",
       "placeholder": "z.B. Eine mobile App, die lokalen Landwirten hilft, Produkte direkt an Verbraucher zu verkaufen..."
+    },
+    "q_purpose": {
+      "title": "Wofür werden Sie diesen Blueprint verwenden?",
+      "description": "Wählen Sie Ihren Hauptzweck, damit wir die Fragen anpassen können",
+      "options": {
+        "vibe-coding": {
+          "label": "App oder Website mit KI erstellen",
+          "tags": ["Vibe Coding"],
+          "desc": "Lassen Sie KI Code für Sie schreiben mit Tools wie ClaudeCode, Cursor oder GitHub Copilot",
+          "scenario": "Sie möchten einen Online-Shop erstellen, können aber nicht programmieren. Beschreiben Sie einfach, was Sie wollen, und die KI erstellt es für Sie."
+        },
+        "business-planning": {
+          "label": "Geschäftsplan oder Erlösmodell erstellen",
+          "tags": ["Business Plan", "BMC"],
+          "desc": "Erstellen Sie einen Geschäftsplan, ein Erlösmodell oder ein Business Model Canvas",
+          "scenario": "Sie möchten ein Café eröffnen, müssen aber erst planen. Dieser Blueprint hilft Ihnen, Ihre Ideen zu strukturieren — wer sind Ihre Kunden, was verkaufen Sie, woher kommt der Umsatz."
+        },
+        "campaign-strategy": {
+          "label": "Kampagne oder Social-Strategie planen",
+          "tags": ["Campaign", "Social Impact"],
+          "desc": "Planen Sie eine Kampagne, ein Advocacy-Projekt oder eine Sozialinitiative",
+          "scenario": "Ihre NGO möchte eine Kampagne zur Plastikreduzierung starten. Sie benötigen einen Blueprint, um Strategie, Zielgruppe und Kommunikationskanäle zu organisieren."
+        },
+        "pitch-prep": {
+          "label": "Pitch Deck oder Präsentation vorbereiten",
+          "tags": ["Pitch Deck", "Investor"],
+          "desc": "Bereiten Sie Materialien für Investoren oder Führungskräfte vor",
+          "scenario": "Sie pitchen bei einem VC und benötigen einen Blueprint, der alles organisiert — von Problem und Lösung bis Marktgröße und Erlösmodell."
+        }
+      }
     },
     "q_project_type": {
       "title": "Um was für ein Projekt handelt es sich?",
       "description": "Wählen Sie das beste Framework zur Analyse Ihres Projekts",
       "options": {
-        "short-term": { "label": "Kurzfristig / Kampagne", "desc": "Fokus auf schnellen Impact in begrenzter Zeit (z.B. Wahlen, NGOs, Events)", "features": ["Nutzt Mission Model Canvas (MMC)", "Enthält OKRs zur Ergebnismessung"] },
-        "long-term": { "label": "Langfristig / Unternehmen", "desc": "Fokus auf Nachhaltigkeit und Umsatz (z.B. Startups, lokale Geschäfte)", "features": ["Nutzt Business Model Canvas (BMC)", "Fokus auf Gewinn, Verlust und Einnahmequellen"] }
+        "short-term": {
+          "label": "Kurzfristiges Projekt oder Kampagne",
+          "tags": ["Kampagne"],
+          "desc": "Fokus auf schnellen Impact in begrenzter Zeit (z.B. Wahlen, NGOs, Events)",
+          "features": ["Nutzt Mission Model Canvas (MMC)", "Enthält OKRs zur Ergebnismessung"]
+        },
+        "long-term": {
+          "label": "Langfristiges Projekt oder Unternehmen",
+          "tags": ["Business"],
+          "desc": "Fokus auf Nachhaltigkeit und Umsatz (z.B. Startups, lokale Geschäfte)",
+          "features": ["Nutzt Business Model Canvas (BMC)", "Fokus auf Gewinn, Verlust und Einnahmequellen"]
+        }
       }
     },
     "q_long_industry": {
       "title": "Was ist Ihre Hauptbranche oder Kategorie?",
       "description": "Wählen Sie die treffendste Option für Ihr Geschäft",
       "options": {
-        "Tech": { "label": "Technologie / Software", "desc": "Startups, SaaS, Mobile Apps" },
-        "OTOP": { "label": "Lokal / Handwerk", "desc": "Lokale Waren, Handwerk" },
-        "Retail": { "label": "Einzelhandel / E-Commerce", "desc": "Online-Shops, Ladengeschäfte" },
-        "Service": { "label": "Bildung / Dienstleistungen", "desc": "Kurse, Agenturen, Berater" }
+        "Tech": { "label": "Technologie oder Software", "tags": ["SaaS", "App"], "desc": "Startups, SaaS, Mobile Apps" },
+        "OTOP": { "label": "Lokal oder Handwerk", "tags": ["OTOP"], "desc": "Lokale Waren, Handwerk" },
+        "Retail": { "label": "Einzelhandel oder E-Commerce", "tags": ["E-commerce"], "desc": "Online-Shops, Ladengeschäfte" },
+        "Service": { "label": "Bildung oder Dienstleistungen", "desc": "Kurse, Agenturen, Berater" }
       }
     },
     "q_long_tech_spec": {
       "title": "Welcher Technologiebereich?",
       "options": {
-        "AI/ML": { "label": "KI & Machine Learning" },
-        "SaaS": { "label": "SaaS (Software as a Service)" },
-        "App": { "label": "Mobile Application / Web App" },
-        "Hardware": { "label": "Hardware / IoT" }
+        "AI/ML": { "label": "KI und Machine Learning", "tags": ["AI", "ML"] },
+        "SaaS": { "label": "SaaS Abo-Software", "tags": ["SaaS"] },
+        "App": { "label": "Mobile oder Web Anwendung", "tags": ["Mobile", "Web"] },
+        "Hardware": { "label": "Hardware oder IoT", "tags": ["IoT"] }
       }
     },
     "q_long_otop_spec": {
       "title": "Welche Art von lokalen Produkten?",
       "options": {
-        "Food/Beverage": { "label": "Lebensmittel / Getränke" },
-        "Clothing/Textile": { "label": "Kleidung / Textilien" },
-        "Home/Herbs": { "label": "Wohnkultur / Kräuter" }
+        "Food/Beverage": { "label": "Lebensmittel, Getränke, Verarbeitetes" },
+        "Clothing/Textile": { "label": "Kleidung, Textilien" },
+        "Home/Herbs": { "label": "Wohnkultur, Kräuter" }
       }
     },
     "q_long_retail_spec": {
       "title": "Was ist Ihr Hauptvertriebskanal?",
       "options": {
-        "Online 100%": { "label": "100% Online" },
-        "Physical Store": { "label": "Ladengeschäft (Offline)" },
-        "Omnichannel": { "label": "Omnichannel (Online + Offline)" }
+        "Online 100%": { "label": "100% Online", "tags": ["Shopee", "Lazada", "TikTok"] },
+        "Physical Store": { "label": "Ladengeschäft" },
+        "Omnichannel": { "label": "Online + Ladengeschäft", "tags": ["Omnichannel"] }
       }
     },
     "q_short_category": {
       "title": "Was ist die Hauptkategorie der Kampagne?",
       "description": "Wählen Sie, was Ihre Kampagne am besten beschreibt",
       "options": {
-        "Politics / Election": { "label": "Politik / Wahlen" },
-        "Social / Environment": { "label": "Soziales / Umwelt (NGO)" },
-        "Education Campaign": { "label": "Bildung / Aufklärung" },
-        "Event / Exhibition": { "label": "Veranstaltungen / Messen" }
+        "Politics / Election": { "label": "Politik oder Wahlen" },
+        "Social / Environment": { "label": "Soziales oder Umwelt", "tags": ["NGO"] },
+        "Education Campaign": { "label": "Bildung oder Aufklärung" },
+        "Event / Exhibition": { "label": "Veranstaltungen oder Messen" },
+        "Health / Public Safety": { "label": "Gesundheit oder Öffentliche Sicherheit", "tags": ["Health"] },
+        "Cultural / Arts": { "label": "Kultur oder Kreative Künste", "tags": ["Arts"] },
+        "Digital Rights / Privacy": { "label": "Digitale Rechte oder Datenschutz", "tags": ["Digital Rights"] }
       }
     },
     "q_long_target": {
       "title": "Wer sind Ihre primären Kundensegmente?",
       "description": "Mehrfachauswahl möglich",
       "options": {
-        "B2C Youth": { "label": "B2C - Jugendliche / Studenten" },
-        "B2C Adults/Family": { "label": "B2C - Erwachsene / Familien" },
-        "B2C Seniors": { "label": "B2C - Senioren" },
-        "B2B SME": { "label": "B2B - KMU / Kleine Firmen" },
-        "B2B Enterprise": { "label": "B2B - Großunternehmen" },
-        "B2G Government": { "label": "B2G - Regierungsbehörden" }
+        "B2C Youth": { "label": "Jugendliche und Studenten", "tags": ["B2C"] },
+        "B2C Adults/Family": { "label": "Erwachsene und Familien", "tags": ["B2C"] },
+        "B2C Seniors": { "label": "Senioren", "tags": ["B2C"] },
+        "B2C Niche/Hobbyists": { "label": "Nischeninteressen oder Hobbyisten", "tags": ["B2C", "Niche"] },
+        "B2B SME": { "label": "Kleine Unternehmen oder Läden", "tags": ["B2B", "SME"] },
+        "B2B Enterprise": { "label": "Großunternehmen", "tags": ["B2B", "Enterprise"] },
+        "B2B Freelancers": { "label": "Freiberufler oder Selbstständige", "tags": ["B2B"] },
+        "B2G Government": { "label": "Regierungsbehörden", "tags": ["B2G"] }
       }
     },
     "q_long_value": {
-      "title": "Was ist Ihr primäres Nutzenversprechen (Value Proposition)?",
+      "title": "Was ist Ihr primäres Nutzenversprechen?",
       "description": "Wählen Sie Ihr primäres Alleinstellungsmerkmal",
       "options": {
-        "Price/Value": { "label": "Günstig / Preiswert", "desc": "Kostenführerschaft" },
-        "Quality/Premium": { "label": "Hohe Qualität / Premium", "desc": "Qualitätsfokus" },
-        "Innovation": { "label": "Innovation / Neuheit", "desc": "Löst schwierige Probleme" },
-        "Convenience": { "label": "Bequemlichkeit / Benutzerfreundlichkeit", "desc": "Einfach zu bedienen" },
-        "Uniqueness": { "label": "Einzigartigkeit / Kultur", "desc": "Kulturelle Bedeutung" }
+        "Price/Value": { "label": "Kostengünstig und Bezahlbar", "tags": ["Kostenführerschaft"] },
+        "Quality/Premium": { "label": "Hohe Qualität und Premium", "tags": ["Premium"] },
+        "Innovation": { "label": "Innovation und Neuheit", "tags": ["Innovation"] },
+        "Convenience": { "label": "Bequemlichkeit und Benutzerfreundlichkeit", "tags": ["Usability"] },
+        "Uniqueness": { "label": "Einzigartigkeit und Kultur", "tags": ["Kultur"] }
       }
     },
     "q_long_revenue": {
@@ -111,70 +156,86 @@
       "description": "Mehrfachauswahl möglich",
       "options": {
         "One-time Sales": { "label": "Einmalverkäufe" },
-        "Subscription": { "label": "Abonnement / Wiederkehrend" },
-        "Commission": { "label": "Provision / Gebühr" },
-        "Advertising": { "label": "Werbung" }
+        "Subscription": { "label": "Monatliches Abonnement", "tags": ["Subscription"] },
+        "Commission": { "label": "Provision oder Gebühr" },
+        "Advertising": { "label": "Werbeeinnahmen" },
+        "Licensing/IP": { "label": "Lizenzierung oder Geistiges Eigentum", "tags": ["Licensing"] },
+        "Freemium": { "label": "Kostenlos starten, für Premium-Funktionen zahlen", "tags": ["Freemium"] },
+        "Marketplace Fees": { "label": "Marktplatz-Transaktionsgebühren", "tags": ["Marketplace"] }
       }
     },
     "q_long_activities": {
       "title": "Was sind die Schlüsselaktivitäten?",
       "description": "Primäre Aktivitäten, um das Geschäft am Laufen zu halten",
       "options": {
-        "Production": { "label": "Produktion / Herstellung" },
-        "Marketing/Sales": { "label": "Marketing & Vertrieb" },
-        "R&D": { "label": "Forschung & Entwicklung" },
+        "Production": { "label": "Produktion oder Herstellung" },
+        "Marketing/Sales": { "label": "Marketing und Vertrieb" },
+        "R&D": { "label": "Forschung und Entwicklung", "tags": ["R&D"] },
         "Customer Support": { "label": "Kundensupport" },
-        "Platform Management": { "label": "Plattform-Management" }
+        "Platform Management": { "label": "Plattform-Management" },
+        "Community Building": { "label": "Community-Aufbau", "tags": ["Community"] },
+        "Partnerships/BD": { "label": "Partnerschaften und Geschäftsentwicklung", "tags": ["BD"] }
       }
     },
     "q_short_target": {
       "title": "Wer sind die Begünstigten?",
       "description": "Mehrfachauswahl möglich",
       "options": {
-        "Youth / First-time voters": { "label": "Jugendliche / Erstwähler" },
+        "Youth / First-time voters": { "label": "Jugendliche oder Erstwähler" },
         "Local Citizens": { "label": "Lokale Bürger" },
         "Vulnerable Groups": { "label": "Schutzbedürftige Gruppen" },
-        "Policymakers": { "label": "Politische Entscheidungsträger" }
+        "Policymakers": { "label": "Politische Entscheidungsträger" },
+        "Business Community": { "label": "Wirtschaftsgemeinschaft" },
+        "Media / Journalists": { "label": "Medien oder Journalisten" },
+        "International Audience": { "label": "Internationales Publikum" }
       }
     },
     "q_short_objective": {
       "title": "Was ist das primäre Ziel?",
       "options": {
         "Awareness": { "label": "Bewusstsein schaffen" },
-        "Call to Action": { "label": "Aufruf zum Handeln (Call to Action)", "desc": "z.B. Wählen, Spenden, Bewerben" },
+        "Call to Action": { "label": "Aufruf zum Handeln", "desc": "z.B. Wählen, Spenden, Bewerben" },
         "Policy Change": { "label": "Richtungswechsel vorantreiben" },
         "Fundraising": { "label": "Fundraising" }
       }
     },
     "q_short_metric": {
-      "title": "Was sind Ihre Key Results (OKRs)?",
-      "description": "Wie messen Sie den Erfolg?",
+      "title": "Wie messen Sie den Erfolg?",
+      "description": "Wählen Sie, wie Sie Ergebnisse verfolgen (Mehrfachauswahl möglich)",
       "options": {
-        "Social Media Engagement": { "label": "Social Media Engagement" },
+        "Social Media Engagement": { "label": "Reichweite und Engagement", "tags": ["Reach", "Engagement"] },
         "Number of Participants": { "label": "Teilnehmerzahl" },
         "Funds Raised": { "label": "Gesammelte Spenden" },
-        "Petition Signatures": { "label": "Unterschriften für Petitionen" }
+        "Petition Signatures": { "label": "Petitionsunterschriften", "tags": ["Petition"] },
+        "Media Coverage": { "label": "Medienberichterstattung", "tags": ["PR", "Medien"] },
+        "Behavioral Change": { "label": "Verhaltensänderungsrate" },
+        "App Downloads": { "label": "App-Downloads oder Anmeldungen", "tags": ["Downloads", "Signups"] }
       }
     },
     "q_short_channels": {
-      "title": "Bereitstellungskanäle?",
-      "description": "Wie erreichen Sie sie?",
+      "title": "Was sind Ihre Bereitstellungskanäle?",
+      "description": "Wie erreichen Sie Ihre Zielgruppe?",
       "options": {
-        "Social Media": { "label": "Social Media (FB, X, TikTok)" },
+        "Social Media": { "label": "Social Media", "tags": ["Facebook", "TikTok", "X"] },
         "On-ground": { "label": "Vor-Ort Events" },
-        "Mass Media": { "label": "Massenmedien / PR" },
-        "Influencers/Partners": { "label": "Influencer & Partner" }
+        "Mass Media": { "label": "Massenmedien oder PR" },
+        "Influencers/Partners": { "label": "Influencer und Partner" },
+        "Community/Forums": { "label": "Online-Communities oder Foren" },
+        "Email/Newsletter": { "label": "E-Mail oder Newsletter" },
+        "Podcast/Video": { "label": "Podcast oder Video" }
       }
     },
     "q_platform": {
       "title": "Ziel-Plattform für die KI-Ausgabe?",
-      "description": "Zur Anpassung des Tons (Tone of Voice) & der Struktur",
+      "description": "Zur Anpassung des Tons und der Struktur",
       "options": {
-        "Facebook": { "label": "Facebook / Meta", "desc": "Storytelling, oft geteilt" },
-        "X / Twitter": { "label": "X / Twitter", "desc": "Prägnant, viral" },
+        "Facebook": { "label": "Facebook oder Meta", "desc": "Storytelling, oft geteilt" },
+        "X / Twitter": { "label": "X oder Twitter", "desc": "Prägnant, viral" },
         "LinkedIn": { "label": "LinkedIn", "desc": "Professionell, geschäftlich" },
-        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, GitHub Copilot" },
-        "Pitch Deck": { "label": "Pitch Deck", "desc": "Präsentationen" }
+        "Codebase / IDE": { "label": "Codebase oder IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
+        "Pitch Deck": { "label": "Pitch Deck", "desc": "Präsentationen" },
+        "YouTube / Video": { "label": "YouTube oder Video", "desc": "Videoinhalte für Tutorials oder Reviews", "tags": ["Video"] },
+        "Blog / Website": { "label": "Blog oder Website", "desc": "Langform SEO-Artikel" }
       }
     },
     "q_sample_text": {
@@ -185,16 +246,21 @@
   },
   "misc": {
     "other": "Andere...",
-    "step_1": "Projekttyp",
-    "step_2": "Kontext",
-    "step_3": "Deep Dive",
-    "step_4": "Stil / Plattform"
+    "optional_hint": "optional",
+    "view_example": "Beispiel anzeigen",
+    "scenario_heading": "Beispielszenario",
+    "step_1": "Zweck",
+    "step_2": "Projekttyp",
+    "step_3": "Kontext",
+    "step_4": "Deep Dive",
+    "step_5": "Stil/Plattform"
   },
   "markdown": {
     "purpose_title": "Zweck",
     "purpose_desc": "Master-Kontext für KI-Vibe-Coding und Projektgenerierung.",
     "project_overview": "Projektübersicht",
     "project_type": "Projekttyp",
+    "blueprint_purpose": "Blueprint-Zweck",
     "industry": "Branche / Sektor",
     "tech_spec": "Tech-Spezifikation",
     "product_type": "Produkttyp",

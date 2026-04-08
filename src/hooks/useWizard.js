@@ -5,7 +5,7 @@ import { getQuestionMap } from '../data/questionMap';
  * Custom hook that encapsulates all wizard navigation and answer state.
  */
 export function useWizard(t) {
-  const [currentQuestionId, setCurrentQuestionId] = useState('q_project_desc');
+  const [currentQuestionId, setCurrentQuestionId] = useState('q_purpose');
   const [history, setHistory] = useState([]);
   const [answers, setAnswers] = useState({});
 
@@ -18,7 +18,7 @@ export function useWizard(t) {
 
   const questionMap = useMemo(() => getQuestionMap(t), [t]);
   const currentQ = questionMap[currentQuestionId];
-  const activeStepGroup = currentQuestionId === 'REVIEW' ? 5 : (currentQ?.stepGroup || 1);
+  const activeStepGroup = currentQuestionId === 'REVIEW' ? 6 : (currentQ?.stepGroup || 1);
   const isReview = currentQuestionId === 'REVIEW';
 
   // Restore previous answer when navigating back

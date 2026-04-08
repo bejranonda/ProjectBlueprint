@@ -7,14 +7,14 @@
     "btn_review": "ดูผลลัพธ์",
     "btn_download": "ดาวน์โหลด Blueprint",
     "review_title": "สร้าง Blueprint สำเร็จแล้ว!",
-    "review_desc": "ตรวจสอบความถูกต้องและคัดลอก/ดาวน์โหลดไฟล์ไปใช้กับ AI",
+    "review_desc": "ตรวจสอบความถูกต้องและคัดลอกหรือดาวน์โหลดไฟล์ไปใช้กับ AI",
     "compare_tab_without": "AI โดยไม่มี Blueprint",
     "compare_tab_with": "AI เมื่อใช้ Blueprint",
     "compare_btn_generate": "สรุปและสร้างตัวอย่างจาก AI",
     "compare_loading": "กำลังสร้างตัวอย่างจาก Cloudflare AI...",
     "usage_title": "วิธีใช้ Blueprint สำหรับ Vibe Coding",
     "usage_desc": "คัดลอกข้อความ Markdown ด้านล่างแล้ววางลงในเครื่องมือ AI (เช่น Gemini, ClaudeCode, OpenCode, หรือ CloudCowork) เริ่มพรอมต์ของคุณด้วย:",
-    "usage_prompt": "นี่คือ Blueprint โปรเจกต์ของฉัน กรุณาใช้เป็นบริบทเพื่อช่วยฉันเขียนโค้ด/ออกแบบแอปพลิเคชัน...",
+    "usage_prompt": "นี่คือ Blueprint โปรเจกต์ของฉัน กรุณาใช้เป็นบริบทเพื่อช่วยฉันเขียนโค้ดหรือออกแบบแอปพลิเคชัน...",
     "ai_section_title": "สรุปและตัวอย่างจาก AI",
     "ai_generating": "กำลังสร้าง...",
     "ai_error": "บริการ AI ไม่พร้อมใช้งานหรือใช้เวลานานเกินไป คุณยังสามารถคัดลอก Blueprint ด้านบนไปใช้กับ ChatGPT, Gemini หรือ Claude ได้โดยตรง!",
@@ -22,179 +22,245 @@
     "btn_copy": "คัดลอก",
     "btn_copied": "คัดลอกแล้ว!",
     "tooltip_example": "ตัวอย่าง:",
-    "version": "v1.1.0"
+    "version": "v1.2.0"
   },
   "questions": {
     "q_project_desc": {
       "title": "อธิบายโปรเจกต์ของคุณสั้นๆ",
-      "description": "บอกเราว่าคุณอยากสร้างหรือทำอะไร (ไม่บังคับ)",
+      "description": "บอกเราว่าคุณอยากสร้างหรือทำอะไร",
       "placeholder": "เช่น แอปมือถือที่ช่วยให้เกษตรกรท้องถิ่นขายผลผลิตตรงถึงผู้บริโภค..."
     },
-    "q_project_type": {
-      "title": "โปรเจคของคุณเป็นรูปแบบไหน?",
-      "description": "เพื่อเลือก Framework ที่เหมาะสมที่สุดในการวิเคราะห์",
+    "q_purpose": {
+      "title": "คุณจะใช้ Blueprint นี้ทำอะไร?",
+      "description": "เลือกวัตถุประสงค์หลักเพื่อให้เราปรับคำถามให้เหมาะกับคุณ",
       "options": {
-        "short-term": { "label": "โครงการระยะสั้น / แคมเปญ", "desc": "เน้นสร้างผลกระทบ (Impact) ในเวลาที่จำกัด เช่น รณรงค์การเลือกตั้ง, โครงการเพื่อสังคม (NGOs), จัดอีเวนต์", "features": ["ใช้ Mission Model Canvas (MMC)", "เพิ่มระบบ OKRs เพื่อวัดผลลัพธ์"] },
-        "long-term": { "label": "โครงการระยะยาว / ธุรกิจ", "desc": "เน้นความยั่งยืนและการสร้างรายได้ เช่น ขายผลิตภัณฑ์ชุมชน (OTOP), สร้าง Tech Startup, เปิดร้านค้า", "features": ["ใช้ Business Model Canvas (BMC)", "เน้นวิเคราะห์กำไร ขาดทุน และกระแสรายได้"] }
+        "vibe-coding": {
+          "label": "สร้างแอปหรือเว็บไซต์ด้วย AI",
+          "tags": ["Vibe Coding"],
+          "desc": "ใช้ AI เขียนโค้ดแทนคุณ เช่น ใช้ ClaudeCode, Cursor หรือ GitHub Copilot",
+          "scenario": "คุณอยากทำเว็บขายของออนไลน์แต่เขียนโค้ดไม่เป็น ก็ใช้ AI ช่วยเขียนให้ แค่บอกว่าอยากได้เว็บแบบไหน AI ก็จะสร้างให้เลย"
+        },
+        "business-planning": {
+          "label": "วางแผนธุรกิจหรือโมเดลธุรกิจ",
+          "tags": ["Business Plan", "BMC"],
+          "desc": "สร้างแผนธุรกิจ โมเดลรายได้ หรือ Business Model Canvas",
+          "scenario": "คุณอยากเปิดร้านกาแฟ แต่ยังไม่รู้จะวางแผนยังไง ใช้ Blueprint นี้ช่วยจัดโครงสร้างความคิดให้ชัดเจน ว่าลูกค้าคือใคร ขายอะไร รายได้มาจากไหน"
+        },
+        "campaign-strategy": {
+          "label": "วางกลยุทธ์แคมเปญหรือโซเชียล",
+          "tags": ["Campaign", "Social Impact"],
+          "desc": "วางแผนแคมเปญ รณรงค์ หรือโปรเจกต์เพื่อสังคม",
+          "scenario": "ทีม NGO อยากรณรงค์ให้คนลดใช้พลาสติก ต้องการ Blueprint ที่ช่วยจัดโครงสร้างกลยุทธ์ กลุ่มเป้าหมาย และช่องทางสื่อสารให้ชัดเจน"
+        },
+        "pitch-prep": {
+          "label": "เตรียม Pitch Deck หรือเอกสารนำเสนอ",
+          "tags": ["Pitch Deck", "Investor"],
+          "desc": "เตรียมข้อมูลสำหรับนำเสนอต่อนักลงทุนหรือผู้บริหาร",
+          "scenario": "คุณจะไป Pitch ขอทุนจาก VC ต้องการ Blueprint ที่ช่วยจัดเรียงข้อมูลให้ครบ ตั้งแต่ปัญหา ทางออก ตลาด ไปจนถึงโมเดลรายได้"
+        }
+      }
+    },
+    "q_project_type": {
+      "title": "โปรเจกต์ของคุณเป็นรูปแบบไหน?",
+      "description": "เพื่อเลือกเฟรมเวิร์กที่เหมาะสมที่สุดในการวิเคราะห์",
+      "options": {
+        "short-term": {
+          "label": "โครงการระยะสั้นหรือแคมเปญ",
+          "tags": ["Campaign"],
+          "desc": "เน้นสร้างผลกระทบในเวลาจำกัด เช่น รณรงค์การเลือกตั้ง โครงการเพื่อสังคม จัดอีเวนต์",
+          "features": ["ใช้ Mission Model Canvas (MMC)", "เพิ่มระบบ OKRs เพื่อวัดผลลัพธ์"]
+        },
+        "long-term": {
+          "label": "โครงการระยะยาวหรือธุรกิจ",
+          "tags": ["Business"],
+          "desc": "เน้นความยั่งยืนและการสร้างรายได้ เช่น ขายผลิตภัณฑ์ชุมชน สร้างสตาร์ทอัพ เปิดร้านค้า",
+          "features": ["ใช้ Business Model Canvas (BMC)", "เน้นวิเคราะห์กำไร ขาดทุน และกระแสรายได้"]
+        }
       }
     },
     "q_long_industry": {
-      "title": "อุตสาหกรรมหรือหมวดหมู่ของธุรกิจคุณคืออะไร?",
+      "title": "อุตสาหกรรมหรือหมวดหมู่ของธุรกิจคืออะไร?",
       "description": "เลือกหมวดหมู่ที่ตรงกับธุรกิจของคุณมากที่สุด",
       "options": {
-        "Tech": { "label": "เทคโนโลยี / ซอฟต์แวร์", "desc": "Tech Startup, SaaS, App" },
-        "OTOP": { "label": "ธุรกิจท้องถิ่น / OTOP", "desc": "สินค้าชุมชน, งานคราฟต์" },
-        "Retail": { "label": "ค้าปลีก / E-commerce", "desc": "ขายออนไลน์, หน้าร้าน" },
-        "Service": { "label": "การศึกษา / บริการ", "desc": "คอร์สเรียน, เอเจนซี่, ที่ปรึกษา" }
+        "Tech": { "label": "เทคโนโลยีหรือซอฟต์แวร์", "tags": ["SaaS", "App"], "desc": "Tech Startup, SaaS, App" },
+        "OTOP": { "label": "ธุรกิจท้องถิ่นหรือสินค้าชุมชน", "tags": ["OTOP"], "desc": "สินค้าชุมชน, งานคราฟต์" },
+        "Retail": { "label": "ค้าปลีกหรือขายออนไลน์", "tags": ["E-commerce"], "desc": "ขายออนไลน์, หน้าร้าน" },
+        "Service": { "label": "การศึกษาหรือบริการ", "desc": "คอร์สเรียน, เอเจนซี่, ที่ปรึกษา" }
       }
     },
     "q_long_tech_spec": {
       "title": "เป็นเทคโนโลยีด้านไหน?",
       "options": {
-        "AI/ML": { "label": "AI & Machine Learning" },
-        "SaaS": { "label": "SaaS (Software as a Service)" },
-        "App": { "label": "Mobile Application / Web App" },
-        "Hardware": { "label": "Hardware / IoT" }
+        "AI/ML": { "label": "AI และ Machine Learning", "tags": ["AI", "ML"] },
+        "SaaS": { "label": "SaaS บริการซอฟต์แวร์แบบสมัครสมาชิก", "tags": ["SaaS"] },
+        "App": { "label": "แอปมือถือหรือเว็บแอป", "tags": ["Mobile", "Web"] },
+        "Hardware": { "label": "ฮาร์ดแวร์หรือ IoT", "tags": ["IoT"] }
       }
     },
     "q_long_otop_spec": {
       "title": "ประเภทสินค้า OTOP หรือสินค้าท้องถิ่นคืออะไร?",
       "options": {
-        "Food/Beverage": { "label": "อาหาร / เครื่องดื่ม / แปรรูป" },
-        "Clothing/Textile": { "label": "เสื้อผ้า / เครื่องแต่งกาย / ผ้าทอ" },
-        "Home/Herbs": { "label": "ของใช้ / ของตกแต่งบ้าน / สมุนไพร" }
+        "Food/Beverage": { "label": "อาหาร เครื่องดื่ม แปรรูป" },
+        "Clothing/Textile": { "label": "เสื้อผ้า เครื่องแต่งกาย ผ้าทอ" },
+        "Home/Herbs": { "label": "ของใช้ ของตกแต่งบ้าน สมุนไพร" }
       }
     },
     "q_long_retail_spec": {
       "title": "ช่องทางการขายหลักของคุณคืออะไร?",
       "options": {
-        "Online 100%": { "label": "ขายออนไลน์ 100% (Shopee, Lazada, TikTok)" },
-        "Physical Store": { "label": "มีหน้าร้าน (Physical Store)" },
-        "Omnichannel": { "label": "Omnichannel (ออนไลน์ร่วมกับหน้าร้าน)" }
+        "Online 100%": { "label": "ขายออนไลน์ 100%", "tags": ["Shopee", "Lazada", "TikTok"] },
+        "Physical Store": { "label": "มีหน้าร้านจริง" },
+        "Omnichannel": { "label": "ขายทั้งออนไลน์และหน้าร้าน", "tags": ["Omnichannel"] }
       }
     },
     "q_short_category": {
       "title": "หมวดหมู่ของแคมเปญหรือโครงการคืออะไร?",
       "description": "เลือกหมวดหมู่ที่ตรงกับโครงการของคุณมากที่สุด",
       "options": {
-        "Politics / Election": { "label": "การเมือง / รณรงค์การเลือกตั้ง" },
-        "Social / Environment": { "label": "เพื่อสังคม / สิ่งแวดล้อม (NGO)" },
-        "Education Campaign": { "label": "การศึกษา / ให้ความรู้" },
-        "Event / Exhibition": { "label": "อีเวนต์ / งานจัดแสดง" }
+        "Politics / Election": { "label": "การเมืองหรือรณรงค์การเลือกตั้ง" },
+        "Social / Environment": { "label": "เพื่อสังคมหรือสิ่งแวดล้อม", "tags": ["NGO"] },
+        "Education Campaign": { "label": "การศึกษาหรือให้ความรู้" },
+        "Event / Exhibition": { "label": "อีเวนต์หรืองานจัดแสดง" },
+        "Health / Public Safety": { "label": "สาธารณสุขหรือความปลอดภัย", "tags": ["Health"] },
+        "Cultural / Arts": { "label": "ศิลปะวัฒนธรรมหรือสร้างสรรค์", "tags": ["Arts"] },
+        "Digital Rights / Privacy": { "label": "สิทธิดิจิทัลหรือความเป็นส่วนตัว", "tags": ["Digital Rights"] }
       }
     },
     "q_long_target": {
-      "title": "ใครคือกลุ่มลูกค้าเป้าหมายหลัก (Customer Segments)?",
+      "title": "กลุ่มลูกค้าเป้าหมายหลักคือใคร?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "B2C Youth": { "label": "B2C - กลุ่มวัยรุ่น / นักศึกษา" },
-        "B2C Adults/Family": { "label": "B2C - กลุ่มวัยทำงาน / ครอบครัว" },
-        "B2C Seniors": { "label": "B2C - ผู้สูงอายุ" },
-        "B2B SME": { "label": "B2B - ธุรกิจขนาดเล็ก (SME) / ร้านค้า" },
-        "B2B Enterprise": { "label": "B2B - องค์กรขนาดใหญ่ (Enterprise)" },
-        "B2G Government": { "label": "B2G - หน่วยงานรัฐบาล" }
+        "B2C Youth": { "label": "กลุ่มวัยรุ่นและนักศึกษา", "tags": ["B2C"] },
+        "B2C Adults/Family": { "label": "กลุ่มวัยทำงานและครอบครัว", "tags": ["B2C"] },
+        "B2C Seniors": { "label": "ผู้สูงอายุ", "tags": ["B2C"] },
+        "B2C Niche/Hobbyists": { "label": "กลุ่มผู้สนใจเฉพาะทางหรืองานอดิเรก", "tags": ["B2C", "Niche"] },
+        "B2B SME": { "label": "ธุรกิจขนาดเล็กหรือร้านค้า", "tags": ["B2B", "SME"] },
+        "B2B Enterprise": { "label": "องค์กรขนาดใหญ่", "tags": ["B2B", "Enterprise"] },
+        "B2B Freelancers": { "label": "ฟรีแลนซ์หรือผู้รับจ้างอิสระ", "tags": ["B2B"] },
+        "B2G Government": { "label": "หน่วยงานรัฐบาล", "tags": ["B2G"] }
       }
     },
     "q_long_value": {
-      "title": "จุดเด่นที่ทำให้ลูกค้าต้องเลือกคุณ (Value Proposition)?",
+      "title": "จุดเด่นที่ทำให้ลูกค้าต้องเลือกคุณ?",
       "description": "เลือกจุดเด่นหลักเพียง 1 ข้อ (หรือพิมพ์เพิ่ม)",
       "options": {
-        "Price/Value": { "label": "ราคาคุ้มค่า / ถูกกว่าตลาด", "desc": "Cost Leadership" },
-        "Quality/Premium": { "label": "คุณภาพสูง / พรีเมียม", "desc": "High Quality" },
-        "Innovation": { "label": "นวัตกรรม / แก้ปัญหาที่ไม่มีใครแก้ได้", "desc": "Tech/Innovation" },
-        "Convenience": { "label": "ความสะดวกสบาย / ใช้งานง่าย", "desc": "Usability" },
-        "Uniqueness": { "label": "ความเป็นเอกลักษณ์ / วัฒนธรรม", "desc": "Culture/Art" }
+        "Price/Value": { "label": "ราคาคุ้มค่า ถูกกว่าตลาด", "tags": ["Cost Leadership"] },
+        "Quality/Premium": { "label": "คุณภาพสูง ระดับพรีเมียม", "tags": ["Premium"] },
+        "Innovation": { "label": "นวัตกรรม แก้ปัญหาที่ไม่มีใครแก้ได้", "tags": ["Innovation"] },
+        "Convenience": { "label": "สะดวกสบาย ใช้งานง่าย", "tags": ["Usability"] },
+        "Uniqueness": { "label": "เป็นเอกลักษณ์ มีเอกลักษณ์ทางวัฒนธรรม", "tags": ["Culture"] }
       }
     },
     "q_long_revenue": {
-      "title": "โมเดลการสร้างรายได้ (Revenue Streams)?",
+      "title": "โมเดลการสร้างรายได้คืออะไร?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "One-time Sales": { "label": "ขายขาด (One-time Sales)" },
-        "Subscription": { "label": "เก็บค่าสมาชิก (Subscription / Recurring)" },
-        "Commission": { "label": "ส่วนแบ่งรายได้ / ค่าคอมมิชชั่น (Commission / Fee)" },
-        "Advertising": { "label": "รายได้จากโฆษณา (Advertising)" }
+        "One-time Sales": { "label": "ขายขาด" },
+        "Subscription": { "label": "เก็บค่าสมาชิกรายเดือน", "tags": ["Subscription"] },
+        "Commission": { "label": "ส่วนแบ่งรายได้หรือค่าคอมมิชชั่น" },
+        "Advertising": { "label": "รายได้จากโฆษณา" },
+        "Licensing/IP": { "label": "ขายลิขสิทธิ์หรือสิทธิการใช้งาน", "tags": ["Licensing"] },
+        "Freemium": { "label": "ใช้ฟรีก่อน จ่ายเพิ่มสำหรับฟีเจอร์พิเศษ", "tags": ["Freemium"] },
+        "Marketplace Fees": { "label": "เก็บค่าธรรมเนียมจากแพลตฟอร์ม", "tags": ["Marketplace"] }
       }
     },
     "q_long_activities": {
       "title": "กิจกรรมหลักที่ต้องทำเพื่อให้ธุรกิจเดินหน้า?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "Production": { "label": "การผลิต / สร้างสินค้า" },
+        "Production": { "label": "ผลิตหรือสร้างสินค้า" },
         "Marketing/Sales": { "label": "การตลาดและการขาย" },
-        "R&D": { "label": "การวิจัยและพัฒนา (R&D)" },
-        "Customer Support": { "label": "บริการหลังการขาย / ซัพพอร์ต" },
-        "Platform Management": { "label": "ดูแลและพัฒนาแพลตฟอร์ม" }
+        "R&D": { "label": "วิจัยและพัฒนา", "tags": ["R&D"] },
+        "Customer Support": { "label": "บริการหลังการขายหรือซัพพอร์ต" },
+        "Platform Management": { "label": "ดูแลและพัฒนาแพลตฟอร์ม" },
+        "Community Building": { "label": "สร้างชุมชนผู้ใช้งาน", "tags": ["Community"] },
+        "Partnerships/BD": { "label": "หาพาร์ทเนอร์หรือขยายธุรกิจ", "tags": ["BD"] }
       }
     },
     "q_short_target": {
-      "title": "ผู้ได้รับประโยชน์ (Beneficiaries) คือใคร?",
+      "title": "ผู้ได้รับประโยชน์คือใคร?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "Youth / First-time voters": { "label": "คนรุ่นใหม่ / First-time voters" },
+        "Youth / First-time voters": { "label": "คนรุ่นใหม่หรือผู้มีสิทธิเลือกตั้งครั้งแรก" },
         "Local Citizens": { "label": "ประชาชนทั่วไปในพื้นที่เฉพาะ" },
-        "Vulnerable Groups": { "label": "กลุ่มเปราะบาง / ผู้ด้อยโอกาส" },
-        "Policymakers": { "label": "หน่วยงานรัฐ หรือ ผู้กำหนดนโยบาย" }
+        "Vulnerable Groups": { "label": "กลุ่มเปราะบางหรือผู้ด้อยโอกาส" },
+        "Policymakers": { "label": "หน่วยงานรัฐหรือผู้กำหนดนโยบาย" },
+        "Business Community": { "label": "กลุ่มผู้ประกอบการหรือภาคธุรกิจ" },
+        "Media / Journalists": { "label": "สื่อมวลชนหรือนักข่าว" },
+        "International Audience": { "label": "ผู้ชมหรือผู้ใช้งานต่างชาติ" }
       }
     },
     "q_short_objective": {
-      "title": "เป้าหมายหลักสูงสุดของโครงการนี้ (Objective)?",
+      "title": "เป้าหมายหลักสูงสุดของโครงการนี้คืออะไร?",
       "options": {
-        "Awareness": { "label": "สร้างความตระหนักรู้ (Awareness)" },
-        "Call to Action": { "label": "กระตุ้นให้เกิดการลงมือทำ (Call to Action)", "desc": "เช่น โหวต, สมัคร, บริจาค" },
+        "Awareness": { "label": "สร้างความตระหนักรู้" },
+        "Call to Action": { "label": "กระตุ้นให้เกิดการลงมือทำ", "desc": "เช่น โหวต, สมัคร, บริจาค" },
         "Policy Change": { "label": "ผลักดันให้เกิดการเปลี่ยนแปลงเชิงนโยบาย" },
-        "Fundraising": { "label": "ระดมทุน (Fundraising)" }
+        "Fundraising": { "label": "ระดมทุน" }
       }
     },
     "q_short_metric": {
-      "title": "ตัวชี้วัดความสำเร็จ (Key Results / OKRs)?",
+      "title": "วัดผลสำเร็จของโครงการอย่างไร?",
       "description": "เลือกวิธีการวัดผล (สามารถเลือกได้มากกว่า 1 ข้อ)",
       "options": {
-        "Social Media Engagement": { "label": "ยอด Reach / ยอดวิว / Engagement" },
-        "Number of Participants": { "label": "จำนวนผู้เข้าร่วมงาน / อาสาสมัคร" },
+        "Social Media Engagement": { "label": "ยอดเข้าถึงและการมีส่วนร่วม", "tags": ["Reach", "Engagement"] },
+        "Number of Participants": { "label": "จำนวนผู้เข้าร่วมงานหรืออาสาสมัคร" },
         "Funds Raised": { "label": "จำนวนเงินที่ระดมทุนได้" },
-        "Petition Signatures": { "label": "จำนวนรายชื่อผู้สนับสนุน (Petition)" }
+        "Petition Signatures": { "label": "จำนวนรายชื่อผู้สนับสนุน", "tags": ["Petition"] },
+        "Media Coverage": { "label": "จำนวนข่าวหรือสื่อที่พูดถึง", "tags": ["PR", "Media"] },
+        "Behavioral Change": { "label": "อัตราการเปลี่ยนแปลงพฤติกรรม" },
+        "App Downloads": { "label": "ยอดดาวน์โหลดแอปหรือสมัครใช้งาน", "tags": ["Downloads", "Signups"] }
       }
     },
     "q_short_channels": {
-      "title": "ช่องทางหลักในการสื่อสาร (Deployment Channels)?",
+      "title": "ช่องทางหลักในการสื่อสารคืออะไร?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "Social Media": { "label": "Social Media (Facebook, TikTok, X)" },
-        "On-ground": { "label": "ลงพื้นที่จัดกิจกรรม (On-ground)" },
-        "Mass Media": { "label": "สื่อมวลชน / ข่าว / PR" },
-        "Influencers/Partners": { "label": "พาร์ทเนอร์ / Influencer / ผู้นำชุมชน" }
+        "Social Media": { "label": "โซเชียลมีเดีย", "tags": ["Facebook", "TikTok", "X"] },
+        "On-ground": { "label": "ลงพื้นที่จัดกิจกรรม" },
+        "Mass Media": { "label": "สื่อมวลชน ข่าว หรือ PR" },
+        "Influencers/Partners": { "label": "พาร์ทเนอร์ อินฟลูเอนเซอร์ หรือผู้นำชุมชน" },
+        "Community/Forums": { "label": "ชุมชนออนไลน์หรือฟอรั่ม" },
+        "Email/Newsletter": { "label": "อีเมลหรือจดหมายข่าว" },
+        "Podcast/Video": { "label": "พอดแคสต์หรือวิดีโอ" }
       }
     },
     "q_platform": {
       "title": "ช่องทางหลักที่คุณจะนำผลลัพธ์ของ AI ไปใช้งาน?",
-      "description": "เพื่อกำหนด Tone of Voice และโครงสร้างเนื้อหาให้อัตโนมัติ",
+      "description": "เพื่อกำหนดรูปแบบและโครงสร้างเนื้อหาให้อัตโนมัติ",
       "options": {
-        "Facebook": { "label": "Facebook / Meta", "desc": "เน้นเล่าเรื่อง, แชร์ง่าย" },
-        "X / Twitter": { "label": "X / Twitter", "desc": "กระชับ, ไวรัลรวดเร็ว" },
-        "LinkedIn": { "label": "LinkedIn", "desc": "ทางการ, เชิงธุรกิจ" },
-        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, GitHub Copilot" },
-        "Pitch Deck": { "label": "Pitch Deck", "desc": "Presentation นำเสนอ" }
+        "Facebook": { "label": "Facebook หรือ Meta", "desc": "เน้นเล่าเรื่อง แชร์ง่าย" },
+        "X / Twitter": { "label": "X หรือ Twitter", "desc": "กระชับ ไวรัลรวดเร็ว" },
+        "LinkedIn": { "label": "LinkedIn", "desc": "ทางการ เชิงธุรกิจ" },
+        "Codebase / IDE": { "label": "Codebase หรือ IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
+        "Pitch Deck": { "label": "Pitch Deck", "desc": "งานนำเสนอ" },
+        "YouTube / Video": { "label": "YouTube หรือวิดีโอ", "desc": "เนื้อหาวิดีโอสำหรับสอนหรือรีวิว", "tags": ["Video"] },
+        "Blog / Website": { "label": "บล็อกหรือเว็บไซต์", "desc": "บทความ SEO เนื้อหายาว" }
       }
     },
     "q_sample_text": {
-      "title": "วางตัวอย่างผลงาน / สไตล์การเขียน หรือ โค้ดของคุณ",
-      "description": "วางบทความ โพสต์เก่า หรือโค้ดที่คุณเขียน เพื่อให้ AI ลอกเลียนแบบสไตล์ของคุณ (ถ้าไม่มี สามารถข้ามได้)",
+      "title": "วางตัวอย่างผลงาน สไตล์การเขียน หรือโค้ดของคุณ",
+      "description": "วางบทความ โพสต์เก่า หรือโค้ดที่คุณเขียน เพื่อให้ AI เลียนแบบสไตล์ของคุณ (ถ้าไม่มี สามารถข้ามได้)",
       "placeholder": "วางข้อความของคุณที่นี่..."
     }
   },
   "misc": {
     "other": "ระบุเอง...",
-    "step_1": "ประเภทโครงการ",
-    "step_2": "บริบทธุรกิจ",
-    "step_3": "เจาะลึกโมเดล",
-    "step_4": "สไตล์ผลลัพธ์"
+    "optional_hint": "ไม่บังคับ",
+    "view_example": "ดูตัวอย่าง",
+    "scenario_heading": "สถานการณ์ตัวอย่าง",
+    "step_1": "วัตถุประสงค์",
+    "step_2": "ประเภทโครงการ",
+    "step_3": "บริบทธุรกิจ",
+    "step_4": "เจาะลึกโมเดล",
+    "step_5": "สไตล์ผลลัพธ์"
   },
   "markdown": {
     "purpose_title": "จุดประสงค์",
     "purpose_desc": "บริบทหลักสำหรับ AI ในการสร้างผลงาน (Vibe-Coding)",
     "project_overview": "ภาพรวมโครงการ",
     "project_type": "ประเภทโครงการ",
+    "blueprint_purpose": "วัตถุประสงค์ของ Blueprint",
     "industry": "อุตสาหกรรม",
     "tech_spec": "ความเชี่ยวชาญด้านเทคโนโลยี",
     "product_type": "ประเภทสินค้า",
@@ -207,7 +273,7 @@
     "key_activities": "กิจกรรมหลัก (Key Activities)",
     "revenue_streams": "โมเดลรายได้ (Revenue Streams)",
     "impact": "ผลกระทบและผู้ได้รับประโยชน์ (Impact & Beneficiaries)",
-    "beneficiaries": "กลุ่มเป้าหมาย/ผู้รับประโยชน์ (Beneficiaries)",
+    "beneficiaries": "กลุ่มเป้าหมายหรือผู้รับประโยชน์ (Beneficiaries)",
     "objective": "เป้าหมายสูงสุด (Objective)",
     "deployment_channels": "ช่องทางการสื่อสาร (Deployment Channels)",
     "key_results": "ตัวชี้วัดความสำเร็จ",
@@ -215,7 +281,7 @@
     "platform": "แพลตฟอร์มเป้าหมาย",
     "instruction_title": "คำสั่งสำหรับ AI",
     "instruction_desc": "วิเคราะห์ตัวอย่างข้อความต่อไปนี้ และเมื่อสร้างเนื้อหา ให้ใช้โครงสร้างและน้ำเสียงที่เหมาะสมกับแพลตฟอร์มนี้",
-    "sample_content": "ตัวอย่างเนื้อหา / โค้ดสไตล์",
+    "sample_content": "ตัวอย่างเนื้อหาหรือโค้ดสไตล์",
     "no_sample": "ไม่ได้ระบุตัวอย่าง",
     "project_desc": "คำอธิบายโปรเจกต์"
   }

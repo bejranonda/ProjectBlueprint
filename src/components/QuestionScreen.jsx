@@ -74,7 +74,7 @@ export default function QuestionScreen({
       {currentQ.type === 'textarea' && (
         <div className="max-w-3xl mx-auto space-y-4">
           {isOptionalTextarea && (
-            <p className="text-center text-sm text-slate-400 italic">({t ? t('questions.q_project_desc.description') : 'optional'})</p>
+            <p className="text-center text-sm text-slate-400 italic">({t ? t('misc.optional_hint') : 'optional'})</p>
           )}
           <textarea
             value={textValue}

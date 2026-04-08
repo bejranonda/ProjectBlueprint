@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { LayoutTemplate, ArrowLeft, ChevronRight, Download, Globe } from 'lucide-react';
+import { LayoutTemplate, ArrowLeft, ChevronRight, Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useWizard } from './hooks/useWizard';
 import { downloadMarkdown } from './utils/markdownGenerator';
 import StepTracker from './components/StepTracker';
 import QuestionScreen from './components/QuestionScreen';
 import ReviewScreen from './components/ReviewScreen';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import './i18n';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -48,10 +50,6 @@ export default function App() {
     }
   };
 
-  const handleLanguageChange = (e) => {
-    i18n.changeLanguage(e.target.value);
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans pb-16 selection:bg-indigo-500/30">
       {/* Header */}
@@ -67,18 +65,10 @@ export default function App() {
             </div>
             
             {/* Language Switcher */}
-            <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-1.5 border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-colors">
-              <Globe className="w-4 h-4 text-indigo-100" />
-              <select 
-                onChange={handleLanguageChange} 
-                value={i18n.language}
-                className="bg-transparent text-sm font-medium text-white outline-none cursor-pointer focus:ring-0 [&>option]:bg-white [&>option]:text-slate-800"
-              >
-                <option value="th">ไทย</option>
-                <option value="en">English</option>
-                <option value="de">Deutsch</option>
-              </select>
-            </div>
+            <LanguageSwitcher
+              currentLang={i18n.language}
+              onChangeLang={(code) => i18n.changeLanguage(code)}
+            />
           </div>
           <p className="text-indigo-100 text-base max-w-2xl font-medium mt-2">
             {t('app.subtitle')}

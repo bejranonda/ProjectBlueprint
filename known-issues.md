@@ -11,3 +11,9 @@
 
 4. **Browser Language Detection:**
    The app auto-detects browser language (en, th, de). If the browser language is not one of those three, it falls back to English.
+
+5. **Flag Emoji Rendering:**
+   Flag emojis in the LanguageSwitcher (TH, US, DE) may render differently across operating systems and browsers. Windows may show two-letter country codes instead of flag images. The language name is always displayed alongside the flag as a fallback.
+
+6. **Tags Returned as Arrays:**
+   The `tagHelper()` function in `questionMap.jsx` uses `i18next`'s `returnObjects: true` to get tag arrays. If a translation key is missing or returns a non-array value, it gracefully falls back to an empty array. Always ensure tag keys exist in all locale files.

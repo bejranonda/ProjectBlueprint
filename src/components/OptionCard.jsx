@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Check, Info } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
-  const [showInfo, setShowInfo] = useState(false);
+  const [showScenario, setShowScenario] = useState(false);
 
-  const handleInfoClick = (e) => {
+  const handleScenarioToggle = (e) => {
     e.stopPropagation();
-    setShowInfo(!showInfo);
+    setShowScenario(!showScenario);
   };
 
   return (
@@ -19,7 +19,7 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
       }`}
     >
       <div className={`absolute inset-0 bg-gradient-to-br from-indigo-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${isSelected ? 'opacity-100' : ''}`}></div>
-      
+
       {/* Top Check Indicator */}
       <div className="absolute top-6 right-6 z-10">
         {type === 'single' ? (
@@ -41,6 +41,7 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
         )}
       </div>
 
+      {/* Icon */}
       <div className="flex items-center gap-3 relative z-10 mb-4">
         {opt.icon && (
           <div
@@ -53,28 +54,61 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
         )}
       </div>
 
+      {/* Label + View Example link */}
       <div className="flex items-center gap-2 mb-2 relative z-10">
         <h3 className={`text-xl font-bold transition-colors duration-300 ${isSelected ? 'text-indigo-900' : 'text-slate-800'}`}>
           {opt.label}
         </h3>
-        {opt.desc && (
-          <button 
-            onClick={handleInfoClick} 
-            className={`p-1 rounded-full transition-colors ${showInfo || isSelected ? 'text-indigo-500 bg-indigo-100' : 'text-slate-400 bg-slate-100 hover:bg-slate-200 hover:text-slate-600'}`}
-            title="Show examples"
-          >
-            <Info className="w-4 h-4" />
-          </button>
-        )}
       </div>
 
-      {(showInfo || isSelected) && opt.desc && (
-        <div className={`p-3 rounded-xl text-sm leading-relaxed mb-4 relative z-10 transition-all duration-300 animate-fadeIn ${isSelected ? 'bg-white/60 text-indigo-800 border border-indigo-100' : 'bg-slate-100/80 text-slate-600 border border-slate-200'}`}>
+      {/* Tags */}
+      {opt.tags && opt.tags.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mb-3 relative z-10">
+          {opt.tags.map((tag) => (
+            <span
+              key={tag}
+              className={`text-xs font-medium px-2 py-0.5 rounded-full transition-colors duration-300 ${
+                isSelected
+                  ? 'bg-indigo-100 text-indigo-700 border border-indigo-200'
+                  : 'bg-slate-100 text-slate-500 border border-slate-200'
+              }`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Description (auto-show when selected) */}
+      {isSelected && opt.desc && (
+        <div className="p-3 rounded-xl text-sm leading-relaxed mb-3 relative z-10 bg-white/60 text-indigo-800 border border-indigo-100 animate-fadeIn">
           <span className="block font-semibold mb-1 text-xs uppercase tracking-wider opacity-70">{t ? t('app.tooltip_example') : 'Example:'}</span>
           {opt.desc}
         </div>
       )}
 
+      {/* View Example toggle */}
+      {opt.desc && !isSelected && (
+        <button
+          onClick={handleScenarioToggle}
+          className="flex items-center gap-1 text-sm font-medium text-indigo-500 hover:text-indigo-700 transition-colors relative z-10 mb-2 group/btn"
+        >
+          {showScenario ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          {t ? t('misc.view_example') : 'View Example'}
+        </button>
+      )}
+
+      {/* Expandable scenario panel */}
+      {showScenario && !isSelected && (
+        <div className="p-4 rounded-xl text-sm leading-relaxed mb-3 relative z-10 bg-amber-50 text-amber-900 border-l-4 border-amber-400 animate-fadeIn">
+          <span className="block font-bold mb-1.5 text-amber-700">
+            {t ? t('misc.scenario_heading') : 'Example Scenario'}:
+          </span>
+          {opt.desc}
+        </div>
+      )}
+
+      {/* Features list */}
       {opt.features && (
         <div className="mt-auto pt-4 space-y-2 relative z-10 border-t border-slate-100">
           {opt.features.map((feat, idx) => (
