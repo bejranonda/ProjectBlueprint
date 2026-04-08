@@ -17,7 +17,8 @@
     "usage_prompt": "Hier ist mein Projekt-Blueprint. Bitte verwenden Sie diesen als Kontext, um mir beim Programmieren/Entwerfen meiner Anwendung zu helfen...",
     "ai_section_title": "KI-Zusammenfassung & Beispiele",
     "ai_generating": "Wird generiert...",
-    "ai_error": "Der KI-Dienst ist derzeit nicht verfügbar oder hat zu lange gedauert. Sie können Ihren Blueprint oben trotzdem kopieren und direkt mit ChatGPT, Gemini oder Claude verwenden!",
+    "ai_error": "KI-Dienst Timeout. Bitte kopieren Sie Ihren Blueprint und verwenden Sie ihn direkt mit ChatGPT, Gemini oder Claude!",
+    "ai_error_network": "Verbindung zum KI-Dienst fehlgeschlagen. Bitte kopieren Sie Ihren Blueprint und verwenden Sie ihn direkt mit ChatGPT, Gemini oder Claude!",
     "ai_retry": "Erneut versuchen",
     "btn_copy": "Kopieren",
     "btn_copied": "Kopiert!",
@@ -82,31 +83,34 @@
       "title": "Was ist Ihre Hauptbranche oder Kategorie?",
       "description": "Wählen Sie die treffendste Option für Ihr Geschäft",
       "options": {
-        "Tech": { "label": "Technologie oder Software", "tags": ["SaaS", "App"], "desc": "Startups, SaaS, Mobile Apps" },
-        "OTOP": { "label": "Lokal oder Handwerk", "tags": ["OTOP"], "desc": "Lokale Waren, Handwerk" },
-        "Retail": { "label": "Einzelhandel oder E-Commerce", "tags": ["E-commerce"], "desc": "Online-Shops, Ladengeschäfte" },
-        "Service": { "label": "Bildung oder Dienstleistungen", "desc": "Kurse, Agenturen, Berater" }
+        "Tech": { "label": "Technologie / Software", "tags": ["SaaS", "App"], "desc": "Startups, SaaS, Mobile Apps" },
+        "OTOP": { "label": "Lokal / Handwerk", "tags": ["OTOP"], "desc": "Lokale Waren, Handwerk" },
+        "Retail": { "label": "Einzelhandel / E-Commerce", "tags": ["E-commerce"], "desc": "Online-Shops, Ladengeschäfte" },
+        "Service": { "label": "Bildung / Dienstleistungen", "desc": "Kurse, Agenturen, Berater" }
       }
     },
     "q_long_tech_spec": {
       "title": "Welcher Technologiebereich?",
+      "description": "Mehrfachauswahl möglich",
       "options": {
-        "AI/ML": { "label": "KI und Machine Learning", "tags": ["AI", "ML"] },
+        "AI/ML": { "label": "KI & Machine Learning", "tags": ["AI", "ML"] },
         "SaaS": { "label": "SaaS Abo-Software", "tags": ["SaaS"] },
-        "App": { "label": "Mobile oder Web Anwendung", "tags": ["Mobile", "Web"] },
-        "Hardware": { "label": "Hardware oder IoT", "tags": ["IoT"] }
+        "App": { "label": "Mobile / Web Anwendung", "tags": ["Mobile", "Web"] },
+        "Hardware": { "label": "Hardware / IoT", "tags": ["IoT"] }
       }
     },
     "q_long_otop_spec": {
       "title": "Welche Art von lokalen Produkten?",
+      "description": "Mehrfachauswahl möglich",
       "options": {
-        "Food/Beverage": { "label": "Lebensmittel, Getränke, Verarbeitetes" },
-        "Clothing/Textile": { "label": "Kleidung, Textilien" },
-        "Home/Herbs": { "label": "Wohnkultur, Kräuter" }
+        "Food/Beverage": { "label": "Lebensmittel & Getränke" },
+        "Clothing/Textile": { "label": "Kleidung & Textilien" },
+        "Home/Herbs": { "label": "Wohnkultur & Kräuter" }
       }
     },
     "q_long_retail_spec": {
       "title": "Was ist Ihr Hauptvertriebskanal?",
+      "description": "Mehrfachauswahl möglich",
       "options": {
         "Online 100%": { "label": "100% Online", "tags": ["Shopee", "Lazada", "TikTok"] },
         "Physical Store": { "label": "Ladengeschäft" },
@@ -117,38 +121,38 @@
       "title": "Was ist die Hauptkategorie der Kampagne?",
       "description": "Wählen Sie, was Ihre Kampagne am besten beschreibt",
       "options": {
-        "Politics / Election": { "label": "Politik oder Wahlen" },
-        "Social / Environment": { "label": "Soziales oder Umwelt", "tags": ["NGO"] },
-        "Education Campaign": { "label": "Bildung oder Aufklärung" },
-        "Event / Exhibition": { "label": "Veranstaltungen oder Messen" },
-        "Health / Public Safety": { "label": "Gesundheit oder Öffentliche Sicherheit", "tags": ["Health"] },
-        "Cultural / Arts": { "label": "Kultur oder Kreative Künste", "tags": ["Arts"] },
-        "Digital Rights / Privacy": { "label": "Digitale Rechte oder Datenschutz", "tags": ["Digital Rights"] }
+        "Politics / Election": { "label": "Politik / Wahlen" },
+        "Social / Environment": { "label": "Soziales / Umwelt", "tags": ["NGO"] },
+        "Education Campaign": { "label": "Bildung / Aufklärung" },
+        "Event / Exhibition": { "label": "Veranstaltungen / Messen" },
+        "Health / Public Safety": { "label": "Gesundheit / Öffentliche Sicherheit", "tags": ["Health"] },
+        "Cultural / Arts": { "label": "Kultur / Kreative Künste", "tags": ["Arts"] },
+        "Digital Rights / Privacy": { "label": "Digitale Rechte / Datenschutz", "tags": ["Digital Rights"] }
       }
     },
     "q_long_target": {
       "title": "Wer sind Ihre primären Kundensegmente?",
       "description": "Mehrfachauswahl möglich",
       "options": {
-        "B2C Youth": { "label": "Jugendliche und Studenten", "tags": ["B2C"] },
-        "B2C Adults/Family": { "label": "Erwachsene und Familien", "tags": ["B2C"] },
+        "B2C Youth": { "label": "Jugendliche & Studenten", "tags": ["B2C"] },
+        "B2C Adults/Family": { "label": "Erwachsene & Familien", "tags": ["B2C"] },
         "B2C Seniors": { "label": "Senioren", "tags": ["B2C"] },
-        "B2C Niche/Hobbyists": { "label": "Nischeninteressen oder Hobbyisten", "tags": ["B2C", "Niche"] },
-        "B2B SME": { "label": "Kleine Unternehmen oder Läden", "tags": ["B2B", "SME"] },
+        "B2C Niche/Hobbyists": { "label": "Nischeninteressen / Hobbyisten", "tags": ["B2C", "Niche"] },
+        "B2B SME": { "label": "Kleine Unternehmen / Läden", "tags": ["B2B", "SME"] },
         "B2B Enterprise": { "label": "Großunternehmen", "tags": ["B2B", "Enterprise"] },
-        "B2B Freelancers": { "label": "Freiberufler oder Selbstständige", "tags": ["B2B"] },
+        "B2B Freelancers": { "label": "Freiberufler / Selbstständige", "tags": ["B2B"] },
         "B2G Government": { "label": "Regierungsbehörden", "tags": ["B2G"] }
       }
     },
     "q_long_value": {
       "title": "Was ist Ihr primäres Nutzenversprechen?",
-      "description": "Wählen Sie Ihr primäres Alleinstellungsmerkmal",
+      "description": "Mehrfachauswahl möglich",
       "options": {
-        "Price/Value": { "label": "Kostengünstig und Bezahlbar", "tags": ["Kostenführerschaft"] },
-        "Quality/Premium": { "label": "Hohe Qualität und Premium", "tags": ["Premium"] },
-        "Innovation": { "label": "Innovation und Neuheit", "tags": ["Innovation"] },
-        "Convenience": { "label": "Bequemlichkeit und Benutzerfreundlichkeit", "tags": ["Usability"] },
-        "Uniqueness": { "label": "Einzigartigkeit und Kultur", "tags": ["Kultur"] }
+        "Price/Value": { "label": "Kostengünstig & Bezahlbar", "tags": ["Kostenführerschaft"] },
+        "Quality/Premium": { "label": "Hohe Qualität & Premium", "tags": ["Premium"] },
+        "Innovation": { "label": "Innovation & Neuheit", "tags": ["Innovation"] },
+        "Convenience": { "label": "Bequemlichkeit & Benutzerfreundlichkeit", "tags": ["Usability"] },
+        "Uniqueness": { "label": "Einzigartigkeit & Kultur", "tags": ["Kultur"] }
       }
     },
     "q_long_revenue": {
@@ -157,9 +161,9 @@
       "options": {
         "One-time Sales": { "label": "Einmalverkäufe" },
         "Subscription": { "label": "Monatliches Abonnement", "tags": ["Subscription"] },
-        "Commission": { "label": "Provision oder Gebühr" },
+        "Commission": { "label": "Provision / Gebühr" },
         "Advertising": { "label": "Werbeeinnahmen" },
-        "Licensing/IP": { "label": "Lizenzierung oder Geistiges Eigentum", "tags": ["Licensing"] },
+        "Licensing/IP": { "label": "Lizenzierung / Geistiges Eigentum", "tags": ["Licensing"] },
         "Freemium": { "label": "Kostenlos starten, für Premium-Funktionen zahlen", "tags": ["Freemium"] },
         "Marketplace Fees": { "label": "Marktplatz-Transaktionsgebühren", "tags": ["Marketplace"] }
       }
@@ -168,30 +172,31 @@
       "title": "Was sind die Schlüsselaktivitäten?",
       "description": "Primäre Aktivitäten, um das Geschäft am Laufen zu halten",
       "options": {
-        "Production": { "label": "Produktion oder Herstellung" },
-        "Marketing/Sales": { "label": "Marketing und Vertrieb" },
-        "R&D": { "label": "Forschung und Entwicklung", "tags": ["R&D"] },
+        "Production": { "label": "Produktion / Herstellung" },
+        "Marketing/Sales": { "label": "Marketing & Vertrieb" },
+        "R&D": { "label": "Forschung & Entwicklung", "tags": ["R&D"] },
         "Customer Support": { "label": "Kundensupport" },
         "Platform Management": { "label": "Plattform-Management" },
         "Community Building": { "label": "Community-Aufbau", "tags": ["Community"] },
-        "Partnerships/BD": { "label": "Partnerschaften und Geschäftsentwicklung", "tags": ["BD"] }
+        "Partnerships/BD": { "label": "Partnerschaften & Geschäftsentwicklung", "tags": ["BD"] }
       }
     },
     "q_short_target": {
       "title": "Wer sind die Begünstigten?",
       "description": "Mehrfachauswahl möglich",
       "options": {
-        "Youth / First-time voters": { "label": "Jugendliche oder Erstwähler" },
+        "Youth / First-time voters": { "label": "Jugendliche / Erstwähler" },
         "Local Citizens": { "label": "Lokale Bürger" },
         "Vulnerable Groups": { "label": "Schutzbedürftige Gruppen" },
         "Policymakers": { "label": "Politische Entscheidungsträger" },
         "Business Community": { "label": "Wirtschaftsgemeinschaft" },
-        "Media / Journalists": { "label": "Medien oder Journalisten" },
+        "Media / Journalists": { "label": "Medien / Journalisten" },
         "International Audience": { "label": "Internationales Publikum" }
       }
     },
     "q_short_objective": {
       "title": "Was ist das primäre Ziel?",
+      "description": "Mehrfachauswahl möglich",
       "options": {
         "Awareness": { "label": "Bewusstsein schaffen" },
         "Call to Action": { "label": "Aufruf zum Handeln", "desc": "z.B. Wählen, Spenden, Bewerben" },
@@ -203,13 +208,13 @@
       "title": "Wie messen Sie den Erfolg?",
       "description": "Wählen Sie, wie Sie Ergebnisse verfolgen (Mehrfachauswahl möglich)",
       "options": {
-        "Social Media Engagement": { "label": "Reichweite und Engagement", "tags": ["Reach", "Engagement"] },
+        "Social Media Engagement": { "label": "Reichweite & Engagement", "tags": ["Reach", "Engagement"] },
         "Number of Participants": { "label": "Teilnehmerzahl" },
         "Funds Raised": { "label": "Gesammelte Spenden" },
         "Petition Signatures": { "label": "Petitionsunterschriften", "tags": ["Petition"] },
         "Media Coverage": { "label": "Medienberichterstattung", "tags": ["PR", "Medien"] },
         "Behavioral Change": { "label": "Verhaltensänderungsrate" },
-        "App Downloads": { "label": "App-Downloads oder Anmeldungen", "tags": ["Downloads", "Signups"] }
+        "App Downloads": { "label": "App-Downloads / Anmeldungen", "tags": ["Downloads", "Signups"] }
       }
     },
     "q_short_channels": {
@@ -218,24 +223,24 @@
       "options": {
         "Social Media": { "label": "Social Media", "tags": ["Facebook", "TikTok", "X"] },
         "On-ground": { "label": "Vor-Ort Events" },
-        "Mass Media": { "label": "Massenmedien oder PR" },
-        "Influencers/Partners": { "label": "Influencer und Partner" },
-        "Community/Forums": { "label": "Online-Communities oder Foren" },
-        "Email/Newsletter": { "label": "E-Mail oder Newsletter" },
-        "Podcast/Video": { "label": "Podcast oder Video" }
+        "Mass Media": { "label": "Massenmedien / PR" },
+        "Influencers/Partners": { "label": "Influencer & Partner" },
+        "Community/Forums": { "label": "Online-Communities / Foren" },
+        "Email/Newsletter": { "label": "E-Mail / Newsletter" },
+        "Podcast/Video": { "label": "Podcast / Video" }
       }
     },
     "q_platform": {
       "title": "Ziel-Plattform für die KI-Ausgabe?",
       "description": "Zur Anpassung des Tons und der Struktur",
       "options": {
-        "Facebook": { "label": "Facebook oder Meta", "desc": "Storytelling, oft geteilt" },
-        "X / Twitter": { "label": "X oder Twitter", "desc": "Prägnant, viral" },
+        "Facebook": { "label": "Facebook & Meta", "desc": "Storytelling, oft geteilt" },
+        "X / Twitter": { "label": "X (Twitter)", "desc": "Prägnant, viral" },
         "LinkedIn": { "label": "LinkedIn", "desc": "Professionell, geschäftlich" },
-        "Codebase / IDE": { "label": "Codebase oder IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
+        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
         "Pitch Deck": { "label": "Pitch Deck", "desc": "Präsentationen" },
-        "YouTube / Video": { "label": "YouTube oder Video", "desc": "Videoinhalte für Tutorials oder Reviews", "tags": ["Video"] },
-        "Blog / Website": { "label": "Blog oder Website", "desc": "Langform SEO-Artikel" }
+        "YouTube / Video": { "label": "YouTube / Video", "desc": "Videoinhalte für Tutorials oder Reviews", "tags": ["Video"] },
+        "Blog / Website": { "label": "Blog / Website", "desc": "Langform SEO-Artikel" }
       }
     },
     "q_sample_text": {

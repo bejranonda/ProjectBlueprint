@@ -17,7 +17,8 @@
     "usage_prompt": "นี่คือ Blueprint โปรเจกต์ของฉัน กรุณาใช้เป็นบริบทเพื่อช่วยฉันเขียนโค้ดหรือออกแบบแอปพลิเคชัน...",
     "ai_section_title": "สรุปและตัวอย่างจาก AI",
     "ai_generating": "กำลังสร้าง...",
-    "ai_error": "บริการ AI ไม่พร้อมใช้งานหรือใช้เวลานานเกินไป คุณยังสามารถคัดลอก Blueprint ด้านบนไปใช้กับ ChatGPT, Gemini หรือ Claude ได้โดยตรง!",
+    "ai_error": "AI หมดเวลาการเชื่อมต่อ กรุณาคัดลอก Blueprint ของคุณไปใช้ใน ChatGPT, Gemini หรือ Claude โดยตรง!",
+    "ai_error_network": "ไม่สามารถเชื่อมต่อบริการ AI ได้ กรุณาคัดลอก Blueprint ของคุณไปใช้ใน ChatGPT, Gemini หรือ Claude โดยตรง!",
     "ai_retry": "ลองอีกครั้ง",
     "btn_copy": "คัดลอก",
     "btn_copied": "คัดลอกแล้ว!",
@@ -82,31 +83,34 @@
       "title": "อุตสาหกรรมหรือหมวดหมู่ของธุรกิจคืออะไร?",
       "description": "เลือกหมวดหมู่ที่ตรงกับธุรกิจของคุณมากที่สุด",
       "options": {
-        "Tech": { "label": "เทคโนโลยีหรือซอฟต์แวร์", "tags": ["SaaS", "App"], "desc": "Tech Startup, SaaS, App" },
-        "OTOP": { "label": "ธุรกิจท้องถิ่นหรือสินค้าชุมชน", "tags": ["OTOP"], "desc": "สินค้าชุมชน, งานคราฟต์" },
-        "Retail": { "label": "ค้าปลีกหรือขายออนไลน์", "tags": ["E-commerce"], "desc": "ขายออนไลน์, หน้าร้าน" },
-        "Service": { "label": "การศึกษาหรือบริการ", "desc": "คอร์สเรียน, เอเจนซี่, ที่ปรึกษา" }
+        "Tech": { "label": "เทคโนโลยี / ซอฟต์แวร์", "tags": ["SaaS", "App"], "desc": "Tech Startup, SaaS, App" },
+        "OTOP": { "label": "ธุรกิจท้องถิ่น / สินค้าชุมชน", "tags": ["OTOP"], "desc": "สินค้าชุมชน, งานคราฟต์" },
+        "Retail": { "label": "ค้าปลีก / ขายออนไลน์", "tags": ["E-commerce"], "desc": "ขายออนไลน์, หน้าร้าน" },
+        "Service": { "label": "การศึกษา / บริการ", "desc": "คอร์สเรียน, เอเจนซี่, ที่ปรึกษา" }
       }
     },
     "q_long_tech_spec": {
       "title": "เป็นเทคโนโลยีด้านไหน?",
+      "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "AI/ML": { "label": "AI และ Machine Learning", "tags": ["AI", "ML"] },
+        "AI/ML": { "label": "AI & Machine Learning", "tags": ["AI", "ML"] },
         "SaaS": { "label": "SaaS บริการซอฟต์แวร์แบบสมัครสมาชิก", "tags": ["SaaS"] },
-        "App": { "label": "แอปมือถือหรือเว็บแอป", "tags": ["Mobile", "Web"] },
-        "Hardware": { "label": "ฮาร์ดแวร์หรือ IoT", "tags": ["IoT"] }
+        "App": { "label": "แอปมือถือ / เว็บแอป", "tags": ["Mobile", "Web"] },
+        "Hardware": { "label": "ฮาร์ดแวร์ / IoT", "tags": ["IoT"] }
       }
     },
     "q_long_otop_spec": {
       "title": "ประเภทสินค้า OTOP หรือสินค้าท้องถิ่นคืออะไร?",
+      "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "Food/Beverage": { "label": "อาหาร เครื่องดื่ม แปรรูป" },
-        "Clothing/Textile": { "label": "เสื้อผ้า เครื่องแต่งกาย ผ้าทอ" },
-        "Home/Herbs": { "label": "ของใช้ ของตกแต่งบ้าน สมุนไพร" }
+        "Food/Beverage": { "label": "อาหาร & เครื่องดื่ม" },
+        "Clothing/Textile": { "label": "เสื้อผ้า & สิ่งทอ" },
+        "Home/Herbs": { "label": "ของตกแต่งบ้าน & สมุนไพร" }
       }
     },
     "q_long_retail_spec": {
       "title": "ช่องทางการขายหลักของคุณคืออะไร?",
+      "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
         "Online 100%": { "label": "ขายออนไลน์ 100%", "tags": ["Shopee", "Lazada", "TikTok"] },
         "Physical Store": { "label": "มีหน้าร้านจริง" },
@@ -117,32 +121,32 @@
       "title": "หมวดหมู่ของแคมเปญหรือโครงการคืออะไร?",
       "description": "เลือกหมวดหมู่ที่ตรงกับโครงการของคุณมากที่สุด",
       "options": {
-        "Politics / Election": { "label": "การเมืองหรือรณรงค์การเลือกตั้ง" },
-        "Social / Environment": { "label": "เพื่อสังคมหรือสิ่งแวดล้อม", "tags": ["NGO"] },
-        "Education Campaign": { "label": "การศึกษาหรือให้ความรู้" },
-        "Event / Exhibition": { "label": "อีเวนต์หรืองานจัดแสดง" },
-        "Health / Public Safety": { "label": "สาธารณสุขหรือความปลอดภัย", "tags": ["Health"] },
-        "Cultural / Arts": { "label": "ศิลปะวัฒนธรรมหรือสร้างสรรค์", "tags": ["Arts"] },
-        "Digital Rights / Privacy": { "label": "สิทธิดิจิทัลหรือความเป็นส่วนตัว", "tags": ["Digital Rights"] }
+        "Politics / Election": { "label": "การเมือง / การเลือกตั้ง" },
+        "Social / Environment": { "label": "เพื่อสังคม / สิ่งแวดล้อม", "tags": ["NGO"] },
+        "Education Campaign": { "label": "การศึกษา / ให้ความรู้" },
+        "Event / Exhibition": { "label": "อีเวนต์ / งานจัดแสดง" },
+        "Health / Public Safety": { "label": "สาธารณสุข / ความปลอดภัย", "tags": ["Health"] },
+        "Cultural / Arts": { "label": "ศิลปะ / วัฒนธรรมสร้างสรรค์", "tags": ["Arts"] },
+        "Digital Rights / Privacy": { "label": "สิทธิดิจิทัล / ความเป็นส่วนตัว", "tags": ["Digital Rights"] }
       }
     },
     "q_long_target": {
       "title": "กลุ่มลูกค้าเป้าหมายหลักคือใคร?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "B2C Youth": { "label": "กลุ่มวัยรุ่นและนักศึกษา", "tags": ["B2C"] },
-        "B2C Adults/Family": { "label": "กลุ่มวัยทำงานและครอบครัว", "tags": ["B2C"] },
+        "B2C Youth": { "label": "กลุ่มวัยรุ่น & นักศึกษา", "tags": ["B2C"] },
+        "B2C Adults/Family": { "label": "กลุ่มวัยทำงาน & ครอบครัว", "tags": ["B2C"] },
         "B2C Seniors": { "label": "ผู้สูงอายุ", "tags": ["B2C"] },
-        "B2C Niche/Hobbyists": { "label": "กลุ่มผู้สนใจเฉพาะทางหรืองานอดิเรก", "tags": ["B2C", "Niche"] },
-        "B2B SME": { "label": "ธุรกิจขนาดเล็กหรือร้านค้า", "tags": ["B2B", "SME"] },
+        "B2C Niche/Hobbyists": { "label": "เฉพาะกลุ่ม / งานอดิเรก", "tags": ["B2C", "Niche"] },
+        "B2B SME": { "label": "ธุรกิจขนาดเล็ก / ร้านค้า", "tags": ["B2B", "SME"] },
         "B2B Enterprise": { "label": "องค์กรขนาดใหญ่", "tags": ["B2B", "Enterprise"] },
-        "B2B Freelancers": { "label": "ฟรีแลนซ์หรือผู้รับจ้างอิสระ", "tags": ["B2B"] },
+        "B2B Freelancers": { "label": "ฟรีแลนซ์ / ผู้รับจ้างอิสระ", "tags": ["B2B"] },
         "B2G Government": { "label": "หน่วยงานรัฐบาล", "tags": ["B2G"] }
       }
     },
     "q_long_value": {
       "title": "จุดเด่นที่ทำให้ลูกค้าต้องเลือกคุณ?",
-      "description": "เลือกจุดเด่นหลักเพียง 1 ข้อ (หรือพิมพ์เพิ่ม)",
+      "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
         "Price/Value": { "label": "ราคาคุ้มค่า ถูกกว่าตลาด", "tags": ["Cost Leadership"] },
         "Quality/Premium": { "label": "คุณภาพสูง ระดับพรีเมียม", "tags": ["Premium"] },
@@ -168,30 +172,31 @@
       "title": "กิจกรรมหลักที่ต้องทำเพื่อให้ธุรกิจเดินหน้า?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "Production": { "label": "ผลิตหรือสร้างสินค้า" },
-        "Marketing/Sales": { "label": "การตลาดและการขาย" },
-        "R&D": { "label": "วิจัยและพัฒนา", "tags": ["R&D"] },
-        "Customer Support": { "label": "บริการหลังการขายหรือซัพพอร์ต" },
-        "Platform Management": { "label": "ดูแลและพัฒนาแพลตฟอร์ม" },
+        "Production": { "label": "ผลิต / สร้างสินค้า" },
+        "Marketing/Sales": { "label": "การตลาด & การขาย" },
+        "R&D": { "label": "วิจัย & พัฒนา", "tags": ["R&D"] },
+        "Customer Support": { "label": "บริการหลังการขาย / ซัพพอร์ต" },
+        "Platform Management": { "label": "ดูแล & พัฒนาแพลตฟอร์ม" },
         "Community Building": { "label": "สร้างชุมชนผู้ใช้งาน", "tags": ["Community"] },
-        "Partnerships/BD": { "label": "หาพาร์ทเนอร์หรือขยายธุรกิจ", "tags": ["BD"] }
+        "Partnerships/BD": { "label": "หาพาร์ทเนอร์ / ขยายธุรกิจ", "tags": ["BD"] }
       }
     },
     "q_short_target": {
       "title": "ผู้ได้รับประโยชน์คือใคร?",
       "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
-        "Youth / First-time voters": { "label": "คนรุ่นใหม่หรือผู้มีสิทธิเลือกตั้งครั้งแรก" },
+        "Youth / First-time voters": { "label": "คนรุ่นใหม่ / ผู้สิทธิเลือกตั้ง" },
         "Local Citizens": { "label": "ประชาชนทั่วไปในพื้นที่เฉพาะ" },
-        "Vulnerable Groups": { "label": "กลุ่มเปราะบางหรือผู้ด้อยโอกาส" },
-        "Policymakers": { "label": "หน่วยงานรัฐหรือผู้กำหนดนโยบาย" },
-        "Business Community": { "label": "กลุ่มผู้ประกอบการหรือภาคธุรกิจ" },
-        "Media / Journalists": { "label": "สื่อมวลชนหรือนักข่าว" },
-        "International Audience": { "label": "ผู้ชมหรือผู้ใช้งานต่างชาติ" }
+        "Vulnerable Groups": { "label": "กลุ่มเปราะบาง / ผู้ด้อยโอกาส" },
+        "Policymakers": { "label": "หน่วยงานรัฐ / ผู้กำหนดนโยบาย" },
+        "Business Community": { "label": "ผู้ประกอบการ / ภาคธุรกิจ" },
+        "Media / Journalists": { "label": "สื่อมวลชน / นักข่าว" },
+        "International Audience": { "label": "ผู้ชม / ผู้ใช้งานต่างชาติ" }
       }
     },
     "q_short_objective": {
       "title": "เป้าหมายหลักสูงสุดของโครงการนี้คืออะไร?",
+      "description": "สามารถเลือกได้มากกว่า 1 ข้อ",
       "options": {
         "Awareness": { "label": "สร้างความตระหนักรู้" },
         "Call to Action": { "label": "กระตุ้นให้เกิดการลงมือทำ", "desc": "เช่น โหวต, สมัคร, บริจาค" },
@@ -203,13 +208,13 @@
       "title": "วัดผลสำเร็จของโครงการอย่างไร?",
       "description": "เลือกวิธีการวัดผล (สามารถเลือกได้มากกว่า 1 ข้อ)",
       "options": {
-        "Social Media Engagement": { "label": "ยอดเข้าถึงและการมีส่วนร่วม", "tags": ["Reach", "Engagement"] },
-        "Number of Participants": { "label": "จำนวนผู้เข้าร่วมงานหรืออาสาสมัคร" },
+        "Social Media Engagement": { "label": "ยอดเข้าถึง & การมีส่วนร่วม", "tags": ["Reach", "Engagement"] },
+        "Number of Participants": { "label": "จำนวนผู้เข้าร่วมงาน / อาสาสมัคร" },
         "Funds Raised": { "label": "จำนวนเงินที่ระดมทุนได้" },
         "Petition Signatures": { "label": "จำนวนรายชื่อผู้สนับสนุน", "tags": ["Petition"] },
-        "Media Coverage": { "label": "จำนวนข่าวหรือสื่อที่พูดถึง", "tags": ["PR", "Media"] },
+        "Media Coverage": { "label": "จำนวนข่าว / สื่อที่พูดถึง", "tags": ["PR", "Media"] },
         "Behavioral Change": { "label": "อัตราการเปลี่ยนแปลงพฤติกรรม" },
-        "App Downloads": { "label": "ยอดดาวน์โหลดแอปหรือสมัครใช้งาน", "tags": ["Downloads", "Signups"] }
+        "App Downloads": { "label": "ดาวน์โหลดแอป / สมัครใช้งาน", "tags": ["Downloads", "Signups"] }
       }
     },
     "q_short_channels": {
@@ -218,24 +223,24 @@
       "options": {
         "Social Media": { "label": "โซเชียลมีเดีย", "tags": ["Facebook", "TikTok", "X"] },
         "On-ground": { "label": "ลงพื้นที่จัดกิจกรรม" },
-        "Mass Media": { "label": "สื่อมวลชน ข่าว หรือ PR" },
-        "Influencers/Partners": { "label": "พาร์ทเนอร์ อินฟลูเอนเซอร์ หรือผู้นำชุมชน" },
-        "Community/Forums": { "label": "ชุมชนออนไลน์หรือฟอรั่ม" },
-        "Email/Newsletter": { "label": "อีเมลหรือจดหมายข่าว" },
-        "Podcast/Video": { "label": "พอดแคสต์หรือวิดีโอ" }
+        "Mass Media": { "label": "สื่อมวลชน / News / PR" },
+        "Influencers/Partners": { "label": "พาร์ทเนอร์ / อินฟลูเอนเซอร์" },
+        "Community/Forums": { "label": "ชุมชนออนไลน์ / ฟอรั่ม" },
+        "Email/Newsletter": { "label": "อีเมล / จดหมายข่าว" },
+        "Podcast/Video": { "label": "พอดแคสต์ / วิดีโอ" }
       }
     },
     "q_platform": {
       "title": "ช่องทางหลักที่คุณจะนำผลลัพธ์ของ AI ไปใช้งาน?",
       "description": "เพื่อกำหนดรูปแบบและโครงสร้างเนื้อหาให้อัตโนมัติ",
       "options": {
-        "Facebook": { "label": "Facebook หรือ Meta", "desc": "เน้นเล่าเรื่อง แชร์ง่าย" },
-        "X / Twitter": { "label": "X หรือ Twitter", "desc": "กระชับ ไวรัลรวดเร็ว" },
+        "Facebook": { "label": "Facebook & Meta", "desc": "เน้นเล่าเรื่อง แชร์ง่าย" },
+        "X / Twitter": { "label": "X (Twitter)", "desc": "กระชับ ไวรัลรวดเร็ว" },
         "LinkedIn": { "label": "LinkedIn", "desc": "ทางการ เชิงธุรกิจ" },
-        "Codebase / IDE": { "label": "Codebase หรือ IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
+        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
         "Pitch Deck": { "label": "Pitch Deck", "desc": "งานนำเสนอ" },
-        "YouTube / Video": { "label": "YouTube หรือวิดีโอ", "desc": "เนื้อหาวิดีโอสำหรับสอนหรือรีวิว", "tags": ["Video"] },
-        "Blog / Website": { "label": "บล็อกหรือเว็บไซต์", "desc": "บทความ SEO เนื้อหายาว" }
+        "YouTube / Video": { "label": "YouTube / วิดีโอ", "desc": "เนื้อหาวิดีโอสำหรับสอนหรือรีวิว", "tags": ["Video"] },
+        "Blog / Website": { "label": "บล็อก / เว็บไซต์", "desc": "บทความ SEO เนื้อหายาว" }
       }
     },
     "q_sample_text": {

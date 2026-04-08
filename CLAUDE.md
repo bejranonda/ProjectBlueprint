@@ -26,8 +26,9 @@ Interactive multilingual wizard that generates AI-ready project blueprints in Ma
 
 ## Architecture Patterns
 
-- **Question Map pattern**: All questions defined as a flat map with `next` pointers for branching. No nested routing.
+- **Question Map pattern**: All questions defined as a flat map with `next` pointers for branching. No nested routing. Questions can be `type: "single"` or `type: "multiple"`.
 - **`tagHelper(t, key)`**: Utility to safely extract tag arrays from i18next. Returns `[]` on failure.
+- **Markdown List Rendering**: Use `fmtList()` from `markdownGenerator.js` to render `multiple` choice answers into Markdown bulleted lists.
 - **Step groups**: 5 steps (Purpose → Project Type → Context → Deep Dive → Style) + Review. Controlled by `stepGroup` field on each question.
 - **Wizard starts at `q_purpose`**: First question asks purpose (vibe-coding, business, campaign, pitch), then flows to description, then type-based branching.
 

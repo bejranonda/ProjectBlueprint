@@ -57,7 +57,7 @@ Since this app relies on Cloudflare AI for the streaming summary feature:
   - `CF_API_TOKEN`: Your API token.
   - `CLOUDFLARE_ACCOUNT_ID`: Your exact account ID.
 - The AI endpoint uses `stream: true` to deliver real-time streamed text to the client.
-- A 30-second client-side timeout is configured. If exceeded, the user sees an error with a Retry button.
+- A 60-second client-side timeout is configured. If exceeded, the user sees an error with a Retry button.
 
 ## 4. Updating the Version
 

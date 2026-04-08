@@ -4,7 +4,7 @@
    The free tier for `@cf/meta/llama-3-8b-instruct` has limits on requests per minute and daily requests. If you exceed this limit, the AI summary feature may return a timeout or error. The app will show a fallback message and a Retry button.
 
 2. **AI Streaming Timeout:**
-   The AI generation has a 30-second client-side timeout. If Cloudflare responds slowly, the user will see an error with a retry option. The core blueprint is still fully available regardless of AI status.
+   The AI generation has a 60-second client-side timeout. If Cloudflare responds slowly, the user will see an error with a retry option. The core blueprint is still fully available regardless of AI status.
 
 3. **Backend Proxy Requirement:**
    Due to the Cloudflare AI integration using API keys / tokens, the project now relies on Cloudflare Pages `functions/api/generate.js` to process requests. Do not attempt to run this proxy via standard `vite dev` without `wrangler`, otherwise the `/api/generate` endpoint will 404. Instead, use `npm run pages:dev`!

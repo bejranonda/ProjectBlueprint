@@ -67,7 +67,7 @@ export function generateMarkdown(answers, t) {
   }
 
   md += `## ✍️ ${isBusiness ? '3' : '4'}. ${safeT('markdown.persona')}\n`;
-  md += `- **${safeT('markdown.platform')}:** ${fmt(answers['q_platform'])}\n`;
+  md += `**${safeT('markdown.platform')}:**\n${fmtList(answers['q_platform'])}`;
   md += `> **${safeT('markdown.instruction_title')}:** ${safeT('markdown.instruction_desc')}\n\n`;
   md += `### ${safeT('markdown.sample_content')}:\n`;
   md += `\`\`\`text\n${answers['q_sample_text']?.value || safeT('markdown.no_sample')}\n\`\`\`\n`;

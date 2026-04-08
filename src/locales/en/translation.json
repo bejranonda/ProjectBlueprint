@@ -17,7 +17,8 @@
     "usage_prompt": "Here is my project blueprint. Please use this as context to help me code/design my application...",
     "ai_section_title": "AI Summary & Examples",
     "ai_generating": "Generating...",
-    "ai_error": "AI service is currently unavailable or took too long. You can still copy your blueprint above and use it directly with ChatGPT, Gemini, or Claude!",
+    "ai_error": "AI service timeout. Please copy your blueprint and use it directly with ChatGPT, Gemini, or Claude!",
+    "ai_error_network": "Could not connect to AI service. Please copy your blueprint and use it directly with ChatGPT, Gemini, or Claude!",
     "ai_retry": "Retry",
     "btn_copy": "Copy",
     "btn_copied": "Copied!",
@@ -65,13 +66,13 @@
       "description": "Select the best framework to analyze your project",
       "options": {
         "short-term": {
-          "label": "Short-term project or campaign",
+          "label": "Short-term project & campaign",
           "tags": ["Campaign"],
           "desc": "Focuses on high impact in limited time, e.g., Elections, NGOs, Events",
           "features": ["Uses Mission Model Canvas (MMC)", "Includes OKRs for measuring results"]
         },
         "long-term": {
-          "label": "Long-term project or business",
+          "label": "Long-term project & business",
           "tags": ["Business"],
           "desc": "Focuses on sustainability and revenue, e.g., Startups, Local Stores",
           "features": ["Uses Business Model Canvas (BMC)", "Focuses on profit, loss, and revenue streams"]
@@ -82,31 +83,34 @@
       "title": "What is your main industry or category?",
       "description": "Select the best fit for your business",
       "options": {
-        "Tech": { "label": "Technology or Software", "tags": ["SaaS", "App"], "desc": "Startups, SaaS, Mobile Apps" },
-        "OTOP": { "label": "Local or Craftsmanship", "tags": ["OTOP"], "desc": "Local goods, Handcrafts" },
-        "Retail": { "label": "Retail or E-Commerce", "tags": ["E-commerce"], "desc": "Online stores, Physical stores" },
-        "Service": { "label": "Education or Services", "desc": "Courses, Agencies, Consultants" }
+        "Tech": { "label": "Technology / Software", "tags": ["SaaS", "App"], "desc": "Startups, SaaS, Mobile Apps" },
+        "OTOP": { "label": "Local / Craftsmanship", "tags": ["OTOP"], "desc": "Local goods, Handcrafts" },
+        "Retail": { "label": "Retail / E-Commerce", "tags": ["E-commerce"], "desc": "Online stores, Physical stores" },
+        "Service": { "label": "Education / Services", "desc": "Courses, Agencies, Consultants" }
       }
     },
     "q_long_tech_spec": {
       "title": "Which technology domain?",
+      "description": "You can select more than one",
       "options": {
-        "AI/ML": { "label": "AI and Machine Learning", "tags": ["AI", "ML"] },
+        "AI/ML": { "label": "AI & Machine Learning", "tags": ["AI", "ML"] },
         "SaaS": { "label": "SaaS subscription software", "tags": ["SaaS"] },
-        "App": { "label": "Mobile or Web Application", "tags": ["Mobile", "Web"] },
-        "Hardware": { "label": "Hardware or IoT", "tags": ["IoT"] }
+        "App": { "label": "Mobile / Web Application", "tags": ["Mobile", "Web"] },
+        "Hardware": { "label": "Hardware / IoT", "tags": ["IoT"] }
       }
     },
     "q_long_otop_spec": {
       "title": "What kind of local products?",
+      "description": "You can select more than one",
       "options": {
-        "Food/Beverage": { "label": "Food, Beverages, Processed" },
-        "Clothing/Textile": { "label": "Clothing, Textiles" },
-        "Home/Herbs": { "label": "Home Decor, Herbs" }
+        "Food/Beverage": { "label": "Food & Beverage" },
+        "Clothing/Textile": { "label": "Clothing & Textiles" },
+        "Home/Herbs": { "label": "Home Decor & Herbs" }
       }
     },
     "q_long_retail_spec": {
       "title": "What is your main sales channel?",
+      "description": "You can select more than one",
       "options": {
         "Online 100%": { "label": "100% Online", "tags": ["Shopee", "Lazada", "TikTok"] },
         "Physical Store": { "label": "Physical Store" },
@@ -117,38 +121,38 @@
       "title": "What is the campaign's main category?",
       "description": "Select the category that best describes the campaign",
       "options": {
-        "Politics / Election": { "label": "Politics or Elections" },
-        "Social / Environment": { "label": "Social or Environmental", "tags": ["NGO"] },
-        "Education Campaign": { "label": "Education or Awareness" },
-        "Event / Exhibition": { "label": "Events or Exhibitions" },
-        "Health / Public Safety": { "label": "Health or Public Safety", "tags": ["Health"] },
-        "Cultural / Arts": { "label": "Cultural or Creative Arts", "tags": ["Arts"] },
-        "Digital Rights / Privacy": { "label": "Digital Rights or Privacy", "tags": ["Digital Rights"] }
+        "Politics / Election": { "label": "Politics / Elections" },
+        "Social / Environment": { "label": "Social / Environmental", "tags": ["NGO"] },
+        "Education Campaign": { "label": "Education / Awareness" },
+        "Event / Exhibition": { "label": "Events / Exhibitions" },
+        "Health / Public Safety": { "label": "Health / Public Safety", "tags": ["Health"] },
+        "Cultural / Arts": { "label": "Cultural / Creative Arts", "tags": ["Arts"] },
+        "Digital Rights / Privacy": { "label": "Digital Rights / Privacy", "tags": ["Digital Rights"] }
       }
     },
     "q_long_target": {
       "title": "Who are your primary customer segments?",
       "description": "You can select more than one",
       "options": {
-        "B2C Youth": { "label": "Youth and Students", "tags": ["B2C"] },
-        "B2C Adults/Family": { "label": "Adults and Families", "tags": ["B2C"] },
+        "B2C Youth": { "label": "Youth & Students", "tags": ["B2C"] },
+        "B2C Adults/Family": { "label": "Adults & Families", "tags": ["B2C"] },
         "B2C Seniors": { "label": "Seniors", "tags": ["B2C"] },
-        "B2C Niche/Hobbyists": { "label": "Niche Interest or Hobbyists", "tags": ["B2C", "Niche"] },
-        "B2B SME": { "label": "Small Businesses or Shops", "tags": ["B2B", "SME"] },
+        "B2C Niche/Hobbyists": { "label": "Niche Interest / Hobbyists", "tags": ["B2C", "Niche"] },
+        "B2B SME": { "label": "Small Businesses / Shops", "tags": ["B2B", "SME"] },
         "B2B Enterprise": { "label": "Large Enterprises", "tags": ["B2B", "Enterprise"] },
-        "B2B Freelancers": { "label": "Freelancers or Independent Contractors", "tags": ["B2B"] },
+        "B2B Freelancers": { "label": "Freelancers / Independent Contractors", "tags": ["B2B"] },
         "B2G Government": { "label": "Government Agencies", "tags": ["B2G"] }
       }
     },
     "q_long_value": {
       "title": "What is your main value proposition?",
-      "description": "Select your primary differentiator",
+      "description": "You can select more than one",
       "options": {
-        "Price/Value": { "label": "Cost-effective and Affordable", "tags": ["Cost Leadership"] },
-        "Quality/Premium": { "label": "High Quality and Premium", "tags": ["Premium"] },
-        "Innovation": { "label": "Innovation and Novelty", "tags": ["Innovation"] },
-        "Convenience": { "label": "Convenience and Usability", "tags": ["Usability"] },
-        "Uniqueness": { "label": "Unique and Cultural", "tags": ["Culture"] }
+        "Price/Value": { "label": "Cost-effective & Affordable", "tags": ["Cost Leadership"] },
+        "Quality/Premium": { "label": "High Quality & Premium", "tags": ["Premium"] },
+        "Innovation": { "label": "Innovation & Novelty", "tags": ["Innovation"] },
+        "Convenience": { "label": "Convenience & Usability", "tags": ["Usability"] },
+        "Uniqueness": { "label": "Unique & Cultural", "tags": ["Culture"] }
       }
     },
     "q_long_revenue": {
@@ -157,9 +161,9 @@
       "options": {
         "One-time Sales": { "label": "One-time Sales" },
         "Subscription": { "label": "Monthly Subscription", "tags": ["Subscription"] },
-        "Commission": { "label": "Commission or Fee" },
+        "Commission": { "label": "Commission / Fee" },
         "Advertising": { "label": "Advertising Revenue" },
-        "Licensing/IP": { "label": "Licensing or Intellectual Property", "tags": ["Licensing"] },
+        "Licensing/IP": { "label": "Licensing / Intellectual Property", "tags": ["Licensing"] },
         "Freemium": { "label": "Free to start, pay for premium features", "tags": ["Freemium"] },
         "Marketplace Fees": { "label": "Marketplace Transaction Fees", "tags": ["Marketplace"] }
       }
@@ -168,30 +172,31 @@
       "title": "What are the key activities?",
       "description": "Select the primary activities to make the business run",
       "options": {
-        "Production": { "label": "Production or Manufacturing" },
-        "Marketing/Sales": { "label": "Marketing and Sales" },
-        "R&D": { "label": "Research and Development", "tags": ["R&D"] },
+        "Production": { "label": "Production / Manufacturing" },
+        "Marketing/Sales": { "label": "Marketing & Sales" },
+        "R&D": { "label": "Research & Development", "tags": ["R&D"] },
         "Customer Support": { "label": "Customer Support" },
         "Platform Management": { "label": "Platform Management" },
         "Community Building": { "label": "Community Building", "tags": ["Community"] },
-        "Partnerships/BD": { "label": "Partnerships and Business Development", "tags": ["BD"] }
+        "Partnerships/BD": { "label": "Partnerships & Business Development", "tags": ["BD"] }
       }
     },
     "q_short_target": {
       "title": "Who are the beneficiaries?",
       "description": "You can select more than one",
       "options": {
-        "Youth / First-time voters": { "label": "Youth or First-time voters" },
+        "Youth / First-time voters": { "label": "Youth / First-time voters" },
         "Local Citizens": { "label": "Local Citizens" },
         "Vulnerable Groups": { "label": "Vulnerable Groups" },
         "Policymakers": { "label": "Policymakers" },
         "Business Community": { "label": "Business Community" },
-        "Media / Journalists": { "label": "Media or Journalists" },
+        "Media / Journalists": { "label": "Media / Journalists" },
         "International Audience": { "label": "International Audience" }
       }
     },
     "q_short_objective": {
       "title": "What is the primary objective?",
+      "description": "You can select more than one",
       "options": {
         "Awareness": { "label": "Create Awareness" },
         "Call to Action": { "label": "Call to Action", "desc": "e.g., Vote, Donate, Apply" },
@@ -203,13 +208,13 @@
       "title": "How will you measure success?",
       "description": "Select how you'll track results (you can choose more than one)",
       "options": {
-        "Social Media Engagement": { "label": "Reach and Engagement", "tags": ["Reach", "Engagement"] },
+        "Social Media Engagement": { "label": "Reach & Engagement", "tags": ["Reach", "Engagement"] },
         "Number of Participants": { "label": "Number of Participants" },
         "Funds Raised": { "label": "Funds Raised" },
         "Petition Signatures": { "label": "Petition Signatures", "tags": ["Petition"] },
         "Media Coverage": { "label": "Media Coverage Count", "tags": ["PR", "Media"] },
         "Behavioral Change": { "label": "Behavioral Change Rate" },
-        "App Downloads": { "label": "App Downloads or Signups", "tags": ["Downloads", "Signups"] }
+        "App Downloads": { "label": "App Downloads / Signups", "tags": ["Downloads", "Signups"] }
       }
     },
     "q_short_channels": {
@@ -218,24 +223,24 @@
       "options": {
         "Social Media": { "label": "Social Media", "tags": ["Facebook", "TikTok", "X"] },
         "On-ground": { "label": "On-ground Events" },
-        "Mass Media": { "label": "Mass Media or PR" },
-        "Influencers/Partners": { "label": "Influencers and Partners" },
-        "Community/Forums": { "label": "Online Communities or Forums" },
-        "Email/Newsletter": { "label": "Email or Newsletter" },
-        "Podcast/Video": { "label": "Podcast or Video" }
+        "Mass Media": { "label": "Mass Media / PR" },
+        "Influencers/Partners": { "label": "Influencers & Partners" },
+        "Community/Forums": { "label": "Online Communities / Forums" },
+        "Email/Newsletter": { "label": "Email / Newsletter" },
+        "Podcast/Video": { "label": "Podcast / Video" }
       }
     },
     "q_platform": {
       "title": "Target AI output platform?",
       "description": "To adapt Tone of Voice and Structure",
       "options": {
-        "Facebook": { "label": "Facebook or Meta", "desc": "Storytelling, highly shareable" },
-        "X / Twitter": { "label": "X or Twitter", "desc": "Concise, viral" },
+        "Facebook": { "label": "Facebook & Meta", "desc": "Storytelling, highly shareable" },
+        "X / Twitter": { "label": "X (Twitter)", "desc": "Concise, viral" },
         "LinkedIn": { "label": "LinkedIn", "desc": "Professional, business" },
-        "Codebase / IDE": { "label": "Codebase or IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
+        "Codebase / IDE": { "label": "Codebase / IDE", "desc": "Cursor, GitHub Copilot", "tags": ["IDE"] },
         "Pitch Deck": { "label": "Pitch Deck", "desc": "Presentations" },
-        "YouTube / Video": { "label": "YouTube or Video", "desc": "Video content for tutorials or reviews", "tags": ["Video"] },
-        "Blog / Website": { "label": "Blog or Website", "desc": "Long-form SEO articles" }
+        "YouTube / Video": { "label": "YouTube / Video", "desc": "Video content for tutorials or reviews", "tags": ["Video"] },
+        "Blog / Website": { "label": "Blog / Website", "desc": "Long-form SEO articles" }
       }
     },
     "q_sample_text": {

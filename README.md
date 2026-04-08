@@ -14,9 +14,9 @@ It features **Cloudflare AI Integration** letting you test side-by-side comparis
 - **Expandable Scenario Panels** — Every option includes a real-world example scenario to help beginners understand each choice.
 - **Visual Tag Badges** — Technical terms appear as scannable pill badges alongside clean translated labels.
 - **Custom Language Switcher** — Popover dropdown with flag emojis, keyboard support, and click-outside dismiss.
-- **Expanded Answer Choices** — More options for categories, target audiences, revenue models, channels, and platforms.
+- **Expanded Multi-select Answer Choices** — Most business and tech questions (Target platforms, Value propositions, etc.) now support multi-select via checkboxes.
 - **Browser Auto-detect Language (i18n)** — Available in English, Thai, and German.
-- **AI Streaming Integration** — Streams a concise AI summary and practical examples via Cloudflare Workers AI.
+- **Robust AI Streaming Integration** — Streams a concise AI summary and practical examples via Cloudflare Workers AI with 60-second timeouts and clear network error handling.
 - **Instant Markdown Export** — Get a ready-to-use `.md` blueprint file instantaneously.
 - **Premium UI** — Modern light theme with soft palettes and glassmorphism styling.
 

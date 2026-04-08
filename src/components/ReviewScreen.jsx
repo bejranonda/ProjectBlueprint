@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { CheckCircle2, Sparkles, Loader2, Copy, Check, Lightbulb, RefreshCw } from 'lucide-react';
 import { generateMarkdown } from '../utils/markdownGenerator';
 
-const AI_TIMEOUT_MS = 30000;
+const AI_TIMEOUT_MS = 60000;
 
 export default function ReviewScreen({ answers, t }) {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -66,7 +66,7 @@ export default function ReviewScreen({ answers, t }) {
         setError(t ? t('app.ai_error') : 'AI service timed out. You can still copy your blueprint above.');
       } else {
         console.error("Failed to generate AI content:", err);
-        setError(t ? t('app.ai_error') : 'AI service is currently unavailable.');
+        setError(t ? t('app.ai_error_network') : 'Could not connect to AI service. Please copy your blueprint and use it directly.');
       }
     } finally {
       clearTimeout(timeoutId);
