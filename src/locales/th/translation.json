@@ -23,7 +23,7 @@
     "btn_copy": "คัดลอก",
     "btn_copied": "คัดลอกแล้ว!",
     "tooltip_example": "ตัวอย่าง:",
-    "version": "v1.2.0"
+    "version": "v1.3.0"
   },
   "questions": {
     "q_project_desc": {
