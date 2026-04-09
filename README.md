@@ -1,11 +1,11 @@
 # 🚀 AI Project Blueprint Architect
 
-**Generate Master Context for Vibe-Coding, Rapid Prototyping, and AI-Driven Development.**
+**Generate Structured Master Context for Vibe-Coding, Rapid Prototyping, and AI-Driven Development.**
 
 [![v1.3.0](https://img.shields.io/badge/version-v1.3.0-blue.svg)](https://github.com/bejranonda/ProjectBlueprint)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Project Blueprint Architect is an interactive, multilingual wizard designed to bridge the gap between human ideas and AI execution. It generates a structured, high-density **AI Context Document** (Markdown) that you can feed into tools like **Claude, Cursor, ChatGPT, or Gemini** to ensure 10x higher accuracy in code generation, business planning, and content creation.
+Project Blueprint Architect is an interactive, multilingual wizard designed to bridge the gap between human ideas and AI execution. It generates a high-density **AI Context Document** (Markdown) that you can feed into tools like **Claude, Cursor, ChatGPT, or Gemini** to ensure 10x higher accuracy in code generation, business planning, and content creation.
 
 ---
 
@@ -25,58 +25,112 @@ Most AI "hallucinations" happen because of poor context. This tool uses structur
 
 - **🎯 Purpose-First Wizard** — Tailor your blueprint for Vibe Coding, Business Planning, Campaign Strategy, or Pitch Prep.
 - **🧠 Smart Branching Logic** — Questions adapt dynamically (e.g., Short-term Campaign vs. Long-term Business).
-- **🖼️ Expandable Scenario Panels** — Stuck? See real-world examples for every choice to help you decide.
-- **🤖 Cloudflare AI Integration** — Compare side-by-side results of AI output *with* vs. *without* your blueprint using Llama 3.
+- **🖼️ Expandable Scenario Panels** — Every option includes a real-world example scenario to help beginners understand each choice.
+- **🏷️ Visual Tag Badges** — Technical terms appear as scannable pill badges alongside clean translated labels.
+- **🤖 Cloudflare AI Integration** — Streams a concise AI summary and practical examples via Cloudflare Workers AI with side-by-side comparisons.
 - **📱 Modern Glassmorphism UI** — Responsive, clean, and fast interface built with React 19 and Tailwind CSS.
 - **📥 Instant Export** — Download your blueprint as a `.md` file ready for your favorite IDE or LLM.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Architecture
 
 | Layer | Technology |
 |-------|-----------|
-| **Frontend** | [React 19](https://react.dev/) + [Vite 6](https://vite.dev/) |
-| **Styling** | [Tailwind CSS 3](https://tailwindcss.com/) |
+| **Framework** | [React 19](https://react.dev/) (Functional Components, Hooks) |
+| **Build Tool** | [Vite 6](https://vite.dev/) |
+| **Styling** | [Tailwind CSS 3](https://tailwindcss.com/) (Glassmorphism, Responsive Design) |
+| **i18n** | `react-i18next` (JSON-based localized bundles) |
 | **Icons** | [Lucide React](https://lucide.dev/) |
-| **i18n** | `react-i18next` |
-| **Backend** | Cloudflare Pages Functions (Edge Runtime) |
-| **AI Model** | `@cf/meta/llama-3-8b-instruct` |
+| **Backend API** | Cloudflare Pages Functions (Edge Runtime / Node.js compatibility) |
+| **AI Model** | `@cf/meta/llama-3-8b-instruct` (via Cloudflare Workers AI) |
+
+### System Architecture
+The application follows a **Decoupled Client-Server** pattern:
+1. **Frontend (React):** Manages the wizard state, branching logic, and local Markdown generation.
+2. **Backend (CF Functions):** Acts as a secure proxy to Cloudflare's AI models, handling streaming responses to the client.
+3. **i18n Layer:** Separates content from logic, allowing for seamless translation and scaling.
 
 ---
 
-## 🚀 Getting Started
+## 🗺️ Wizard Flow Logic
+
+The wizard follows a dynamic branching path based on the user's initial choices:
+
+```text
+q_purpose (Choose Goal)
+  └── q_project_desc (Describe Project)
+       └── q_project_type (Campaign vs Business)
+            ├── [Short-term] → q_short_category → q_short_target → q_short_objective 
+            │                   └── q_short_metric → q_short_channels → q_platform
+            └── [Long-term]  → q_long_industry → q_long_*_spec → q_long_target 
+                                └── q_long_value → q_long_revenue → q_long_activities → q_platform
+                                                                                       └── q_sample_text → REVIEW
+```
+
+---
+
+## 🚀 Getting Started for Developers
 
 ### Prerequisites
 - Node.js 18+
 - npm 9+
-- A Cloudflare Account (optional, for the AI comparison feature)
+- Cloudflare Account (for AI functionality)
 
-### Installation
+### Configuration
+Create a `.env` file in the project root to configure the Cloudflare Pages Function Proxy:
+```env
+CF_API_TOKEN=your_cloudflare_api_token
+CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
+```
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/bejranonda/ProjectBlueprint.git
-   cd ProjectBlueprint
-   ```
+### Development
+Because we use Cloudflare Pages Functions as a secure proxy (`/functions/api/generate.js`), you must use the `wrangler` CLI to spin up the dev server.
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+```bash
+# Install dependencies
+npm install
 
-3. **Environment Setup (Optional)**
-   Create a `.env` file for Cloudflare AI features:
-   ```env
-   CF_API_TOKEN=your_token
-   CLOUDFLARE_ACCOUNT_ID=your_id
-   ```
+# Start fullstack dev server (Vite + Cloudflare Functions)
+npm run pages:dev
+```
+*Note: Using standard `npm run dev` will run the frontend but break the AI comparison feature.*
 
-4. **Run Development Server**
-   ```bash
-   # For fullstack (Frontend + Cloudflare Functions)
-   npm run pages:dev
-   ```
+### Deployment
+```bash
+# Build and deploy to Cloudflare Pages
+npm run pages:deploy
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── functions/
+│   └── api/
+│       └── generate.js         # Cloudflare AI Proxy Endpoint (Llama 3)
+├── src/
+│   ├── components/
+│   │   ├── LanguageSwitcher.jsx # Custom popover language dropdown
+│   │   ├── OptionCard.jsx      # Choice card with tags & scenario panels
+│   │   ├── QuestionScreen.jsx  # Question renderer (options grid + textarea)
+│   │   ├── ReviewScreen.jsx    # Blueprint output, AI summary, compare tabs
+│   │   └── StepTracker.jsx     # 5-step progress indicator
+│   ├── data/
+│   │   └── questionMap.jsx     # Wizard flowchart logic & question definitions
+│   ├── hooks/
+│   │   └── useWizard.js        # Form state and navigation hook
+│   ├── locales/                # Translation JSONs (th, en, de)
+│   ├── utils/
+│   │   └── markdownGenerator.js# Blueprint markdown renderer
+│   ├── i18n.js                 # react-i18next configuration
+│   └── App.jsx                 # App root and orchestrator
+├── wrangler.toml               # Cloudflare configuration file
+├── guideline.md                # Developer docs for translations and additions
+└── knowledge.md                # Critical domain knowledge & logic rules
+```
 
 ---
 
@@ -90,24 +144,7 @@ Once you generate your `.md` file:
 
 ---
 
-## 📂 Project Structure
-
-```text
-.
-├── functions/api/      # Cloudflare AI Proxy (Llama 3)
-├── src/components/     # Modular React components
-├── src/data/           # Wizard flowchart & logic
-├── src/locales/        # i18n Translations (EN, TH, DE)
-├── src/utils/          # Markdown generators
-└── wrangler.toml       # Cloudflare deployment config
-```
-
----
-
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 🤝 Contributing
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+## 🤝 Contributing & License
+Distributed under the MIT License. Contributions are welcome! 
 
 **Werapol Bejranonda** — [@bejranonda](https://github.com/bejranonda)
