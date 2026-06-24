@@ -7,6 +7,9 @@
 
 Project Blueprint Architect is an interactive, multilingual wizard designed to bridge the gap between human ideas and AI execution. It generates a high-density **AI Context Document** (Markdown) that you can feed into tools like **Claude, Cursor, ChatGPT, or Gemini** to ensure 10x higher accuracy in code generation, business planning, and content creation.
 
+<img width="929" height="395" alt="image" src="https://github.com/user-attachments/assets/ce9f32f6-5af4-4cb1-82e6-f2eebfeee40c" />
+
+
 ---
 
 ## 🌟 Why use Project Blueprint?
