@@ -2,7 +2,7 @@
 
 **Generate Structured Master Context for Vibe-Coding, Rapid Prototyping, and AI-Driven Development.**
 
-[![v1.3.0](https://img.shields.io/badge/version-v1.3.0-blue.svg)](https://github.com/bejranonda/ProjectBlueprint)
+[![v1.4.0](https://img.shields.io/badge/version-v1.4.0-blue.svg)](https://github.com/bejranonda/ProjectBlueprint)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Project Blueprint Architect is an interactive, multilingual wizard designed to bridge the gap between human ideas and AI execution. It generates a high-density **AI Context Document** (Markdown) that you can feed into tools like **Claude, Cursor, ChatGPT, or Gemini** to ensure 10x higher accuracy in code generation, business planning, and content creation.
@@ -24,15 +24,17 @@ Most AI "hallucinations" happen because of poor context. This tool uses structur
 
 ---
 
-## ✨ Features (v1.3.0)
+## ✨ Features (v1.4.0)
 
 - **🎯 Purpose-First Wizard** — Tailor your blueprint for Vibe Coding, Business Planning, Campaign Strategy, or Pitch Prep.
 - **🧠 Smart Branching Logic** — Questions adapt dynamically (e.g., Short-term Campaign vs. Long-term Business).
 - **🖼️ Expandable Scenario Panels** — Every option includes a real-world example scenario to help beginners understand each choice.
 - **🏷️ Visual Tag Badges** — Technical terms appear as scannable pill badges alongside clean translated labels.
 - **🤖 Cloudflare AI Integration** — Streams a concise AI summary and practical examples via Cloudflare Workers AI with side-by-side comparisons.
+- **♿ Keyboard Accessibility** — Option cards are fully keyboard-navigable (Tab + Enter/Space) with ARIA `radio`/`checkbox` roles and visible focus rings.
 - **📱 Modern Glassmorphism UI** — Responsive, clean, and fast interface built with React 19 and Tailwind CSS.
 - **📥 Instant Export** — Download your blueprint as a `.md` file ready for your favorite IDE or LLM.
+- **✅ i18n Validation Tooling** — `npm run validate` guards translation-key parity across all locales (the project's most common bug class).
 
 ---
 
@@ -99,6 +101,15 @@ npm run pages:dev
 ```
 *Note: Using standard `npm run dev` will run the frontend but break the AI comparison feature.*
 
+### Validation
+Before building or deploying, validate that all translation keys are consistent across the `en`, `th`, and `de` locales:
+
+```bash
+# Checks key parity, source t() references, and empty values
+npm run validate
+```
+This runs automatically as part of `npm run pages:deploy`, so a missing or mismatched translation key fails the deploy early instead of shipping a broken UI string.
+
 ### Deployment
 ```bash
 # Build and deploy to Cloudflare Pages
@@ -114,13 +125,15 @@ npm run pages:deploy
 ├── functions/
 │   └── api/
 │       └── generate.js         # Cloudflare AI Proxy Endpoint (Llama 3)
+├── scripts/
+│   └── validate-i18n.mjs       # Translation key-parity validator (npm run validate)
 ├── src/
 │   ├── components/
 │   │   ├── LanguageSwitcher.jsx # Custom popover language dropdown
 │   │   ├── OptionCard.jsx      # Choice card with tags & scenario panels
 │   │   ├── QuestionScreen.jsx  # Question renderer (options grid + textarea)
 │   │   ├── ReviewScreen.jsx    # Blueprint output, AI summary, compare tabs
-│   │   └── StepTracker.jsx     # 5-step progress indicator
+│   │   └── StepTracker.jsx     # 6-step progress indicator (5 steps + Review)
 │   ├── data/
 │   │   └── questionMap.jsx     # Wizard flowchart logic & question definitions
 │   ├── hooks/

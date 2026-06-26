@@ -28,6 +28,8 @@ export default function QuestionScreen({
       {/* Options Grid */}
       {currentQ.type !== 'textarea' && (
         <div
+          role={currentQ.type === 'single' ? 'radiogroup' : 'group'}
+          aria-label={currentQ.title}
           className={`grid gap-6 ${
             currentQ.options.some((o) => o.features)
               ? 'grid-cols-1 md:grid-cols-2'

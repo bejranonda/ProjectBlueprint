@@ -51,7 +51,14 @@ When adding options, always update all 3 locale files (th, en, de) and add the o
 ## Build & Deploy
 
 ```bash
+npm run validate       # Validate i18n key parity across th/en/de locales
 npm run build          # Production build
 npm run pages:dev      # Full-stack dev (Vite + Cloudflare Functions)
-npm run pages:deploy   # Deploy to Cloudflare Pages
+npm run pages:deploy   # Validate, then build & deploy to Cloudflare Pages
 ```
+
+Always run `npm run validate` after editing `questionMap.jsx` or any locale file — it catches missing/mismatched translation keys (the most common regression) before they reach the UI. It is also wired into `pages:deploy`.
+
+## Accessibility
+
+Option cards (`OptionCard.jsx`, `OtherOptionCard.jsx`) are non-native clickable elements made keyboard-accessible: each has `role="radio"` (single) or `role="checkbox"` (multiple), `aria-checked`, `tabIndex={0}`, an Enter/Space `onKeyDown` handler, and a visible `focus-visible` ring. The options grid in `QuestionScreen.jsx` wraps them in a matching `radiogroup`/`group` role. Preserve these attributes when editing the cards.

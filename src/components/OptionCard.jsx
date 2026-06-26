@@ -9,10 +9,23 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
     setShowScenario(!showScenario);
   };
 
+  const handleKeyDown = (e) => {
+    // Activate the card with Enter or Space, matching native control behavior.
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onSelect();
+    }
+  };
+
   return (
     <div
       onClick={onSelect}
-      className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex flex-col h-full overflow-hidden group ${
+      onKeyDown={handleKeyDown}
+      role={type === 'single' ? 'radio' : 'checkbox'}
+      aria-checked={isSelected}
+      aria-label={opt.label}
+      tabIndex={0}
+      className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex flex-col h-full overflow-hidden group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 ${
         isSelected
           ? 'border-indigo-500 bg-indigo-50 shadow-md transform scale-[1.02]'
           : 'border-slate-200 hover:border-indigo-300 hover:bg-slate-50 bg-white shadow-sm hover:shadow-md'

@@ -1,14 +1,15 @@
 {
   "name": "project-blueprint",
   "private": true,
-  "version": "1.3.0",
+  "version": "1.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "validate": "node scripts/validate-i18n.mjs",
     "pages:dev": "wrangler pages dev -- vite dev",
-    "pages:deploy": "npm run build; wrangler pages deploy dist"
+    "pages:deploy": "npm run validate && npm run build; wrangler pages deploy dist"
   },
   "dependencies": {
     "i18next": "^26.0.3",

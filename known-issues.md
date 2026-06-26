@@ -16,4 +16,10 @@
    Flag emojis in the LanguageSwitcher (TH, US, DE) may render differently across operating systems and browsers. Windows may show two-letter country codes instead of flag images. The language name is always displayed alongside the flag as a fallback.
 
 6. **Tags Returned as Arrays:**
-   The `tagHelper()` function in `questionMap.jsx` uses `i18next`'s `returnObjects: true` to get tag arrays. If a translation key is missing or returns a non-array value, it gracefully falls back to an empty array. Always ensure tag keys exist in all locale files.
+   The `tagHelper()` function in `questionMap.jsx` uses `i18next`'s `returnObjects: true` to get tag arrays. If a translation key is missing or returns a non-array value, it gracefully falls back to an empty array. Always ensure tag keys exist in all locale files. Run `npm run validate` to confirm key parity across `en`, `th`, and `de`.
+
+7. **No Automated UI / Browser Tests:**
+   The project currently has no component or end-to-end test suite. Validation is limited to `npm run validate` (i18n key parity) and `npm run build` (compile-time checks). Wizard flow and AI streaming should be verified manually via `npm run pages:dev` before release.
+
+8. **Card Activation with Space Key:**
+   Option cards are non-native controls (`<div role="radio|checkbox">`) made keyboard-accessible via an Enter/Space handler. In `OtherOptionCard`, the handler intentionally ignores keydown events bubbling from the inner text input (checking `e.target === e.currentTarget`) so that pressing Space while typing the free-text answer does not toggle the card off. Keep this guard if the card markup changes.

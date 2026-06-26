@@ -2,11 +2,26 @@ import { Check, PenTool } from 'lucide-react';
 
 export default function OtherOptionCard({ type, isSelected, otherText, onSelect, onTextChange, t }) {
   const inputId = type === 'single' ? 'otherInput' : 'otherInputMulti';
+  const label = t ? t('misc.other') : 'อื่นๆ (โปรดระบุ)';
+
+  const handleKeyDown = (e) => {
+    // Activate with Enter or Space, but ignore events bubbling up from the
+    // text input so typing a space doesn't toggle the card off.
+    if ((e.key === 'Enter' || e.key === ' ') && e.target === e.currentTarget) {
+      e.preventDefault();
+      onSelect();
+    }
+  };
 
   return (
     <div
       onClick={onSelect}
-      className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex flex-col h-full overflow-hidden group ${
+      onKeyDown={handleKeyDown}
+      role={type === 'single' ? 'radio' : 'checkbox'}
+      aria-checked={isSelected}
+      aria-label={label}
+      tabIndex={0}
+      className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex flex-col h-full overflow-hidden group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 ${
         isSelected
           ? 'border-indigo-500 bg-indigo-50 shadow-md scale-[1.02]'
           : 'border-slate-200 hover:border-indigo-300 hover:bg-slate-50 bg-white shadow-sm hover:shadow-md'
@@ -43,7 +58,7 @@ export default function OtherOptionCard({ type, isSelected, otherText, onSelect,
       </div>
 
       <h3 className={`text-xl font-bold mb-3 relative z-10 transition-colors duration-300 ${isSelected ? 'text-indigo-900' : 'text-slate-800'}`}>
-        {t ? t('misc.other') : 'อื่นๆ (โปรดระบุ)'}
+        {label}
       </h3>
 
       {isSelected && (

@@ -30,3 +30,9 @@ The Blueprint Architect is designed to iteratively refine the context:
 2. **Context:** Understand the industry and specific constraints (OTOP vs. Tech).
 3. **Execution Plan:** Map out the target audience, channels, and feasibility.
 4. **Style/Tone:** The user provides examples of existing code or copywriting to lock in the "vibe" before the AI touches the prompt.
+
+## Inclusivity by Design
+
+The methodology assumes a broad, non-expert audience across three languages, so the tool must be usable regardless of input device or assistive technology. This is treated as a first-class methodological requirement, not a cosmetic afterthought:
+- **Equal access:** Every selection a mouse user can make is reachable by keyboard, with ARIA roles and states announced to screen readers, so the "simple questions" promise holds for all users.
+- **Trustworthy translations:** Because the wizard guides users in their own language, a missing or mismatched translation silently breaks the experience. The validation step (`npm run validate`) enforces that every prompt, label, and example exists in all supported languages before release — making linguistic completeness a measurable gate rather than an assumption.

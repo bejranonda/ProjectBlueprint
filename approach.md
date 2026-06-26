@@ -24,3 +24,9 @@ The strategy around internationalization encompasses:
 - Pure Tailwind CSS with consistent arbitrary utility variables (e.g., `#ffffff10` for glass effects).
 - Readability first: Avoids heavy text in favor of icons (Lucide React) and minimal pill badges (tags).
 - Interactive validation: Checkbox and radio selections give immediate visual confirmation via border color and SVG checkmarks.
+
+## 5. Accessibility-First Custom Controls
+The selection cards are custom `<div>` components rather than native inputs, which would normally sacrifice keyboard and assistive-technology support. The approach reconstructs native semantics on top of the custom UI: each card carries an ARIA `radio`/`checkbox` role with `aria-checked`, is reachable via `Tab` (`tabIndex={0}`), activates on `Enter`/`Space`, and exposes a visible `focus-visible` ring. The options grid declares the matching `radiogroup`/`group` role. This keeps the bespoke visual design while remaining operable without a mouse and legible to screen readers.
+
+## 6. Lightweight Validation Tooling
+Rather than introduce a heavy test framework, correctness is guarded by a focused, dependency-free Node script (`scripts/validate-i18n.mjs`, `npm run validate`). It statically analyzes the source for `t()` references and cross-checks them against all locale bundles, enforcing key parity, reference resolution, and non-empty values. It is wired into the deploy script so a broken translation fails fast at build time instead of degrading the live UI. This matches the project's "minimal footprint, maximum safety" philosophy.

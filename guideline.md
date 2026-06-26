@@ -31,6 +31,14 @@ All questions are configured inside `src/data/questionMap.jsx`.
    - `features` — array of feature strings (shown as checkmark list)
 4. Add all new labels, tags, and descriptions to **all 3 locale files** (en, th, de).
 5. If the new question generates output, update `src/utils/markdownGenerator.js` to include it.
+6. Run `npm run validate` to confirm every new `t()` key exists and all 3 locales stay in parity, then `npm run build` to confirm it compiles.
+
+### Validating translations
+Run the i18n validator after any change to `questionMap.jsx` or a locale file:
+```bash
+npm run validate
+```
+It fails (non-zero exit) if a key is missing from any locale, referenced in source but absent from `en`, or resolves to an empty string. It also runs automatically during `npm run pages:deploy`.
 
 ### Using tags
 Tags are returned as arrays from i18next. Use the `tagHelper` utility:
@@ -66,7 +74,17 @@ When releasing a new version:
 2. Update `app.version` in all 3 locale files (`src/locales/en/th/de`).
 3. The version badge in the header reads from `t('app.version')`.
 
-## 5. LanguageSwitcher Component
+## 5. Accessibility of Option Cards
+
+Option cards are clickable `<div>`s rather than native form controls, so keyboard and screen-reader support is added manually in `OptionCard.jsx` and `OtherOptionCard.jsx`. When modifying these components, keep:
+- `role="radio"` (single-select) or `role="checkbox"` (multi-select) with `aria-checked={isSelected}`.
+- `tabIndex={0}` and an `onKeyDown` handler that activates on Enter/Space (calling `preventDefault`).
+- A `focus-visible:ring-*` class for a visible keyboard focus indicator.
+- The `QuestionScreen` grid wrapper's `role="radiogroup"`/`role="group"` with an `aria-label`.
+
+For `OtherOptionCard`, the keydown handler guards with `e.target === e.currentTarget` so typing a space inside the text input doesn't toggle the card.
+
+## 6. LanguageSwitcher Component
 
 The `LanguageSwitcher` is a standalone component (`src/components/LanguageSwitcher.jsx`) that:
 - Renders a custom popover dropdown (not a native `<select>`)

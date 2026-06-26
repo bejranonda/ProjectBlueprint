@@ -97,6 +97,14 @@ export function useWizard(t) {
       nextQId = currentQ.next;
     }
 
+    // Guard against navigating into an undefined state. Every option/question
+    // should define a `next` (or `otherOption.next`); if one is ever missing we
+    // stay put rather than crash the wizard by rendering an undefined question.
+    if (!nextQId || (nextQId !== 'REVIEW' && !questionMap[nextQId])) {
+      console.error(`useWizard: no valid next question from "${currentQuestionId}" (resolved to "${nextQId}")`);
+      return;
+    }
+
     setAnswers((prev) => ({
       ...prev,
       [currentQuestionId]: { value: finalValue, label: finalLabel, isOther },
@@ -105,7 +113,7 @@ export function useWizard(t) {
     setHistory((prev) => [...prev, currentQuestionId]);
     setCurrentQuestionId(nextQId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentQ, singleValue, otherText, multipleValues, isOtherSelected, textValue, currentQuestionId]);
+  }, [currentQ, singleValue, otherText, multipleValues, isOtherSelected, textValue, currentQuestionId, questionMap]);
 
   const handleBack = useCallback(() => {
     if (history.length === 0) return;
