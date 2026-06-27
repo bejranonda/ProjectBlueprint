@@ -31,7 +31,7 @@ Most AI "hallucinations" happen because of poor context. This tool uses structur
 - **🖼️ Expandable Scenario Panels** — Every option includes a real-world example scenario to help beginners understand each choice.
 - **🏷️ Visual Tag Badges** — Technical terms appear as scannable pill badges alongside clean translated labels.
 - **🤖 Cloudflare AI Integration** — Streams a concise AI summary and practical examples via Cloudflare Workers AI with side-by-side comparisons.
-- **♿ Keyboard Accessibility** — Option cards are fully keyboard-navigable (Tab + Enter/Space) with ARIA `radio`/`checkbox` roles and visible focus rings.
+- **♿ Keyboard Accessibility** — Option cards are fully keyboard-navigable (Tab, Arrow keys, Enter/Space) following the WAI-ARIA radio pattern, with `radio`/`checkbox` roles, roving tabindex, and visible focus rings.
 - **📱 Modern Glassmorphism UI** — Responsive, clean, and fast interface built with React 19 and Tailwind CSS.
 - **📥 Instant Export** — Download your blueprint as a `.md` file ready for your favorite IDE or LLM.
 - **✅ i18n Validation Tooling** — `npm run validate` guards translation-key parity across all locales (the project's most common bug class).

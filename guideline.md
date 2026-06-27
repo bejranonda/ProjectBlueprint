@@ -78,11 +78,13 @@ When releasing a new version:
 
 Option cards are clickable `<div>`s rather than native form controls, so keyboard and screen-reader support is added manually in `OptionCard.jsx` and `OtherOptionCard.jsx`. When modifying these components, keep:
 - `role="radio"` (single-select) or `role="checkbox"` (multi-select) with `aria-checked={isSelected}`.
-- `tabIndex={0}` and an `onKeyDown` handler that activates on Enter/Space (calling `preventDefault`).
+- An `onKeyDown` handler that activates on Enter/Space (calling `preventDefault`).
 - A `focus-visible:ring-*` class for a visible keyboard focus indicator.
 - The `QuestionScreen` grid wrapper's `role="radiogroup"`/`role="group"` with an `aria-label`.
 
 For `OtherOptionCard`, the keydown handler guards with `e.target === e.currentTarget` so typing a space inside the text input doesn't toggle the card.
+
+**Keyboard navigation (single-select):** `QuestionScreen` implements the WAI-ARIA radio pattern. It computes a *roving tabindex* (`tabIndex` is passed to each card — `0` for the selected/first radio, `-1` for the rest) and handles Arrow keys at the group level to move focus and selection together. If you add a new card type to the grid, accept a `tabIndex` prop (default `0`) and spread it onto the focusable element so roving tabindex keeps working. Multi-select cards always receive `tabIndex={0}`.
 
 ## 6. LanguageSwitcher Component
 

@@ -17,6 +17,38 @@ export default function QuestionScreen({
   t
 }) {
   const isOptionalTextarea = currentQ.type === 'textarea' && currentQ.next !== 'REVIEW';
+  const isSingle = currentQ.type === 'single';
+
+  // Ordered value list (options + the optional "other" card) used for arrow-key nav.
+  const orderedValues = isSingle
+    ? [...currentQ.options.map((o) => o.value), ...(currentQ.otherOption ? ['other'] : [])]
+    : [];
+
+  // Roving tabindex: in a radiogroup only one radio is in the tab order — the
+  // selected one, or the first when nothing is selected yet. Checkbox groups
+  // keep every card independently tabbable.
+  const rovingValue = isSingle ? singleValue || currentQ.options[0]?.value : null;
+
+  // WAI-ARIA radio pattern: arrow keys move focus AND selection between radios.
+  const handleGroupKeyDown = (e) => {
+    if (!isSingle) return;
+    const navKeys = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'];
+    if (!navKeys.includes(e.key)) return;
+    e.preventDefault();
+
+    const radios = Array.from(e.currentTarget.querySelectorAll('[role="radio"]'));
+    if (radios.length === 0) return;
+
+    const activeIdx = radios.indexOf(document.activeElement);
+    const startIdx = activeIdx === -1 ? Math.max(0, orderedValues.indexOf(singleValue)) : activeIdx;
+    const dir = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : -1;
+    const nextIdx = (startIdx + dir + radios.length) % radios.length;
+
+    radios[nextIdx].focus();
+    // Select via the single-value setter directly so landing on "other" doesn't
+    // steal focus into its text input (that only happens on click/Enter/Space).
+    onSingleSelect(orderedValues[nextIdx]);
+  };
 
   return (
     <div className="flex-grow">
@@ -28,8 +60,9 @@ export default function QuestionScreen({
       {/* Options Grid */}
       {currentQ.type !== 'textarea' && (
         <div
-          role={currentQ.type === 'single' ? 'radiogroup' : 'group'}
+          role={isSingle ? 'radiogroup' : 'group'}
           aria-label={currentQ.title}
+          onKeyDown={handleGroupKeyDown}
           className={`grid gap-6 ${
             currentQ.options.some((o) => o.features)
               ? 'grid-cols-1 md:grid-cols-2'
@@ -39,10 +72,9 @@ export default function QuestionScreen({
           }`}
         >
           {currentQ.options.map((opt) => {
-            const isSelected =
-              currentQ.type === 'single'
-                ? singleValue === opt.value
-                : multipleValues.includes(opt.value);
+            const isSelected = isSingle
+              ? singleValue === opt.value
+              : multipleValues.includes(opt.value);
 
             return (
               <OptionCard
@@ -50,8 +82,9 @@ export default function QuestionScreen({
                 opt={opt}
                 isSelected={isSelected}
                 type={currentQ.type}
+                tabIndex={isSingle ? (opt.value === rovingValue ? 0 : -1) : 0}
                 onSelect={() =>
-                  currentQ.type === 'single' ? onSingleSelect(opt.value) : onToggleMultiple(opt.value)
+                  isSingle ? onSingleSelect(opt.value) : onToggleMultiple(opt.value)
                 }
                 t={t}
               />
@@ -62,7 +95,8 @@ export default function QuestionScreen({
           {currentQ.otherOption && (
             <OtherOptionCard
               type={currentQ.type}
-              isSelected={currentQ.type === 'single' ? singleValue === 'other' : isOtherSelected}
+              isSelected={isSingle ? singleValue === 'other' : isOtherSelected}
+              tabIndex={isSingle ? ('other' === rovingValue ? 0 : -1) : 0}
               otherText={otherText}
               onSelect={onOtherSelect}
               onTextChange={onOtherTextChange}

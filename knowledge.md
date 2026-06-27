@@ -29,10 +29,11 @@ The script exits non-zero on failure and is wired into `npm run pages:deploy`, s
 ## 4. Accessible Non-Native Controls
 The option cards are `<div>` elements (not native `<input>`), so accessibility is implemented manually and must be preserved:
 - `role="radio"` for `single` questions, `role="checkbox"` for `multiple` — paired with `aria-checked={isSelected}`.
-- `tabIndex={0}` + an `onKeyDown` handler activating on Enter/Space (with `preventDefault` to stop the page scrolling on Space).
+- An `onKeyDown` handler on each card activates it on Enter/Space (with `preventDefault` to stop the page scrolling on Space).
 - In `OtherOptionCard`, the keydown handler ignores events that bubble up from the inner text input (`e.target === e.currentTarget`) so typing a space in the field doesn't toggle the card.
 - A `focus-visible:ring` class provides a visible keyboard focus indicator without showing a ring on mouse click.
 - `QuestionScreen` wraps the grid in `role="radiogroup"` (single) or `role="group"` (multiple) with an `aria-label` from the question title.
+- **Radiogroup keyboard model (`QuestionScreen`)**: single-select groups follow the WAI-ARIA radio pattern. A *roving tabindex* keeps exactly one radio in the tab order (`tabIndex={0}` on the selected card, or the first when nothing is selected; all others `-1`), so Tab enters/leaves the group as a single stop. The group's `onKeyDown` handles Arrow keys, moving focus **and** selection to the next/previous radio (wrapping at the ends). The `tabIndex` is passed down as a prop to `OptionCard`/`OtherOptionCard`; checkbox (multi-select) groups pass `0` for every card so each is independently tabbable. Arrow navigation onto the "other" card selects it via `onSingleSelect('other')` rather than `onOtherSelect`, so focus is **not** pulled into its text input during keyboard traversal (that only happens on an explicit click/Enter/Space).
 
 ## 5. Label Readability Parsing
 When adjusting translation keys for complex descriptors, prefer symbol conjunctions over spelled-out conjunctions:

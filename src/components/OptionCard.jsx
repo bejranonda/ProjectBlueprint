@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 
-export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
+export default function OptionCard({ opt, isSelected, type, onSelect, t, tabIndex = 0 }) {
   const [showScenario, setShowScenario] = useState(false);
 
   const handleScenarioToggle = (e) => {
@@ -24,7 +24,7 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t }) {
       role={type === 'single' ? 'radio' : 'checkbox'}
       aria-checked={isSelected}
       aria-label={opt.label}
-      tabIndex={0}
+      tabIndex={tabIndex}
       className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex flex-col h-full overflow-hidden group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 ${
         isSelected
           ? 'border-indigo-500 bg-indigo-50 shadow-md transform scale-[1.02]'

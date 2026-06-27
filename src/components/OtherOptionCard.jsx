@@ -1,6 +1,6 @@
 import { Check, PenTool } from 'lucide-react';
 
-export default function OtherOptionCard({ type, isSelected, otherText, onSelect, onTextChange, t }) {
+export default function OtherOptionCard({ type, isSelected, otherText, onSelect, onTextChange, t, tabIndex = 0 }) {
   const inputId = type === 'single' ? 'otherInput' : 'otherInputMulti';
   const label = t ? t('misc.other') : 'อื่นๆ (โปรดระบุ)';
 
@@ -20,7 +20,7 @@ export default function OtherOptionCard({ type, isSelected, otherText, onSelect,
       role={type === 'single' ? 'radio' : 'checkbox'}
       aria-checked={isSelected}
       aria-label={label}
-      tabIndex={0}
+      tabIndex={tabIndex}
       className={`relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 flex flex-col h-full overflow-hidden group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200 ${
         isSelected
           ? 'border-indigo-500 bg-indigo-50 shadow-md scale-[1.02]'
