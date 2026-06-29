@@ -100,8 +100,9 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t, tabInde
         </div>
       )}
 
-      {/* View Example toggle */}
-      {opt.desc && !isSelected && (
+      {/* View Example toggle — uses the richer `scenario` text when present,
+          otherwise falls back to the short `desc`. */}
+      {(opt.scenario || opt.desc) && !isSelected && (
         <button
           onClick={handleScenarioToggle}
           className="flex items-center gap-1 text-sm font-medium text-indigo-500 hover:text-indigo-700 transition-colors relative z-10 mb-2 group/btn"
@@ -117,7 +118,7 @@ export default function OptionCard({ opt, isSelected, type, onSelect, t, tabInde
           <span className="block font-bold mb-1.5 text-amber-700">
             {t ? t('misc.scenario_heading') : 'Example Scenario'}:
           </span>
-          {opt.desc}
+          {opt.scenario || opt.desc}
         </div>
       )}
 

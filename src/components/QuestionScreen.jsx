@@ -16,7 +16,10 @@ export default function QuestionScreen({
   onTextAreaChange,
   t
 }) {
-  const isOptionalTextarea = currentQ.type === 'textarea' && currentQ.next !== 'REVIEW';
+  // Both textarea questions (project description and sample content) are
+  // optional — neither is enforced by isNextDisabled and markdownGenerator
+  // falls back gracefully when they're blank — so always show the hint.
+  const isOptionalTextarea = currentQ.type === 'textarea';
   const isSingle = currentQ.type === 'single';
 
   // Ordered value list (options + the optional "other" card) used for arrow-key nav.

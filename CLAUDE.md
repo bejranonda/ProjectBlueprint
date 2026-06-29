@@ -36,7 +36,8 @@ Interactive multilingual wizard that generates AI-ready project blueprints in Ma
 
 Each option in locale files can have:
 - `label` — display text
-- `desc` — short description shown when selected
+- `desc` — short description shown when the option is selected
+- `scenario` — richer real-world example shown in the "View Example" panel (falls back to `desc` if absent); requires a matching `scenario:` field on the option in `questionMap.jsx`
 - `tags` — array of technical term badges
 - `features` — array of feature strings (for `q_project_type` only)
 

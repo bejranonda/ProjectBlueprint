@@ -26,7 +26,8 @@ All questions are configured inside `src/data/questionMap.jsx`.
    - `value` — internal key used in answers
    - `next` — next question ID (for single-select branching)
    - `icon` — Lucide React icon component
-   - `desc` — short description shown when selected
+   - `desc` — short description shown when the option is selected
+   - `scenario` — richer real-world example shown in the expandable "View Example" panel; pass it with `scenario: t('questions.KEY.options.OPT.scenario')` and add the matching key to all locales. Falls back to `desc` when omitted.
    - `tags` — array of technical term badges (use `tagHelper(t, 'questions.KEY.options.OPT.tags')`)
    - `features` — array of feature strings (shown as checkmark list)
 4. Add all new labels, tags, and descriptions to **all 3 locale files** (en, th, de).

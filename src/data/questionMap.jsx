@@ -54,6 +54,7 @@ export const getQuestionMap = (t) => ({
         icon: <Code className="w-8 h-8" />,
         tags: tagHelper(t, 'questions.q_purpose.options.vibe-coding.tags'),
         desc: t('questions.q_purpose.options.vibe-coding.desc'),
+        scenario: t('questions.q_purpose.options.vibe-coding.scenario'),
       },
       {
         label: t('questions.q_purpose.options.business-planning.label'),
@@ -62,6 +63,7 @@ export const getQuestionMap = (t) => ({
         icon: <BarChart3 className="w-8 h-8" />,
         tags: tagHelper(t, 'questions.q_purpose.options.business-planning.tags'),
         desc: t('questions.q_purpose.options.business-planning.desc'),
+        scenario: t('questions.q_purpose.options.business-planning.scenario'),
       },
       {
         label: t('questions.q_purpose.options.campaign-strategy.label'),
@@ -70,6 +72,7 @@ export const getQuestionMap = (t) => ({
         icon: <Megaphone className="w-8 h-8" />,
         tags: tagHelper(t, 'questions.q_purpose.options.campaign-strategy.tags'),
         desc: t('questions.q_purpose.options.campaign-strategy.desc'),
+        scenario: t('questions.q_purpose.options.campaign-strategy.scenario'),
       },
       {
         label: t('questions.q_purpose.options.pitch-prep.label'),
@@ -78,6 +81,7 @@ export const getQuestionMap = (t) => ({
         icon: <PresentationIcon className="w-8 h-8" />,
         tags: tagHelper(t, 'questions.q_purpose.options.pitch-prep.tags'),
         desc: t('questions.q_purpose.options.pitch-prep.desc'),
+        scenario: t('questions.q_purpose.options.pitch-prep.scenario'),
       },
     ],
   },

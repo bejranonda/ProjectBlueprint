@@ -40,3 +40,10 @@ When adjusting translation keys for complex descriptors, prefer symbol conjuncti
 * **Yes:** "AI & Machine Learning" or "Codebase / IDE"
 * **No:** "AI and Machine Learning" or "Codebase or IDE"
 This improves "scannability" during the wizard process, reducing cognitive load as users navigate the multi-choice interface. Apply this across all translations (TH: "และ/หรือ" becomes "&"/"/").
+
+## 6. `desc` vs `scenario` Rendering
+`OptionCard` renders two different example surfaces from two different fields, and they must not be conflated:
+- **`desc`** — a short, one-line clarification shown automatically in the panel that appears *when the card is selected* ("Example:").
+- **`scenario`** — a longer, narrative real-world example shown in the amber **"Example Scenario"** panel that the user expands via the *"View Example"* toggle (only visible while the card is *not* selected).
+
+The card uses `opt.scenario || opt.desc` for the expandable panel, so an option may supply only `desc` (the scenario panel then reuses it) or both (richer, distinct copy in each). To attach a scenario, add `scenario: t('...scenario')` to the option in `questionMap.jsx` **and** the matching key in all three locales — `npm run validate` enforces the parity. Currently only the four `q_purpose` options carry distinct scenarios.
