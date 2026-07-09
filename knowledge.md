@@ -16,7 +16,7 @@ When converting a question from `type: "single"` to `type: "multiple"` in `quest
 2. **REST API (fallback):** used only when no binding is present; requires `CLOUDFLARE_ACCOUNT_ID` + `CF_API_TOKEN`.
 Both return the same SSE event shape (`data: {"response":"..."}`), so one `sseToText()` transformer handles either. If neither is configured the function returns `503` (not a silent 500) with an actionable message. **Bindings and env vars only take effect on deployments created after they're set — a config change without a redeploy does nothing.**
 
-Network and processing latency fluctuates heavily on the free tier of Cloudflare Workers AI carrying Llama 3 8B.
+Network and processing latency fluctuates heavily on the free tier of Cloudflare Workers AI carrying the Llama 3.1 8B model (default; set by `DEFAULT_MODEL` / the `AI_MODEL` env override in `functions/api/generate.js`).
 * **Timeout Thresholds:** The `AI_TIMEOUT_MS` constant in `ReviewScreen.jsx` should be maintained at `60000` (60 seconds) instead of the standard 30s. This reduces the frequency of `AbortError`.
 * **Error Categories Filter:**
   * `AbortError`: Indicates the server is slow or the stream is lagging. Suggest users copy the blueprint and proceed asynchronously. Let this fall back to `t('app.ai_error')`.

@@ -48,7 +48,7 @@ Most AI "hallucinations" happen because of poor context. This tool uses structur
 | **i18n** | `react-i18next` (JSON-based localized bundles) |
 | **Icons** | [Lucide React](https://lucide.dev/) |
 | **Backend API** | Cloudflare Pages Functions (Edge Runtime / Node.js compatibility) |
-| **AI Model** | `@cf/meta/llama-3-8b-instruct` (via Cloudflare Workers AI) |
+| **AI Model** | `@cf/meta/llama-3.1-8b-instruct` (via Cloudflare Workers AI; overridable with the `AI_MODEL` env var) |
 
 ### System Architecture
 The application follows a **Decoupled Client-Server** pattern:

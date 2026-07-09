@@ -1,7 +1,9 @@
 # Known Issues
 
 1. **Cloudflare Free-Tier Limits:**
-   The free tier for `@cf/meta/llama-3-8b-instruct` has limits on requests per minute and daily requests. If you exceed this limit, the AI summary feature may return a timeout or error. The app will show a fallback message and a Retry button.
+   The free tier for the Workers AI model (`@cf/meta/llama-3.1-8b-instruct` by default) has limits on requests per minute and daily requests. If you exceed this limit, the AI summary feature may return a timeout or error. The app will show a fallback message and a Retry button.
+
+   **Model deprecations:** Cloudflare periodically retires models (e.g. `@cf/meta/llama-3-8b-instruct` was deprecated on 2026-05-30, which surfaced as a `5028` error / HTTP 500). The model is set by `DEFAULT_MODEL` in `functions/api/generate.js` and can be overridden without a code change via the `AI_MODEL` environment variable in the Pages project settings. See Cloudflare's Workers AI model catalog for current model IDs.
 
 2. **AI Streaming Timeout:**
    The AI generation has a 60-second client-side timeout. If Cloudflare responds slowly, the user will see an error with a retry option. The core blueprint is still fully available regardless of AI status.

@@ -1,4 +1,8 @@
-const MODEL = "@cf/meta/llama-3-8b-instruct";
+// Default text-generation model. Overridable at runtime via the AI_MODEL
+// environment variable so a model deprecation is a dashboard change, not a
+// code change. (The previous @cf/meta/llama-3-8b-instruct was deprecated by
+// Cloudflare on 2026-05-30.)
+const DEFAULT_MODEL = "@cf/meta/llama-3.1-8b-instruct";
 
 function jsonError(message, status, extra = {}) {
   return new Response(JSON.stringify({ error: message, ...extra }), {
@@ -70,6 +74,8 @@ export async function onRequestPost(context) {
       return jsonError("Request must include 'blueprint' and 'systemPrompt'.", 400);
     }
 
+    const model = env.AI_MODEL || DEFAULT_MODEL;
+
     const messages = [
       {
         role: "system",
@@ -80,7 +86,7 @@ export async function onRequestPost(context) {
 
     // Preferred path: native Workers AI binding (platform-authenticated, no token).
     if (env.AI && typeof env.AI.run === "function") {
-      const aiStream = await env.AI.run(MODEL, { messages, stream: true });
+      const aiStream = await env.AI.run(model, { messages, stream: true });
       return new Response(sseToText(aiStream), { headers: streamHeaders });
     }
 
@@ -98,7 +104,7 @@ export async function onRequestPost(context) {
       );
     }
 
-    const apiUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${MODEL}`;
+    const apiUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {

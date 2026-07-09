@@ -9,7 +9,7 @@ Rather than hardcoding dozens of React components, the entire wizard application
 - **Type Resilience**: The system dynamically handles both single string responses and array-based multi-select responses seamlessly using standard Markdown formatters.
 
 ## 2. Dynamic Streaming via Cloudflare Edge
-To provide immediate perceived value, the tool integrates directly with the `Llama 3` model deployed on Cloudflare Workers AI.
+To provide immediate perceived value, the tool integrates directly with a Llama instruct model (Llama 3.1 8B by default, overridable via `AI_MODEL`) deployed on Cloudflare Workers AI.
 - **Edge Deployment**: API endpoints run as Cloudflare Pages Functions (`/functions/api/generate.js`), preventing CORS issues and keeping any credentials server-side.
 - **Binding-First, Token-Fallback**: The function prefers the platform-authenticated Workers AI binding (`env.AI`), which needs no secrets, and transparently falls back to the REST API (`CLOUDFLARE_ACCOUNT_ID` + `CF_API_TOKEN`) when no binding is present. Both paths emit the same SSE format, so a single stream transformer serves both.
 - **Real-Time Streaming**: Utilizing text streaming allows the UI to surface partial completions immediately.
