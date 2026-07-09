@@ -10,9 +10,10 @@ Rather than hardcoding dozens of React components, the entire wizard application
 
 ## 2. Dynamic Streaming via Cloudflare Edge
 To provide immediate perceived value, the tool integrates directly with the `Llama 3` model deployed on Cloudflare Workers AI.
-- **Edge Deployment**: API endpoints run as Cloudflare Pages Functions (`/functions/api/generate.js`), preventing CORS issues while providing security for API tokens.
+- **Edge Deployment**: API endpoints run as Cloudflare Pages Functions (`/functions/api/generate.js`), preventing CORS issues and keeping any credentials server-side.
+- **Binding-First, Token-Fallback**: The function prefers the platform-authenticated Workers AI binding (`env.AI`), which needs no secrets, and transparently falls back to the REST API (`CLOUDFLARE_ACCOUNT_ID` + `CF_API_TOKEN`) when no binding is present. Both paths emit the same SSE format, so a single stream transformer serves both.
 - **Real-Time Streaming**: Utilizing text streaming allows the UI to surface partial completions immediately.
-- **Robust Error Handling**: The application cleanly catches `AbortError` (timeout after 60 seconds) vs. hardware network errors (`ai_error_network`). It handles Llama's rate limits resiliently, instructing the user to copy their blueprint manually as a fallback without breaking the frontend experience.
+- **Robust Error Handling**: The application cleanly catches `AbortError` (timeout after 60 seconds) vs. server/network errors. Misconfiguration returns a `503` with an actionable message that the client logs to the console, while the user is instructed to copy their blueprint manually as a fallback — the frontend never breaks, since Markdown generation runs fully client-side.
 
 ## 3. High-Fidelity i18n
 The strategy around internationalization encompasses:

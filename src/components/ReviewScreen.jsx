@@ -46,7 +46,18 @@ export default function ReviewScreen({ answers, t }) {
       });
       
       if (!response.ok) {
-        throw new Error(`Server responded with ${response.status}`);
+        // Surface the server's real reason to the console for diagnosis
+        // (e.g. "AI is not configured on the server"), while the UI keeps a
+        // friendly copy-your-blueprint fallback message.
+        let serverMessage = '';
+        try {
+          const data = await response.json();
+          serverMessage = data?.error || '';
+        } catch {
+          // Non-JSON error body — ignore.
+        }
+        console.error(`AI endpoint returned ${response.status}:`, serverMessage || '(no detail)');
+        throw new Error(serverMessage || `Server responded with ${response.status}`);
       }
       
       const reader = response.body.getReader();

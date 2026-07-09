@@ -10,7 +10,12 @@ When converting a question from `type: "single"` to `type: "multiple"` in `quest
 - **Markdown Generation (`markdownGenerator.js`):** Change `fmt(answers['YOUR_KEY'])` to `fmtList(answers['YOUR_KEY'])`. The `fmtList()` helper natively handles array serialization into Markdown bulleted lists. Failure to do this results in inline comma-separated strings that break Markdown formatting and AI parsers.
 - **`otherOption` behavior:** In multi-select, free-form text input triggers via standard selection. The `otherOption: true` param flags the Option component to provide a text field natively inside a multi-select context.
 
-## 2. Cloudflare AI Timeout Engineering
+## 2. Cloudflare AI Integration & Timeout Engineering
+`functions/api/generate.js` reaches Workers AI by two interchangeable paths, tried in order:
+1. **`env.AI` binding (preferred):** platform-authenticated, no secrets. Declared via `[ai] binding = "AI"` in `wrangler.toml` and added in the Pages dashboard.
+2. **REST API (fallback):** used only when no binding is present; requires `CLOUDFLARE_ACCOUNT_ID` + `CF_API_TOKEN`.
+Both return the same SSE event shape (`data: {"response":"..."}`), so one `sseToText()` transformer handles either. If neither is configured the function returns `503` (not a silent 500) with an actionable message. **Bindings and env vars only take effect on deployments created after they're set — a config change without a redeploy does nothing.**
+
 Network and processing latency fluctuates heavily on the free tier of Cloudflare Workers AI carrying Llama 3 8B.
 * **Timeout Thresholds:** The `AI_TIMEOUT_MS` constant in `ReviewScreen.jsx` should be maintained at `60000` (60 seconds) instead of the standard 30s. This reduces the frequency of `AbortError`.
 * **Error Categories Filter:**

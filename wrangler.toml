@@ -1,3 +1,10 @@
 name = "project-blueprint"
 compatibility_date = "2024-03-20"
 pages_build_output_dir = "dist"
+
+# Native Workers AI binding. This is platform-authenticated — the /api/generate
+# function uses env.AI directly, so no CF_API_TOKEN / CLOUDFLARE_ACCOUNT_ID
+# secrets are required when this binding is present. The REST API (token) path
+# remains as a fallback for environments without the binding.
+[ai]
+binding = "AI"

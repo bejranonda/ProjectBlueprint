@@ -83,11 +83,16 @@ q_purpose (Choose Goal)
 - Cloudflare Account (for AI functionality)
 
 ### Configuration
-Create a `.env` file in the project root to configure the Cloudflare Pages Function Proxy:
-```env
-CF_API_TOKEN=your_cloudflare_api_token
-CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
-```
+The `/api/generate` function reaches Cloudflare Workers AI two ways, in order of preference:
+
+1. **Workers AI binding (recommended, no secrets):** a binding named `AI` is declared in `wrangler.toml` (`[ai]`) and, for the deployed site, added under **Pages → Settings → Functions → Workers AI bindings**. It is platform-authenticated, so no API token is required. The function uses `env.AI` automatically when present.
+2. **REST API token (fallback):** if no `AI` binding exists, the function falls back to the REST API and needs two environment variables. For local dev, put them in a `.env` file; for the deployed site, set them under **Pages → Settings → Environment variables (Production)** and redeploy:
+   ```env
+   CF_API_TOKEN=your_cloudflare_api_token          # needs the "Workers AI" permission
+   CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
+   ```
+
+> If neither is configured, the endpoint returns `503` with an actionable message and the UI falls back to letting you copy the blueprint manually.
 
 ### Development
 Because we use Cloudflare Pages Functions as a secure proxy (`/functions/api/generate.js`), you must use the `wrangler` CLI to spin up the dev server.

@@ -60,11 +60,16 @@ The wizard uses 5 step groups (plus Review = 6):
 
 ## 3. Deployment with Cloudflare AI
 
-Since this app relies on Cloudflare AI for the streaming summary feature:
-- Place your `CF_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` inside a `.env` file for local development.
-- For deployment on Cloudflare Pages, navigate to the Cloudflare Dashboard -> Pages Setup -> Settings -> Environment Variables, and set:
-  - `CF_API_TOKEN`: Your API token.
-  - `CLOUDFLARE_ACCOUNT_ID`: Your exact account ID.
+The `/api/generate` function talks to Cloudflare Workers AI via one of two paths (see `functions/api/generate.js`), tried in this order:
+
+1. **Workers AI binding (preferred, no secrets).** `wrangler.toml` declares `[ai] binding = "AI"`. On the deployed site, also add it under **Dashboard → Workers & Pages → your project → Settings → Functions → Workers AI bindings** (name it `AI`). The function detects `env.AI` and uses it directly — the binding is platform-authenticated, so no token is needed. **This is the recommended setup.**
+2. **REST API token (fallback).** If no `AI` binding is present, the function falls back to the REST API and requires two variables:
+   - Local dev: put `CF_API_TOKEN` (with the *Workers AI* permission) and `CLOUDFLARE_ACCOUNT_ID` in a `.env` file.
+   - Deployed: set the same two under **Settings → Environment variables (Production)**, then **redeploy** — env vars only apply to deployments created after they're set.
+
+Notes:
+- Environment variables and bindings are **not** baked into old deployments; you must redeploy after changing them.
+- If neither path is configured the endpoint returns `503` with an actionable message; the client logs it to the console and shows a copy-your-blueprint fallback.
 - The AI endpoint uses `stream: true` to deliver real-time streamed text to the client.
 - A 60-second client-side timeout is configured. If exceeded, the user sees an error with a Retry button.
 
